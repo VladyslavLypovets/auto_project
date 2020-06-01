@@ -2,14 +2,16 @@
   <header>
     <div class="container">
       <div class="d-flex align-items-center justify-content-between">
-        <router-link :to="{ name: 'Home' }" class="logo-block">
-          <img src="@/assets/img/logo_Autonova_D.png" alt="logo">
-        </router-link>
-        <nav class="d-flex">
-          <router-link to="/" class="nav-link">О нас</router-link>
-          <router-link to="/" class="nav-link">О продукции</router-link>
-          <router-link to="/" class="nav-link">Контакты</router-link>
-        </nav>
+        <div class="d-flex align-items-center">
+          <router-link :to="{ name: 'Home' }" class="logo-block">
+            <img src="@/assets/img/logo_Autonova_D.png" alt="logo">
+          </router-link>
+          <nav class="d-flex">
+            <router-link to="/" class="nav-link">О нас</router-link>
+            <router-link to="/" class="nav-link">О продукции</router-link>
+            <router-link to="/" class="nav-link">Контакты</router-link>
+          </nav>
+        </div>
         <div class="search-languages-block d-flex">
           <div class="search">
             <form class="input-search" method="POST">
@@ -43,6 +45,9 @@ export default {
     height: 86px;
     box-shadow: 1px 2px 7px rgba(0, 0, 0, 0.19);
     background-color: #ffffff;
+    .logo-block{
+      margin-right: 140px;
+    }
     nav{
       .nav-link{
         color: #242424;
@@ -62,14 +67,12 @@ export default {
     .search-languages-block{
       .search{
         .input-search{
-          position: relative;
           background: #fff;
-          width: 250px;
+          width: 330px;
           height: 100%;
+          display: flex;
+          align-items: center;
           input {
-            position: absolute;
-            right: 0;
-            top: 0;
             width: 100%;
             border-radius: 0;
             border: unset;
@@ -77,7 +80,7 @@ export default {
             background: none;
             transition: all .3s;
             background: #fff;
-            margin-right: 70px;
+            margin-right: 25px;
             padding-left: 0;
             &:focus{
               box-shadow: unset;
@@ -89,12 +92,9 @@ export default {
             }
           }
           button {
-            position: absolute;
-            right: 20px;
-            bottom: -12px;
-            z-index: 1;
             border: none;
             background: none;
+            margin-right: 40px;
             &:focus{
               box-shadow: unset;
               outline: none;
@@ -105,6 +105,11 @@ export default {
             }
           }
         }
+      }
+      .lang{
+        border-left: 1px solid #dcdcdc;
+        height: 37px;
+        padding-left: 25px;
       }
     }
   }
