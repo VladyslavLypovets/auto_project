@@ -6,7 +6,7 @@
           <router-link :to="{ name: 'Home' }" class="logo-block">
             <img src="@/assets/img/logo_Autonova_D.png" alt="logo">
           </router-link>
-          <nav class="d-flex">
+          <nav class="nav-decstop">
             <router-link to="/" class="nav-link">О нас</router-link>
             <router-link to="/" class="nav-link">О продукции</router-link>
             <router-link to="/" class="nav-link">Контакты</router-link>
@@ -30,6 +30,11 @@
           </div>
         </div>
       </div>
+      <nav class="menu d-none d-md-none">
+        <router-link to="/" class="nav-link">О нас</router-link>
+        <router-link to="/" class="nav-link">О продукции</router-link>
+        <router-link to="/" class="nav-link">Контакты</router-link>
+      </nav>
     </div>
   </header>
 </template>
@@ -42,13 +47,19 @@ export default {
 
 <style lang="scss" scoped>
   header{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
     height: 86px;
     box-shadow: 1px 2px 7px rgba(0, 0, 0, 0.19);
     background-color: #ffffff;
+    z-index: 2;
     .logo-block{
       margin-right: 140px;
     }
-    nav{
+    .nav-decstop{
+      display: flex;
       .nav-link{
         color: #242424;
         font-size: 16px;
@@ -58,6 +69,7 @@ export default {
         height: 86px;
         display: flex;
         align-items: center;
+        transition: all 0.3s;
         &:hover{
           color: #00b9e5;
           border-color: #00b9e5;
@@ -110,6 +122,51 @@ export default {
         border-left: 1px solid #dcdcdc;
         height: 37px;
         padding-left: 25px;
+      }
+    }
+  }
+  @media (max-width: 1199px){
+    header{
+      .search-languages-block .search .input-search input{
+        display: none;
+      }
+    }
+  }
+  @media (max-width: 767px){
+    header{
+      height: 60px;
+      .nav-decstop{
+        display: none;
+      }
+      .menu{
+        position: fixed;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: #000;
+        background-color: #fff;
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+        padding: 0;
+        z-index: 100;
+        min-height: 100vh;
+        transition: all .6s;
+        overflow: auto;
+        a{
+          color: #242424;
+          font-size: 14px;
+          font-weight: 700;
+          line-height: 60px;
+          text-transform: uppercase;
+          margin-bottom: 0;
+          transition: all 0.3s;
+          border-bottom: 2px solid #fff;
+          &:hover{
+            color: #00b9e5;
+            border-color: #00b9e5;
+          }
+        }
       }
     }
   }

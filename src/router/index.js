@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '@/pages/Home.vue'
 import Error from '@/pages/Error.vue'
+import OProdukte from '@/pages/OProdukte.vue'
 
 Vue.use(VueRouter)
 
@@ -15,6 +16,11 @@ const routes = [
     path: '/error',
     name: 'Error',
     component: Error
+  },
+  {
+    path: '/oprodukte',
+    name: 'OProdukte',
+    component: OProdukte
   }
 ]
 

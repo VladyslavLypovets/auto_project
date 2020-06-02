@@ -1,7 +1,13 @@
 <template>
   <div>
     <Header />
-    <main class="container error-main">
+    <main
+      class="error-main"
+      :style="{
+        'background-image': `url(${require('@/assets/img/bg-error.png')})`
+      }"
+    >
+    <div class="container">
       <div class="d-flex flex-column align-items-center justify-content-center">
         <div class="error-number">
           <img src="@/assets/img/404-error.png" alt="error">
@@ -15,6 +21,7 @@
           </p>
         </div>
       </div>
+    </div>
     </main>
     <Footer />
   </div>
@@ -35,12 +42,18 @@ export default {
 
 <style lang="scss" scoped>
   .error-main{
-    // background: url(../img/bg-error.png);
-    min-height: 100vh;
+    padding: 20px 0;
+    min-height: calc(100vh - 146px);
     background-size: cover;
+    background-repeat: no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
+    background-position-y: center;
+    .error-number img{
+      width: 100%;
+      max-width: 45vw;
+    }
     .text-error{
       text-align: center;
       h6{
@@ -48,6 +61,15 @@ export default {
         font-size: 32px;
         font-weight: 400;
         margin-bottom: 29px;
+        margin-top: 50px;
+        @media (max-width: 1199px){
+          font-size: 29px;
+          margin-bottom: 20px;
+        }
+        @media (max-width: 767px){
+          font-size: 18px;
+          margin-top: 35px;
+        }
       }
       p{
         color: #323232;
@@ -57,8 +79,19 @@ export default {
         a{
           color: #00b9e5;
           text-decoration: underline;
+          transition: all 0.3s;
+          &:hover{
+            color: #044184;
+          }
+        }
+        @media (max-width: 1199px){
+         font-size: 22px;
+        }
+        @media (max-width: 767px){
+          font-size: 14px;
         }
       }
     }
   }
+
 </style>
