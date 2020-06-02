@@ -107,6 +107,7 @@ export default {
   }
   @media (max-width: 767px){
     footer{
+      padding: 20px 0 15px;
       .copirait{
         text-align: center;
         order: 2;
@@ -122,9 +123,13 @@ export default {
           }
           &:last-child {
             margin-left: 0;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
           }
         }
+      }
+      .rasrabotka{
+        padding-top: 19px;
+        margin-top: 20px;
       }
     }
   }

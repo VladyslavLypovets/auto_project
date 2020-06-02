@@ -2,7 +2,7 @@
   <header>
     <div class="container">
       <div class="d-flex align-items-center justify-content-between">
-        <div class="d-flex align-items-center">
+        <div class="d-flex align-items-center header-left">
           <router-link :to="{ name: 'Home' }" class="logo-block">
             <img src="@/assets/img/logo_Autonova_D.png" alt="logo">
           </router-link>
@@ -22,15 +22,36 @@
             </form>
           </div>
           <div class="lang">
-            <select>
-              <option value="ua" selected>ua</option>
-              <option value="ru">ru</option>
-              <option value="en">en</option>
-            </select >
+            <multiselect
+              v-model="lang"
+              :options="['ua', 'ru']"
+              :searchable="false"
+              :allowEmpty="false"
+              :hideSelected="true"
+              :showLabels="false"
+            >
+              <i
+                class="fa fa-angle-down caret"
+                slot="caret"
+                slot-scope="{ toggle }"
+                aria-hidden="true"
+                @mousedown.prevent.stop="toggle"
+              />
+            </multiselect>
+          </div>
+          <div
+            class="d-block d-md-block burger"
+            @click="isMenuOpen = !isMenuOpen"
+          >
+            <img src="@/assets/img/menu.png" alt="menu" v-if="!isMenuOpen">
+            <img src="@/assets/img/close.png" alt="close" v-else>
           </div>
         </div>
       </div>
-      <nav class="menu d-none d-md-none">
+      <nav
+        class="menu d-flex d-md-none"
+        :class="{ open: isMenuOpen }"
+      >
         <router-link to="/" class="nav-link">О нас</router-link>
         <router-link to="/" class="nav-link">О продукции</router-link>
         <router-link to="/" class="nav-link">Контакты</router-link>
@@ -41,7 +62,11 @@
 
 <script>
 export default {
-  name: 'Header'
+  name: 'Header',
+  data: () => ({
+    lang: 'ru',
+    isMenuOpen: false
+  })
 }
 </script>
 
@@ -120,27 +145,53 @@ export default {
       }
       .lang{
         border-left: 1px solid #dcdcdc;
-        height: 37px;
+        height: 34px;
         padding-left: 25px;
+        width: 98px;
+        .multiselect {
+          .caret {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: all .3s;
+            cursor: pointer;
+          }
+          &--active {
+            .caret {
+              transform: translateY(-50%) rotate(180deg);
+            }
+          }
+        }
       }
     }
   }
   @media (max-width: 1199px){
     header{
-      .search-languages-block .search .input-search input{
+      .search-languages-block .search{
         display: none;
       }
     }
   }
   @media (max-width: 767px){
     header{
-      height: 60px;
+      height: 50px;
       .nav-decstop{
         display: none;
       }
+      .header-left{
+        width: 50%;
+        .logo-block{
+          display: block;
+          margin-right: 0;
+          img{
+            max-width: 100%;
+          }
+        }
+      }
       .menu{
         position: fixed;
-        top: 60px;
+        top: 50px;
         left: 0;
         width: 100%;
         background: #000;
@@ -150,9 +201,9 @@ export default {
         justify-content: center;
         padding: 0;
         z-index: 100;
-        min-height: 100vh;
+        height: 0;
         transition: all .6s;
-        overflow: auto;
+        overflow: hidden;
         a{
           color: #242424;
           font-size: 14px;
@@ -166,6 +217,9 @@ export default {
             color: #00b9e5;
             border-color: #00b9e5;
           }
+        }
+        &.open{
+          height: calc(100vh - 50px);
         }
       }
     }

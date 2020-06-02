@@ -45,23 +45,29 @@
       <div class="container">
         <img src="@/assets/img/bg-top-element.png" alt="bg-top-element" class="bg-top-element">
         <h4>Профессиональные консультанты</h4>
-        <div class="d-flex align-items-center justify-content-between">
-          <div class="advantages">
-            <img src="@/assets/img/advantages.png" alt="advantages" class="img-advantages">
-            <h6>Преимущества 1</h6>
-            <p>Повседневная практика показывает, что рамки и место обучения кадров играет важную роль в формировании систем массового участия. Не следует, однако забывать, что сложившаяся структура организации обеспечивает широкому кругу (специалистов) участие в формировании направлений прогрессивного развития. </p>
-          </div>
-          <div class="advantages">
-            <img src="@/assets/img/advantages.png" alt="advantages" class="img-advantages">
-            <h6>Преимущества 1</h6>
-            <p>Повседневная практика показывает, что рамки и место обучения кадров играет важную роль в формировании систем массового участия. Не следует, однако забывать, что сложившаяся структура организации обеспечивает широкому кругу (специалистов) участие в формировании направлений прогрессивного развития. </p>
-          </div>
-          <div class="advantages">
-            <img src="@/assets/img/advantages.png" alt="advantages" class="img-advantages">
-            <h6>Преимущества 1</h6>
-            <p>Повседневная практика показывает, что рамки и место обучения кадров играет важную роль в формировании систем массового участия. Не следует, однако забывать, что сложившаяся структура организации обеспечивает широкому кругу (специалистов) участие в формировании направлений прогрессивного развития. </p>
+        <div class="align-items-center justify-content-between d-none d-xl-flex">
+          <div class="advantages" v-for="(consultant, index) in consultantsData" :key="index">
+            <img :src="require(`@/assets/img/${consultant.img}.png`)" alt="advantages" class="img-advantages">
+            <h6>{{ consultant.title }}</h6>
+            <p>
+              {{ consultant.text }}
+            </p>
           </div>
         </div>
+        <Carousel
+          :items="1"
+          class="d-block d-xl-none"
+          :dots="false"
+          :navText="navText"
+        >
+          <div class="advantages" v-for="(consultant, index) in consultantsData" :key="index">
+            <img :src="require(`@/assets/img/${consultant.img}.png`)" alt="advantages" class="img-advantages">
+            <h6>{{ consultant.title }}</h6>
+            <p>
+              {{ consultant.text }}
+            </p>
+          </div>
+        </Carousel>
         <img src="@/assets/img/bg-bottom-element.png" alt="bg-bottom-element" class="bg-bottom-element">
       </div>
     </div>
@@ -87,7 +93,27 @@ export default {
     Header,
     Footer,
     OurPartnersClients
-  }
+  },
+  data: () => ({
+    consultantsData: [
+      {
+        img: 'advantages',
+        title: 'Преимущества 1',
+        text: 'Повседневная практика показывает, что рамки и место обучения кадров играет важную роль в формировании систем массового участия. Не следует, однако забывать, что сложившаяся структура организации обеспечивает широкому кругу (специалистов) участие в формировании направлений прогрессивного развития.'
+      },
+      {
+        img: 'advantages',
+        title: 'Преимущества 2',
+        text: 'Повседневная практика показывает, что рамки и место обучения кадров играет важную роль в формировании систем массового участия. Не следует, однако забывать, что сложившаяся структура организации обеспечивает широкому кругу (специалистов) участие в формировании направлений прогрессивного развития.'
+      },
+      {
+        img: 'advantages',
+        title: 'Преимущества 3',
+        text: 'Повседневная практика показывает, что рамки и место обучения кадров играет важную роль в формировании систем массового участия. Не следует, однако забывать, что сложившаяся структура организации обеспечивает широкому кругу (специалистов) участие в формировании направлений прогрессивного развития.'
+      }
+    ],
+    navText: ['<i class="fa fa-angle-left" aria-hidden="true"/>', '<i class="fa fa-angle-right" aria-hidden="true"/>']
+  })
 }
 </script>
 
@@ -288,6 +314,12 @@ export default {
         &:hover{
           background-color: #79949a;
           transform: scale(1.02);
+        }
+        @media (max-width: 1199px){
+          width: 100%;
+          img{
+            width: unset;
+          }
         }
       }
       img.bg-top-element{

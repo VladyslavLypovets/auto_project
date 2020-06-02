@@ -43,16 +43,25 @@ export default {
 <style lang="scss" scoped>
   .error-main{
     padding: 20px 0;
-    min-height: calc(100vh - 146px);
+    min-height: calc(100vh - 60px);
     background-size: cover;
     background-repeat: no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
     background-position-y: center;
+    @media (max-width: 1199px){
+      min-height: calc(100vh - 142px);
+    }
+    @media (max-width: 767px){
+      min-height: calc(100vh - 180px);
+    }
     .error-number img{
       width: 100%;
       max-width: 45vw;
+      @media (max-width: 767px){
+        max-width: 285px;
+      }
     }
     .text-error{
       text-align: center;
