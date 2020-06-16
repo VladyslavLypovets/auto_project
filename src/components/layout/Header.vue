@@ -13,18 +13,23 @@
           </nav>
         </div>
         <div class="search-languages-block d-flex">
-          <div class="search">
+          <div class="search d-none d-xl-block">
             <form class="input-search" method="POST">
               <input type="text" class="form-control" name="search" placeholder="Поиск на сайте">
-              <button class="btn-zero">
-                  <i class="fa fa-search" aria-hidden="true"></i>
+              <button class="btn-search">
+                <i class="fa fa-search" aria-hidden="true"></i>
               </button>
             </form>
           </div>
-          <div class="lang">
+          <div class="mob-search d-flex align-items-center d-xl-none">
+            <button class="btn-search">
+              <i class="fa fa-search" aria-hidden="true"></i>
+            </button>
+          </div>
+          <div class="lang d-flex align-items-center">
             <multiselect
               v-model="lang"
-              :options="['ua', 'ru']"
+              :options="['УКР', 'РУ']"
               :searchable="false"
               :allowEmpty="false"
               :hideSelected="true"
@@ -40,7 +45,7 @@
             </multiselect>
           </div>
           <div
-            class="d-block d-md-block burger"
+            class="d-flex align-items-center d-md-none burger"
             @click="isMenuOpen = !isMenuOpen"
           >
             <img src="@/assets/img/menu.png" alt="menu" v-if="!isMenuOpen">
@@ -64,7 +69,7 @@
 export default {
   name: 'Header',
   data: () => ({
-    lang: 'ru',
+    lang: 'РУ',
     isMenuOpen: false
   })
 }
@@ -128,7 +133,7 @@ export default {
               font-weight: 400;
             }
           }
-          button {
+          .btn-search {
             border: none;
             background: none;
             margin-right: 40px;
@@ -147,7 +152,6 @@ export default {
         border-left: 1px solid #dcdcdc;
         height: 34px;
         padding-left: 25px;
-        width: 98px;
         .multiselect {
           .caret {
             position: absolute;
@@ -162,14 +166,112 @@ export default {
               transform: translateY(-50%) rotate(180deg);
             }
           }
+          i{
+            font-size: 13px;
+            line-height: 1;
+            z-index: 3;
+            color: #ffffff;
+          }
+          /deep/ .multiselect__tags {
+            width: 62px;
+            height: 34px;
+            border-radius: 5px;
+            background-color: #00b9e5;
+            border: none;
+            padding: 5px;
+            display: flex;
+            align-items: center;
+            .multiselect__single {
+              background-color: #00b9e5;
+              color: #ffffff;
+              font-size: 16px;
+              font-weight: 700;
+              text-transform: uppercase;
+              margin: 0;
+            }
+          }
+          /deep/ .multiselect__content-wrapper{
+            width:  62px;
+            .multiselect__element {
+              max-width:  62px;
+            }
+            span.multiselect__option.multiselect__option--highlight {
+              max-width:  62px;
+              background: #fff;
+              height: 34px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              transition: all 0.3s;
+              span{
+                color: #000;
+                font-size: 16px;
+                font-weight: 700;
+                text-transform: uppercase;
+                margin: 0;
+                transition: all 0.3s;
+              }
+              &:hover{
+                background: #00b9e5;
+                span{
+                  color: #fff;
+                }
+              }
+            }
+          }
         }
       }
     }
   }
+  @media (max-width: 1599px){
+    header .logo-block{
+      margin-right: 40px;
+    }
+  }
   @media (max-width: 1199px){
     header{
-      .search-languages-block .search{
-        display: none;
+      .search-languages-block{
+        .mob-search{
+          .btn-search {
+            border: none;
+            background: none;
+            margin-right: 30px;
+            &:focus{
+              box-shadow: unset;
+              outline: none;
+            }
+            i{
+              font-size: 23px;
+              color: #00b9e5;;
+            }
+          }
+        }
+      }
+    }
+  }
+  @media (max-width: 992px){
+    header{
+      .header-left{
+        width: 80%;
+        .logo-block{
+          display: block;
+          margin-right: 20px;
+          width: 220px;
+          img{
+            max-width: 100%;
+          }
+        }
+      }
+      .nav-decstop{
+        .nav-link{
+          font-size: 14px;
+          padding: 0 11px;
+        }
+      }
+      .search-languages-block{
+        .mob-search .btn-search{
+         margin-right: 20px;
+        }
       }
     }
   }
@@ -182,10 +284,42 @@ export default {
       .header-left{
         width: 50%;
         .logo-block{
-          display: block;
           margin-right: 0;
-          img{
-            max-width: 100%;
+        }
+      }
+      .search-languages-block{
+        align-items: center;
+        justify-content: space-between;
+        width: 50%;
+        .lang{
+          border: none;
+          padding: 0;
+          .multiselect{
+            min-height: 26px;
+            /deep/.multiselect__tags{
+              width: 55px;
+              height: 26px;
+              min-height: 26px;
+              .multiselect__single{
+                font-size: 14px;
+              }
+            }
+            /deep/ .multiselect__content-wrapper{
+              width: 55px;
+              .multiselect__element {
+                max-width: 55;
+              }
+              span.multiselect__option.multiselect__option--highlight {
+                max-width: 55;
+              }
+            }
+          }
+        }
+        .mob-search .btn-search{
+          margin: 0;
+          padding-left: 15px;
+          i{
+            font-size: 16px;
           }
         }
       }
@@ -222,6 +356,12 @@ export default {
           height: calc(100vh - 50px);
         }
       }
+    }
+  }
+  @media (max-width: 576px){
+    header{
+      display: flex;
+      align-items: center;
     }
   }
 </style>

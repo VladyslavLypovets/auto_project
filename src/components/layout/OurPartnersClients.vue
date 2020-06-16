@@ -1,7 +1,7 @@
 <template>
   <div class="our-partner-client container">
     <h4>Наши клиенты</h4>
-    <div class="d-flex flex-wrap align-items-center justify-content-between">
+    <div class="d-none d-xl-flex flex-wrap align-items-center justify-content-between">
       <router-link to="/"  class="client-partner">
         <img src="@/assets/img/logo-client-partner.png" alt="logo-client-partner" class="logo-client-partner">
       </router-link>
@@ -33,12 +33,30 @@
         <img src="@/assets/img/logo-client-partner.png" alt="logo-client-partner" class="logo-client-partner">
       </router-link>
     </div>
+    <Carousel
+      :items="2"
+      class="d-block d-xl-none carousel-mob-clients"
+      :dots="false"
+      :navText="navText"
+    >
+    <div class="items" v-for="index in new Array(8)" :key="index">
+      <router-link to="/"  class="client-partner">
+        <img src="@/assets/img/logo-client-partner.png" alt="logo-client-partner" class="logo-client-partner">
+      </router-link>
+      <router-link to="/"  class="client-partner">
+        <img src="@/assets/img/logo-client-partner.png" alt="logo-client-partner" class="logo-client-partner">
+      </router-link>
+    </div>
+    </Carousel>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'OurPartnersClients'
+  name: 'OurPartnersClients',
+  data: () => ({
+    navText: ['<i class="fa fa-angle-left" aria-hidden="true"/>', '<i class="fa fa-angle-right" aria-hidden="true"/>']
+  })
 }
 </script>
 
@@ -67,6 +85,44 @@ export default {
       }
       &:hover{
         transform: scale(1.03);
+      }
+    }
+    @media (max-width: 1599px){
+      h4{
+        font-size: 43px;
+        margin-bottom: 25px;
+      }
+      .client-partner {
+        height: 137px;
+        img.logo-client-partner{
+          max-width: 170px;
+        }
+      }
+    }
+    @media (max-width: 1199px){
+      .carousel-mob-clients{
+        position: relative;
+        /deep/ .owl-prev{
+          position: absolute;
+          background: none;
+          color: #c0c0c0;
+          left: 10%;
+          font-size: 20px;
+          transform: translateX(50%);
+          bottom: 50%;
+        }
+        /deep/ .owl-next{
+          position: absolute;
+          background: none;
+          color: #c0c0c0;
+          right: 10%;
+          font-size: 20px;
+          transform: translateX(50%);
+          bottom: 50%;
+        }
+      }
+      .client-partner{
+        width: 50%;
       }
     }
   }
