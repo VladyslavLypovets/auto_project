@@ -25,42 +25,42 @@ const routes = [
     component: Error
   },
   {
-    path: '/aboutproduct',
+    path: '/about-product',
     name: 'AboutProduct',
     component: AboutProduct
   },
   {
-    path: '/adminaddpage',
+    path: '/admin-add-page',
     name: 'AdminAddPage',
     component: AdminAddPage
   },
   {
-    path: '/admincreationpage',
+    path: '/admin-creation-page',
     name: 'AdminCreationPage',
     component: AdminCreationPage
   },
   {
-    path: '/adminrefresh',
+    path: '/admin-refresh',
     name: 'AdminRefresh',
     component: AdminRefresh
   },
   {
-    path: '/adminproductbasicinfo',
+    path: '/admin-product-basic-info',
     name: 'AdminProductBasicInfo',
     component: AdminProductBasicInfo
   },
   {
-    path: '/adminnewuser',
+    path: '/admin-new-user',
     name: 'AdminNewUser',
     component: AdminNewUser
   },
   {
-    path: '/adminuserbasicdata',
+    path: '/admin-user-basic-data',
     name: 'AdminUserBasicData',
     component: AdminUserBasicData
   },
   {
-    path: '/adminuser',
+    path: '/admin-user',
     name: 'AdminUser',
     component: AdminUser
   }
