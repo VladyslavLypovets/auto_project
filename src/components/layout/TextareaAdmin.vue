@@ -8,7 +8,16 @@
 <script>
 export default {
   name: 'TextareaAdmin',
-  props: ['text', 'id']
+  props: {
+    text: String,
+    id: String,
+    value: String,
+    placeholder: String,
+    type: {
+      type: String,
+      default: 'text'
+    }
+  }
 }
 </script>
 

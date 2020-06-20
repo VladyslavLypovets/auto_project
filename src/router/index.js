@@ -10,6 +10,7 @@ import AdminProductBasicInfo from '@/pages/AdminProductBasicInfo.vue'
 import AdminNewUser from '@/pages/AdminNewUser.vue'
 import AdminUserBasicData from '@/pages/AdminUserBasicData.vue'
 import AdminUser from '@/pages/AdminUser.vue'
+import Contacts from '@/pages/Contacts.vue'
 
 Vue.use(VueRouter)
 
@@ -63,6 +64,11 @@ const routes = [
     path: '/adminuser',
     name: 'AdminUser',
     component: AdminUser
+  },
+  {
+    path: '/contacts',
+    name: 'Contacts',
+    component: Contacts
   }
 ]
 
