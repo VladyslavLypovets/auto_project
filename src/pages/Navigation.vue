@@ -1,6 +1,7 @@
 <template>
   <div>
     <router-link to="/error" class="nav-link">Error</router-link>
+    <router-link to="/catalog" class="nav-link">Catalog</router-link>
     <router-link to="/about-product" class="nav-link">AboutProduct</router-link>
     <router-link to="/admin-add-page" class="nav-link">AdminAddPage</router-link>
     <router-link to="/admin-creation-page" class="nav-link">AdminCreationPage</router-link>
@@ -13,8 +14,7 @@
 </template>
 
 <script>
-
 export default {
-  name: 'Home'
+  name: 'navigation'
 }
 </script>

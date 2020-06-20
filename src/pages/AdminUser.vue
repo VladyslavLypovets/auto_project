@@ -16,6 +16,115 @@
           <div class="col-12 col-md-8 col-xl-10">
             <h4>Пользователи</h4>
             <h6>Все пользователи</h6>
+            <table class="table table-striped table-user">
+              <thead>
+                <tr>
+                  <th scope="col">Логин</th>
+                  <th scope="col">Статус</th>
+                  <th scope="col">Дата добавления</th>
+                  <th scope="col"></th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">VAG</th>
+                  <td>19.03.20</td>
+                  <td class="date-added">1F0 129 620</td>
+                  <td>
+                    <button class="btn-edit">
+                      Редактировать
+                      <i class="fa fa-pencil" aria-hidden="true"></i>
+                    </button>
+                  </td>
+                  <td class="d-flex justify-content-end delete-produkt">
+                    <button class="delete">
+                      <img src="@/assets/img/delete.png" alt="delete">
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">VAG</th>
+                  <td>19.03.20</td>
+                  <td class="date-added">1F0 129 620</td>
+                  <td>
+                    <button class="btn-edit">
+                      Редактировать
+                      <i class="fa fa-pencil" aria-hidden="true"></i>
+                    </button>
+                  </td>
+                  <td class="d-flex justify-content-end delete-produkt">
+                    <button class="delete">
+                      <img src="@/assets/img/delete.png" alt="delete">
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">VAG</th>
+                  <td>19.03.20</td>
+                  <td class="date-added">1F0 129 620</td>
+                  <td>
+                    <button class="btn-edit">
+                      Редактировать
+                      <i class="fa fa-pencil" aria-hidden="true"></i>
+                    </button>
+                  </td>
+                  <td class="d-flex justify-content-end delete-produkt">
+                    <button class="delete">
+                      <img src="@/assets/img/delete.png" alt="delete">
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">VAG</th>
+                  <td>19.03.20</td>
+                  <td class="date-added">1F0 129 620</td>
+                  <td>
+                    <button class="btn-edit">
+                      Редактировать
+                      <i class="fa fa-pencil" aria-hidden="true"></i>
+                    </button>
+                  </td>
+                  <td class="d-flex justify-content-end delete-produkt">
+                    <button class="delete">
+                      <img src="@/assets/img/delete.png" alt="delete">
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">VAG</th>
+                  <td>19.03.20</td>
+                  <td class="date-added">1F0 129 620</td>
+                  <td>
+                    <button class="btn-edit">
+                      Редактировать
+                      <i class="fa fa-pencil" aria-hidden="true"></i>
+                    </button>
+                  </td>
+                  <td class="d-flex justify-content-end delete-produkt">
+                    <button class="delete">
+                      <img src="@/assets/img/delete.png" alt="delete">
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">VAG</th>
+                  <td>19.03.20</td>
+                  <td class="date-added">1F0 129 620</td>
+                  <td>
+                    <button class="btn-edit">
+                      Редактировать
+                      <i class="fa fa-pencil" aria-hidden="true"></i>
+                    </button>
+                  </td>
+                  <td class="d-flex justify-content-end delete-produkt">
+                    <button class="delete">
+                      <img src="@/assets/img/delete.png" alt="delete">
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
         </div>
@@ -70,6 +179,69 @@ export default {
         @media (max-width: 767px){
          font-size: 16px;
         }
+      }
+      .table-user{
+        text-align: center;
+        thead{
+          tr{
+            background-color: #f7f7f7;
+            th{
+              color: #676767;
+              font-size: 16px;
+              font-weight: 700;
+            }
+          }
+        }
+        tbody tr td{
+          color: #676767;
+          font-size: 16px;
+          font-weight: 700;
+          &.date-added{
+            font-weight: 400;
+          }
+          .btn-edit{
+            border: none;
+            background: none;
+            color: #00b9e5;
+            font-size: 16px;
+            font-weight: 400;
+            transition: all 0.3s;
+            i{
+              margin-left: 10px;
+              font-size: 16px;
+              color: #00b9e5;
+            }
+            &:hover{
+              transform: scale(1.1);
+              color: #30626e;
+              i{
+                transform: scale(1.1);
+                color: #30626e;
+              }
+            }
+            &:focus{
+              outline: none;
+            }
+          }
+          .delete{
+            border: none;
+            background: none;
+            transition: all 0.3s;
+            &:hover{
+              transform: scale(1.1);
+            }
+            &:focus{
+              outline: none;
+            }
+          }
+        }
+        tbody tr:nth-of-type(odd) {
+          background-color: #fff;
+        }
+        tbody tr:nth-of-type(even) {
+          background-color: #f7f7f7;
+        }
+
       }
     }
   }

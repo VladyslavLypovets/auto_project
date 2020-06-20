@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '@/pages/Home.vue'
+import Catalog from '@/pages/Catalog.vue'
 import Error from '@/pages/Error.vue'
 import AboutProduct from '@/pages/AboutProduct.vue'
 import AdminAddPage from '@/pages/AdminAddPage.vue'
@@ -10,14 +10,21 @@ import AdminProductBasicInfo from '@/pages/AdminProductBasicInfo.vue'
 import AdminNewUser from '@/pages/AdminNewUser.vue'
 import AdminUserBasicData from '@/pages/AdminUserBasicData.vue'
 import AdminUser from '@/pages/AdminUser.vue'
+import Contacts from '@/pages/Contacts.vue'
+import Navigation from '@/pages/Navigation.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    name: 'Navigation',
+    component: Navigation
+  },
+  {
+    path: '/catalog',
+    name: 'Catalog',
+    component: Catalog
   },
   {
     path: '/error',
@@ -63,6 +70,11 @@ const routes = [
     path: '/admin-user',
     name: 'AdminUser',
     component: AdminUser
+  },
+  {
+    path: '/contacts',
+    name: 'Contacts',
+    component: Contacts
   }
 ]
 
