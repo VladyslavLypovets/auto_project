@@ -36,7 +36,7 @@
               <div class="filter" :class="{'open': filterOpen}">
                 <div class="d-flex align-items-center justify-content-between">
                   <h6 class="d-block d-xl-none">Фильтр</h6>
-                  <button class="btn-close" filterClose>
+                  <button class="btn-close d-block d-xl-none" @click="filterOpen = false">
                     <i class="fa fa-times" aria-hidden="true"></i>
                   </button>
                 </div>
@@ -236,8 +236,8 @@
                     <div class="page-view">
                       <button
                       class="strings d-none d-md-block"
-                      :class="{ 'active': activePage === 1}"
-                      @click="activePage = 1"
+                      :class="{ 'active': activeView === 1}"
+                      @click="activeView = 1"
                       >
                         <span></span>
                         <span></span>
@@ -245,8 +245,8 @@
                       </button>
                       <button
                         class="blocks"
-                        :class="{ 'active': activePage === 2}"
-                        @click="activePage = 2"
+                        :class="{ 'active': activeView === 2}"
+                        @click="activeView = 2"
                       >
                         <div class="d-flex justify-content-between mb-1">
                           <span></span>
@@ -262,13 +262,13 @@
                 </div>
               </div>
               <div class="produkts">
-                <div class="product-strings active" v-if="activePage === 1">
+                <div class="product-strings active" v-if="activeView === 1">
                   <ProductStrings
                     v-for="index in productCount"
                     :key="index"
                   />
                 </div>
-                <div class="product-blocks" v-if="activePage === 2">
+                <div class="product-blocks" v-if="activeView === 2">
                   <div class="row">
                     <div
                       class="col-12 col-md-4"
@@ -336,7 +336,7 @@ export default {
     model: 'X7',
     product: '',
     isMenuOpen: true,
-    activePage: 1,
+    activeView: 1,
     sorting: 'По цене',
     productCount: new Array(9),
     collapsedMenu: {
@@ -347,7 +347,19 @@ export default {
     },
     range: [0, 500000],
     filterOpen: false
-  })
+  }),
+  created () {
+    this.watchMobile()
+    window.addEventListener('resize', this.watchMobile)
+  },
+  methods: {
+    watchMobile () {
+      console.log('here')
+      if (window.innerWidth < 767) {
+        this.activeView = 2
+      }
+    }
+  }
 }
 </script>
 
@@ -675,8 +687,10 @@ export default {
           }
         }
         @media (max-width: 1199px){
-          display: none;
-          padding: 35px 30px;
+          opacity: 0;
+          pointer-events: none;
+          height: 0;
+          padding: 0;
           h6{
             color: #242424;
             font-size: 18px;
@@ -699,15 +713,18 @@ export default {
             width: 100%;
           }
           &.open{
+            padding: 35px 30px;
             display: block;
             position: fixed;
             left: 0;
             top: 0;
             width: 40vw;
             height: 100vh;
+            z-index: 10;
             cursor: pointer;
             z-index: 5;
-            pointer-events: none;
+            pointer-events: unset;
+            opacity: 1;
             transition: opacity 0.3s;
             @media (max-width: 767px){
               width: 100vw;
@@ -781,7 +798,7 @@ export default {
           margin: 0;
           line-height: 1.4;
           @media (max-width: 767px){
-            font-size: 14px;
+            font-size: 12px;
           }
         }
         .output-by{
@@ -794,6 +811,9 @@ export default {
               transform: translateY(-50%);
               transition: all .3s;
               color: #00b9e5;
+              @media (max-width: 767px){
+                right: 5px;
+              }
             }
             &.multiselect--active {
               .caret {
@@ -805,6 +825,9 @@ export default {
               border: none;
               background: none;
               min-height: unset;
+              @media (max-width: 767px){
+                padding-right: 20px;
+              }
               .multiselect__single {
                 background: none;
                 margin-bottom: 0;
@@ -812,8 +835,12 @@ export default {
                 border-radius: 0;
                 padding-left: 0;
                 border-bottom: 1px dashed #00b9e5;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
                 @media (max-width: 767px){
-                  font-size: 14px;
+                  font-size: 12px;
+                  max-width: 80px;
                 }
               }
             }

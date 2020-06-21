@@ -314,7 +314,7 @@ import Footer from '@/components/layout/Footer.vue'
 import BreadCrumbs from '@/components/layout/BreadCrumbs.vue'
 
 export default {
-  name: 'CartTovar',
+  name: 'Product',
   components: {
     Header,
     BreadCrumbs,

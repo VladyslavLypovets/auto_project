@@ -62,6 +62,10 @@ export default {
           font-size: 14px;
           font-weight: 500;
           text-decoration: none;
+          transition: all .3s;
+          &:hover {
+            color: #00b9e5;
+          }
         }
       }
     }

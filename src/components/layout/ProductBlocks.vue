@@ -1,14 +1,14 @@
 <template>
-  <router-link to="/" class="product-blocks">
+  <div class="product-blocks">
     <div class="quantity">
       <p>Кол. во. 64</p>
     </div>
-    <div class="d-flex align-items-center">
+    <router-link to="/product" class="d-flex align-items-center">
       <img src="@/assets/img/img-product-catalog.png" alt="img-product-catalog" class="img-product">
-    </div>
-    <p class="name-product">
+    </router-link>
+    <router-link to="/product" class="name-product d-block">
       Название запчасти обычно в две строки и не вмещается
-    </p>
+    </router-link>
     <div class="block-marka d-flex justify-content-between">
       <p class="marka">BMW</p>
       <span>4526358</span>
@@ -22,7 +22,7 @@
         Купить
       </button>
     </div>
-  </router-link>
+  </div>
 </template>
 
 <script>
@@ -42,6 +42,9 @@ export default {
     transition: all 0.3s;
     display: block;
     text-decoration: none;
+    @media(max-width: 767px) {
+      max-height: unset;
+    }
     .quantity p{
       color: #242424;
       font-size: 16px;
@@ -91,6 +94,10 @@ export default {
         font-size: 16px;
         font-weight: 700;
         text-transform: uppercase;
+        transition: all .3s;
+        &:hover {
+          background: #234e58;
+        }
         img{
           margin-right: 15px;
           width: 25px;

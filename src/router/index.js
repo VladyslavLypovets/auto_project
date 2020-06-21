@@ -12,7 +12,7 @@ import AdminUserBasicData from '@/pages/AdminUserBasicData.vue'
 import AdminUser from '@/pages/AdminUser.vue'
 import Contacts from '@/pages/Contacts.vue'
 import Navigation from '@/pages/Navigation.vue'
-import CartTovar from '@/pages/CartTovar.vue'
+import Product from '@/pages/Product.vue'
 
 Vue.use(VueRouter)
 
@@ -78,9 +78,9 @@ const routes = [
     component: Contacts
   },
   {
-    path: '/carttovar',
-    name: 'CartTovar',
-    component: CartTovar
+    path: '/product',
+    name: 'Product',
+    component: Product
   }
 ]
 

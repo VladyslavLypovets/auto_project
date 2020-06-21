@@ -1,13 +1,13 @@
 <template>
-  <router-link to="/" class="product-strings">
+  <div class="product-strings">
     <div class="row">
-      <div class="col-2 d-flex align-items-center">
+      <router-link to="/product" class="col-2 d-flex align-items-center">
         <img src="@/assets/img/img-product-catalog.png" alt="img-product-catalog" class="img-product">
-      </div>
+      </router-link>
       <div class="col-7 d-flex flex-column">
-        <p class="name-product">
+        <router-link to="/product" class="name-product">
           Название запчасти обычно в две строки и не вмещается
-        </p>
+        </router-link>
         <p class="marka">
           BMW<span>4526358</span>
         </p>
@@ -42,7 +42,7 @@
         </div>
       </div>
     </div>
-  </router-link>
+  </div>
 </template>
 
 <script>
@@ -61,6 +61,10 @@ export default {
     max-height: 185px;
     display: block;
     text-decoration: none;
+    transition: all 0.3s;
+    &:hover {
+      transform: scale(1.003);
+    }
     .img-product{
       width: 100%;
     }
@@ -156,7 +160,10 @@ export default {
       font-size: 16px;
       font-weight: 700;
       text-transform: uppercase;
-      transition: all 0.3s;
+      transition: all .3s;
+      &:hover {
+        background: #234e58;
+      }
       img{
         margin-right: 15px;
       }
