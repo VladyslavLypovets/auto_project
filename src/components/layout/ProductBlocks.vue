@@ -56,7 +56,12 @@ export default {
       font-size: 18px;
       font-weight: 700;
       margin-top: 10px;
-      // margin-bottom: 17px;
+      @media (max-width: 1599px){
+        font-size: 16px;
+      }
+      @media (max-width: 767px){
+        font-size: 16px;
+      }
     }
     .block-marka{
       .marka{
@@ -88,6 +93,17 @@ export default {
         text-transform: uppercase;
         img{
           margin-right: 15px;
+          width: 25px;
+          height: 25px;
+        }
+        @media (max-width: 1599px){
+          width: 100px;
+          font-size: 14px;
+          img{
+            margin-right: 8px;
+            width: 20px;
+            height: 20px;
+          }
         }
       }
       .suma p{
@@ -95,6 +111,30 @@ export default {
         font-size: 20px;
         font-weight: 700;
         margin: 0;
+        @media (max-width: 1599px){
+          font-size: 15px;
+        }
+      }
+      @media (max-width: 1199px){
+        flex-wrap: wrap;
+        .suma{
+          margin-bottom: 20px;
+          width: 100%;
+          p{
+            text-align: center;
+            font-size: 20px;
+          }
+        }
+        .btn-buy{
+          margin: 0 auto;
+          width: 135px;
+          font-size: 16px;
+        }
+      }
+      @media (max-width: 767px){
+        .suma{
+          margin-bottom: 15px;
+        }
       }
     }
     &:hover{

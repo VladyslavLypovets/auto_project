@@ -32,8 +32,14 @@
       <div class="container">
         <div class="catalog-produkt">
           <div class="row">
-            <div class="d-none d-xl-block col-xl-3">
-              <div class="filter">
+            <div class="d-xl-block col-xl-3">
+              <div class="filter" :class="{'open': filterOpen}">
+                <div class="d-flex align-items-center justify-content-between">
+                  <h6 class="d-block d-xl-none">Фильтр</h6>
+                  <button class="btn-close" filterClose>
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                  </button>
+                </div>
                 <div class="marka d-flex align-items-center">
                   <multiselect
                     v-model="marka"
@@ -192,11 +198,14 @@
                     </div>
                   </div>
                 </div>
+                <div class="d-flex d-xl-none justify-content-center">
+                  <BtnBlue text="Назад"/>
+                </div>
               </div>
             </div>
             <div class="col-12 col-xl-9">
               <div class="d-flex">
-                <button class="btn-filter-mob d-block d-xl-none">
+                <button class="btn-filter-mob d-block d-xl-none" @click="filterOpen = !filterOpen">
                   <img src="@/assets/img/big-filter.png" alt="big-filter">
                   <span>Фильтр</span>
                 </button>
@@ -262,7 +271,7 @@
                 <div class="product-blocks" v-if="activePage === 2">
                   <div class="row">
                     <div
-                      class="col-4"
+                      class="col-12 col-md-4"
                       v-for="index in productCount"
                       :key="index"
                     >
@@ -336,17 +345,9 @@ export default {
       2: false,
       3: false
     },
-    range: [0, 500000]
+    range: [0, 500000],
+    filterOpen: false
   })
-  // $('.range-slider').parents('.range-slider-wrap').find('.from').val(2500 + ' грн');
-  // $('.range-slider').parents('.range-slider-wrap').find('.to').val(25000 + ' грн');
-  // $('.range-slider').change(function() {
-  //   var arr = $(this).val().split(';');
-  //   var from = arr[0];
-  //   var to = arr[1];
-  //   $(this).parents('.').find('.from').val(from + ' грн');
-  //   $(this).parents('.').find('.to').val(to + ' грн');
-  // })
 }
 </script>
 
@@ -673,6 +674,72 @@ export default {
             }
           }
         }
+        @media (max-width: 1199px){
+          display: none;
+          padding: 35px 30px;
+          h6{
+            color: #242424;
+            font-size: 18px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+          }
+          .btn-close{
+            background: none;
+            border: none;
+            opacity: 0.25;
+            margin-bottom: 30px;
+            i{
+              color: #000;
+              font-size: 21px;
+            }
+          }
+          .btn-blue{
+            margin-top: 60px;
+            width: 100%;
+          }
+          &.open{
+            display: block;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 40vw;
+            height: 100vh;
+            cursor: pointer;
+            z-index: 5;
+            pointer-events: none;
+            transition: opacity 0.3s;
+            @media (max-width: 767px){
+              width: 100vw;
+              height: 100%;
+            }
+          }
+        }
+        @media (max-width: 767px){
+          padding: 25px 15px;
+          h6{
+            margin-bottom: 15px;
+          }
+          .btn-close{
+            margin-bottom: 15px;
+          }
+          .marka {
+            margin-bottom: 10px;
+            max-height: 50px;
+          }
+          .manufacturer .name-manufacturer,
+          .price .name-price,
+          .attribute .name-attribute{
+            margin-bottom: 14px;
+          }
+          .btn-blue{
+            margin-top: 25px;
+            width: 180px;
+          }
+          .price .range-slider-wrap .form-group{
+            margin-bottom: 5px;
+          }
+        }
       }
       .btn-filter-mob{
         width: 150px;
@@ -688,6 +755,9 @@ export default {
         text-transform: uppercase;
         img{
           margin-right: 15px;
+        }
+        &:focus{
+          outline: none;
         }
         @media (max-width: 767px){
           width: 45px;
@@ -710,6 +780,9 @@ export default {
           font-weight: 400;
           margin: 0;
           line-height: 1.4;
+          @media (max-width: 767px){
+            font-size: 14px;
+          }
         }
         .output-by{
           .sorting {
@@ -739,6 +812,9 @@ export default {
                 border-radius: 0;
                 padding-left: 0;
                 border-bottom: 1px dashed #00b9e5;
+                @media (max-width: 767px){
+                  font-size: 14px;
+                }
               }
             }
             /deep/ .multiselect__content-wrapper {
@@ -798,6 +874,11 @@ export default {
               background-color: rgba(36, 36, 36, 0.49);
               margin-right: 6px;
               transition: all 0.3s;
+              @media (max-width: 767px){
+                width: 7px;
+                height: 7px;
+                margin-right: 4px;
+              }
             }
             &:hover{
               span{
@@ -816,6 +897,7 @@ export default {
         }
         @media (max-width: 767px){
           height: 46px;
+          padding: 10px;
         }
       }
       .produkts{
