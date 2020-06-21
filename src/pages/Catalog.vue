@@ -37,7 +37,7 @@
                 <div class="marka d-flex align-items-center">
                   <multiselect
                     v-model="marka"
-                    :options="['BMW-1', 'BMW-2']"
+                    :options="['BMW-1', 'BMW-2', 'BMW-3', 'BMW-4']"
                     :searchable="false"
                     :allowEmpty="false"
                     :hideSelected="true"
@@ -54,8 +54,8 @@
                 </div>
                 <div class="marka d-flex align-items-center">
                   <multiselect
-                    v-model="marka"
-                    :options="['BMW-1', 'BMW-2']"
+                    v-model="model"
+                    :options="['X7', 'X8', 'X9', 'X10']"
                     :searchable="false"
                     :allowEmpty="false"
                     :hideSelected="true"
@@ -72,8 +72,9 @@
                 </div>
                 <div class="marka d-flex align-items-center">
                   <multiselect
-                    v-model="marka"
-                    :options="['BMW-1', 'BMW-2']"
+                    v-model="product"
+                    :options="['BMW-1', 'BMW-2', 'BMW-3', 'BMW-4']"
+                    placeholder="Вид продукции"
                     :searchable="false"
                     :allowEmpty="false"
                     :hideSelected="true"
@@ -130,15 +131,15 @@
                     <i class="fa fa-angle-down" aria-hidden="true"></i>
                   </div>
                   <div class="range-slider-wrap">
-                    <input class="range-slider">
+                    <RangeSlider v-model="range" />
                     <div class="d-flex justify-content-between">
                       <div class="form-group">
                         <label>От</label>
-                        <input type="text" class="form-control from">
+                        <input type="text" class="form-control from" v-model="range[0]">
                       </div>
                       <div class="form-group">
                         <label>До</label>
-                        <input type="text" class="form-control to">
+                        <input type="text" class="form-control to" v-model="range[1]">
                       </div>
                     </div>
                   </div>
@@ -309,6 +310,7 @@ import Footer from '@/components/layout/Footer.vue'
 import ProductStrings from '@/components/layout/ProductStrings.vue'
 import BtnBlue from '@/components/layout/BtnBlue.vue'
 import ProductBlocks from '@/components/layout/ProductBlocks.vue'
+import RangeSlider from '@/components/layout/RangeSlider.vue'
 
 export default {
   name: 'Catalog',
@@ -317,10 +319,13 @@ export default {
     Footer,
     ProductStrings,
     BtnBlue,
-    ProductBlocks
+    ProductBlocks,
+    RangeSlider
   },
   data: () => ({
-    marka: 'BMW',
+    marka: 'BMW-1',
+    model: 'X7',
+    product: '',
     isMenuOpen: true,
     activePage: 1,
     sorting: 'По цене',
@@ -330,7 +335,8 @@ export default {
       1: true,
       2: false,
       3: false
-    }
+    },
+    range: [0, 500000]
   })
   // $('.range-slider').parents('.range-slider-wrap').find('.from').val(2500 + ' грн');
   // $('.range-slider').parents('.range-slider-wrap').find('.to').val(25000 + ' грн');
@@ -431,9 +437,9 @@ export default {
         background-color: #f7f7f7;
         padding: 20px 17px;
         .marka{
-          border-left: 1px solid #dcdcdc;
           margin-bottom: 19px;
           .multiselect {
+            cursor: pointer;
             .caret {
               position: absolute;
               right: 10px;
@@ -443,13 +449,17 @@ export default {
               cursor: pointer;
             }
             &--active {
-              border: 1px solid #00b9e5;
+              /deep/ .multiselect__content-wrapper {
+                border: 1px solid #00b9e5;
+                border-radius: 5px;
+              }
               .caret {
                 transform: translateY(-50%) rotate(180deg);
+                color: #00b9e5;
               }
             }
             i{
-              font-size: 13px;
+              font-size: 18px;
               line-height: 1;
               z-index: 3;
               color: #000;
@@ -463,42 +473,40 @@ export default {
               padding: 10px;
               display: flex;
               align-items: center;
-              // .multiselect__spinner {
-              //   display: block;
-              //   background-color: #fff;
-              //   color: #000;
-              //   font-size: 16px;
-              //   font-weight: 700;
-              //   text-transform: uppercase;
-              //   margin: 0;
-              // }
+              .multiselect__single {
+                margin-bottom: 0;
+              }
+            }
+            /deep/ .multiselect__option--highlight {
+              color: #242424;
             }
             /deep/ .multiselect__content-wrapper{
               width:  100%;
               .multiselect__element {
                 max-width:  100%;
-              }
-              span.multiselect__option.multiselect__option--highlight {
-                max-width:  100%;
-                background: #fff;
-                height: 34px;
-                display: flex;
-                align-items: center;
-                border-bottom: 1px solid #e8e8e8;
-                span{
-                  color: #242424;
-                  font-size: 16px;
-                  font-weight: 400;
-                  text-transform: uppercase;
-                  transition: all 0.3s;
-                  .multiselect__option {
-                    border-bottom: 1px solid #e8e8e8;
+                span.multiselect__option {
+                  max-width:  100%;
+                  background: #fff;
+                  height: 34px;
+                  display: flex;
+                  align-items: center;
+                  position: relative;
+                  &:before {
+                    border-top: 1px solid #e8e8e8;
+                    position: absolute;
+                    content: '';
+                    width: calc(100% - 24px);
+                    top: 0;
+                    left: 12px;
+                  }
+                  &:hover{
+                    span{
+                      color: #00b9e5;
+                    }
                   }
                 }
-                &:hover{
-                  span{
-                    color: #00b9e5;
-                  }
+                &:first-child span.multiselect__option:before{
+                  border-top: none;
                 }
               }
             }
@@ -517,7 +525,7 @@ export default {
               margin: 0;
             }
             i{
-              font-size: 13px;
+              font-size: 18px;
               line-height: 1;
               z-index: 3;
               color: #000;
@@ -536,14 +544,22 @@ export default {
               color: #242424;
               font-size: 14px;
               font-weight: 400;
-              margin: 0 0 20px 20px;
+              margin-bottom: 20px;
             }
           }
         }
         .price{
-          border-top: 1px solid rgba(40, 40, 40, 0.25);
+          position: relative;
           margin-top: 10px;
           padding-top: 15px;
+          &:before {
+            border-top: 1px solid rgba(40, 40, 40, 0.25);
+            position: absolute;
+            width: calc(100% - 30px);
+            left: 15px;
+            top: 0;
+            content: '';
+          }
           .name-price{
             margin-bottom: 25px;
             cursor: pointer;
@@ -555,7 +571,7 @@ export default {
               margin: 0;
             }
             i{
-              font-size: 13px;
+              font-size: 18px;
               line-height: 1;
               z-index: 3;
               color: #000;
@@ -603,9 +619,17 @@ export default {
           }
         }
         .attribute{
-          border-top: 1px solid rgba(40, 40, 40, 0.25);
+          position: relative;
           margin-top: 10px;
           padding-top: 15px;
+          &:before {
+            border-top: 1px solid rgba(40, 40, 40, 0.25);
+            position: absolute;
+            width: calc(100% - 30px);
+            left: 15px;
+            top: 0;
+            content: '';
+          }
           .name-attribute{
             margin-bottom: 25px;
             cursor: pointer;
@@ -617,7 +641,7 @@ export default {
               margin: 0;
             }
             i{
-              font-size: 13px;
+              font-size: 18px;
               line-height: 1;
               z-index: 3;
               color: #000;
@@ -636,7 +660,7 @@ export default {
               color: #242424;
               font-size: 14px;
               font-weight: 400;
-              margin: 0 0 20px 20px;
+              margin-bottom: 20px;
             }
           }
         }
@@ -880,6 +904,8 @@ export default {
     max-height: 40px;
     overflow: hidden;
     transition: all .3s;
+    padding: 0 15px;
+    margin: 0 -15px;
     .fa-angle-down {
       transform: rotate(180deg);
       transition: all .3s;
@@ -889,6 +915,35 @@ export default {
       .fa-angle-down {
         transform: rotate(0);
       }
+    }
+  }
+  input[type="checkbox"] {
+    display: none;
+    & + label {
+      padding-left: 40px;
+      position: relative;
+      cursor: pointer;
+      &:before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        height: 20px;
+        border: 1px solid rgba(40, 40, 40, 0.5);
+        background: #fff;
+        border-radius: 5px;
+        content: '\f00c';
+        font-family: 'FontAwesome';
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 13px;
+        color: #fff;
+        transition: all .3s;
+      }
+    }
+    &:checked + label:before {
+      color: #00b9e5;
     }
   }
 </style>
