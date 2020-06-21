@@ -393,7 +393,16 @@ export default {
         .marka{
           margin-bottom: 19px;
           .multiselect {
+            border: 1px solid transparent;
+            transition: all .3s;
+            border-radius: 5px;
             cursor: pointer;
+            &:hover {
+              border-color: #00b9e5;
+              .caret {
+                color: #00b9e5;
+              }
+            }
             .caret {
               position: absolute;
               right: 10px;
