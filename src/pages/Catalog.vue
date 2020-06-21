@@ -13,19 +13,26 @@
         >
         <div class="container">
           <div class="row">
-            <div class="col-6 col-xl-8">
+            <div class="col-8">
               <h3>Покупайте запчасти у нас</h3>
               <p>Таким образом постоянное информационно-пропагандистское обеспечение нашей деятельности влечет за собой процесс внедрения и модернизации существенных финансовых и административных условий.</p>
             </div>
-            <div class="col-6 col-xl-4">
+            <div class="col-4">
             </div>
           </div>
         </div>
       </div>
+      <div class="mob-baner d-block d-md-none"
+        :style="{
+          'background-image': `url(${require('@/assets/img/mob-baner.png')})`
+        }"
+      >
+        <h4>Покупайте запчасти <br />у нас</h4>
+      </div>
       <div class="container">
         <div class="catalog-produkt">
           <div class="row">
-            <div class="col-3">
+            <div class="d-none d-xl-block col-xl-3">
               <div class="filter">
                 <div class="marka d-flex align-items-center">
                   <multiselect
@@ -186,55 +193,61 @@
                 </div>
               </div>
             </div>
-            <div class="col-9">
-              <div class="display-filter d-md-flex d-none justify-content-between">
-                <div class="d-flex align-items-center">
-                  <h6>Сортировать:</h6>
-                  <div class="output-by">
-                    <multiselect
-                      v-model="sorting"
-                      :options="['По цене', 'По рейтингу', 'Акционные', 'По новизне', 'По популярности', 'От дешевых к дорогим', 'От дорогих к дешевым']"
-                      :searchable="false"
-                      :allowEmpty="false"
-                      :showLabels="false"
-                      class="sorting"
-                    >
-                      <i
-                        class="fa fa-angle-down caret"
-                        slot="caret"
-                        slot-scope="{ toggle }"
-                        aria-hidden="true"
-                        @mousedown.prevent.stop="toggle"
-                      />
-                    </multiselect>
+            <div class="col-12 col-xl-9">
+              <div class="d-flex">
+                <button class="btn-filter-mob d-block d-xl-none">
+                  <img src="@/assets/img/big-filter.png" alt="big-filter">
+                  <span>Фильтр</span>
+                </button>
+                <div class="display-filter w-100 d-flex justify-content-between">
+                  <div class="d-flex align-items-center">
+                    <h6>Сортировать:</h6>
+                    <div class="output-by">
+                      <multiselect
+                        v-model="sorting"
+                        :options="['По цене', 'По рейтингу', 'Акционные', 'По новизне', 'По популярности', 'От дешевых к дорогим', 'От дорогих к дешевым']"
+                        :searchable="false"
+                        :allowEmpty="false"
+                        :showLabels="false"
+                        class="sorting"
+                      >
+                        <i
+                          class="fa fa-angle-down caret"
+                          slot="caret"
+                          slot-scope="{ toggle }"
+                          aria-hidden="true"
+                          @mousedown.prevent.stop="toggle"
+                        />
+                      </multiselect>
+                    </div>
                   </div>
-                </div>
-                <div class="d-flex align-items-center">
-                  <h6>Вид:</h6>
-                  <div class="page-view">
-                    <button
-                    class="strings"
-                    :class="{ 'active': activePage === 1}"
-                    @click="activePage = 1"
-                    >
-                      <span></span>
-                      <span></span>
-                      <span></span>
-                    </button>
-                    <button
-                      class="blocks"
-                      :class="{ 'active': activePage === 2}"
-                      @click="activePage = 2"
-                    >
-                      <div class="d-flex justify-content-between mb-1">
+                  <div class="d-flex align-items-center">
+                    <h6 class="d-none d-md-block">Вид:</h6>
+                    <div class="page-view">
+                      <button
+                      class="strings d-none d-md-block"
+                      :class="{ 'active': activePage === 1}"
+                      @click="activePage = 1"
+                      >
                         <span></span>
                         <span></span>
-                      </div>
-                      <div class="d-flex justify-content-between">
                         <span></span>
-                        <span></span>
-                      </div>
-                    </button>
+                      </button>
+                      <button
+                        class="blocks"
+                        :class="{ 'active': activePage === 2}"
+                        @click="activePage = 2"
+                      >
+                        <div class="d-flex justify-content-between mb-1">
+                          <span></span>
+                          <span></span>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                          <span></span>
+                          <span></span>
+                        </div>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -258,15 +271,15 @@
                 </div>
               </div>
               <div class="d-flex align-items-center justify-content-between block-more-product">
-                <div class="pages">
+                <div class="pages d-none d-md-flex">
                   <div class="left-right">
                     <BtnBlue text="Пред"/>
                   </div>
                   <button type="button" class="fl active" href="#">1</button>
                   <button type="button" class="fl" href="#">2</button>
-                  <button type="button" class="fl active" href="#">3</button>
-                  <button type="button" class="fl" href="#">4</button>
-                  <button type="button" class="fl" href="#">5</button>
+                  <button type="button" class="fl" href="#">3</button>
+                  <button type="button" class="fl d-none d-xl-block" href="#">4</button>
+                  <button type="button" class="fl d-none d-xl-block" href="#">5</button>
                   <button type="button" class="fl" href="#">...</button>
                   <button type="button" class="fl" href="#">20</button>
                   <div class="left-right">
@@ -373,8 +386,41 @@ export default {
         max-width: 655px;
         margin: 0;
         @media (max-width: 1199px){
-          max-width: 430px;
+          max-width: 500px;
           font-size: 14px;
+        }
+      }
+      @media (max-width: 993px){
+        background-position-x: 57%;
+        h3{
+          font-size: 30px;
+        }
+        p{
+          font-size: 13px;
+        }
+      }
+    }
+    .mob-baner{
+      background-size: cover;
+      padding: 60px 0 50px;
+      h4{
+        color: #ffffff;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 30px;
+        text-transform: uppercase;
+        text-align: center;
+        position: relative;
+        margin: 0;
+        &::before{
+          position: absolute;
+          content: '';
+          width: 106px;
+          height: 4px;
+          background-color: #00b9e5;
+          left: 50%;
+          transform: translateX(-50%);
+          top: -25px;
         }
       }
     }
@@ -595,6 +641,32 @@ export default {
           }
         }
       }
+      .btn-filter-mob{
+        width: 150px;
+        height: 54px;
+        box-shadow: 1px 2px 0 #068fb0;
+        border-radius: 5px;
+        background-color: #00b9e5;
+        border: none;
+        margin-right: 9px;
+        color: #ffffff;
+        font-size: 16px;
+        font-weight: 700;
+        text-transform: uppercase;
+        img{
+          margin-right: 15px;
+        }
+        @media (max-width: 767px){
+          width: 45px;
+          height: 45px;
+          img{
+            margin: 0;
+          }
+          span{
+            display: none;
+          }
+        }
+      }
       .display-filter {
         border-radius: 5px;
         background-color: #f6f6f6;
@@ -709,6 +781,9 @@ export default {
             }
           }
         }
+        @media (max-width: 767px){
+          height: 46px;
+        }
       }
       .produkts{
         margin-top: 30px;
@@ -718,7 +793,6 @@ export default {
         border-top: 2px solid #e8e8e8;
         padding-top: 35px;
         .pages{
-          display: flex;
           .left-right{
             .btn-blue{
               width: 77px;
@@ -727,6 +801,10 @@ export default {
               &:hover{
                 background-color: #1c7d94;
                 color: #fff;
+              }
+              @media (max-width: 993px){
+                width: 70px;
+                font-size: 14px;
               }
             }
           }
@@ -743,6 +821,10 @@ export default {
             &.active{
               background-color: #00b9e5;
               color: #fff;
+            }
+            @media (max-width: 993px){
+              width: 29px;
+              font-size: 14px;
             }
           }
         }
@@ -763,6 +845,17 @@ export default {
             background: #00b9e5;
             color: #fff;
           }
+          @media (max-width: 993px){
+            width: 290px;
+          }
+          @media (max-width: 767px){
+            width: 100%;
+          }
+        }
+        @media (max-width: 767px){
+          border: none;
+          padding: 0;
+          margin-top: 50px;
         }
       }
       .block-info-text{
@@ -775,6 +868,12 @@ export default {
           opacity: 0.64;
         }
       }
+    }
+    @media (max-width: 993px){
+      padding-bottom: 50px;
+    }
+    @media (max-width: 767px){
+      padding-top: 50px;
     }
   }
   .collapse-section {

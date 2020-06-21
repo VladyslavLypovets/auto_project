@@ -12,6 +12,7 @@ import AdminUserBasicData from '@/pages/AdminUserBasicData.vue'
 import AdminUser from '@/pages/AdminUser.vue'
 import Contacts from '@/pages/Contacts.vue'
 import Navigation from '@/pages/Navigation.vue'
+import CartTovar from '@/pages/CartTovar.vue'
 
 Vue.use(VueRouter)
 
@@ -75,6 +76,11 @@ const routes = [
     path: '/contacts',
     name: 'Contacts',
     component: Contacts
+  },
+  {
+    path: '/carttovar',
+    name: 'CartTovar',
+    component: CartTovar
   }
 ]
 
