@@ -13,7 +13,7 @@
             <div class="col-5">
               <div class="block-img-tovar">
                 <img src="@/assets/img/img-cart-tovar.png" alt="img-cart-tovar" class="img-cart-tovar">
-                <button class="btn-loupe">
+                <button class="btn-loupe" @mouseup="open()">
                   <i class="fa fa-search" aria-hidden="true"></i>
                 </button>
               </div>
@@ -303,6 +303,13 @@
           </div>
         </div>
       </div>
+      <div class="fancy-box-wrap" :class="{'open': fancyOpen}">
+        <div class="fancy-box" :class="{'open': fancyOpen}">
+          <i class="fa fa-times" @click="fancyOpen = false"></i>
+          <img src="@/assets/img/img-cart-tovar.png" alt="img-cart-tovar">
+        </div>
+        <div class="overlay" @click="fancyOpen = false"></div>
+      </div>
     </main>
     <Footer />
   </div>
@@ -321,8 +328,14 @@ export default {
     Footer
   },
   data: () => ({
-    navText: ['<i class="fa fa-angle-left" aria-hidden="true"/>', '<i class="fa fa-angle-right" aria-hidden="true"/>']
-  })
+    navText: ['<i class="fa fa-angle-left" aria-hidden="true"/>', '<i class="fa fa-angle-right" aria-hidden="true"/>'],
+    fancyOpen: false
+  }),
+  methods: {
+    open () {
+      this.fancyOpen = true
+    }
+  }
 }
 </script>
 
@@ -405,7 +418,6 @@ export default {
         .btn-buy{
           width: 235px;
           height: 55px;
-          box-shadow: 1px 2px 0 #068fb0;
           border-radius: 5px;
           background-color: #068fb0;
           color: #ffffff;
@@ -677,7 +689,6 @@ export default {
                 border: none;
                 width: 100%;
                 height: 43px;
-                box-shadow: 1px 2px 0 #068fb0;
                 border-radius: 5px;
                 background-color: #00b9e5;
                 color: #ffffff;
@@ -726,6 +737,64 @@ export default {
             }
           }
         }
+      }
+    }
+    .fancy-box-wrap {
+      .fancy-box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+        padding: 15px;
+        position: fixed;
+        top: 50px;
+        left: 5%;
+        width: 90%;
+        height: calc(100vh - 100px);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity .3s;
+        z-index: 5;
+        background: #fff;
+        border-radius: 10px;
+        img {
+          width: 80%;
+          height: 100%;
+          object-fit: contain;
+        }
+        i {
+          position: absolute;
+          color: #000;
+          opacity: 0.6;
+          right: 20px;
+          top: 20px;
+          font-size: 20px;
+          cursor: pointer;
+          transition: all .3s;
+          &:hover {
+            opacity: 1;
+          }
+        }
+        &.open{
+          opacity: 1;
+          pointer-events: unset;
+        }
+      }
+      .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100vw;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 4;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity .3s;
+      }
+      &.open .overlay{
+        opacity: 1;
+        pointer-events: unset;
       }
     }
   }

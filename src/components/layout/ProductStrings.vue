@@ -152,7 +152,6 @@ export default {
     .btn-buy{
       width: 141px;
       height: 43px;
-      box-shadow: 1px 2px 0 #068fb0;
       border-radius: 5px;
       border: none;
       background-color: #00b9e5;
