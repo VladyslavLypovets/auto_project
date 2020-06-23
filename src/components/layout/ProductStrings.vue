@@ -63,7 +63,7 @@ export default {
     text-decoration: none;
     transition: all 0.3s;
     &:hover {
-      transform: scale(1.003);
+      transform: scale(1.005);
     }
     .img-product{
       width: 100%;

@@ -354,7 +354,6 @@ export default {
   },
   methods: {
     watchMobile () {
-      console.log('here')
       if (window.innerWidth < 767) {
         this.activeView = 2
       }
@@ -449,6 +448,9 @@ export default {
         border-radius: 5px;
         background-color: #f7f7f7;
         padding: 20px 17px;
+        /deep/ .multiselect__placeholder {
+          margin-bottom: 0;
+        }
         .marka{
           margin-bottom: 19px;
           .multiselect {
