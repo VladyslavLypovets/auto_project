@@ -13,14 +13,20 @@
       <img src="@/assets/img/bread-crumbs-arrow.png" alt="bread-crumbs-arrow">
     </div>
     <div class="block-current-page">
-      <p>Страницы</p>
+      <p>{{ current }}</p>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'BreadCrumbs'
+  name: 'BreadCrumbs',
+  props: {
+    current: {
+      type: String,
+      default: 'Страницы'
+    }
+  }
 }
 </script>
 

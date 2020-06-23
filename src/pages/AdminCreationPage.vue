@@ -21,9 +21,14 @@
           </div>
           <div class="col-12 col-xl-8">
             <div class="creation-page">
-              <div class="language-switch d-flex">
-                <button class="language active">UA</button>
-                <button class="language">RU</button>
+              <div class="d-flex align-items-center justify-content-between flex-wrap">
+                <div class="language-switch d-flex">
+                  <button class="language active">UA</button>
+                  <button class="language">RU</button>
+                </div>
+                <div class="save">
+                  <BtnBlue text="Сохранить"/>
+                </div>
               </div>
               <InputAdmin text="Название страницы" id="page-name"/>
               <FileAdmin text="Изображение баннера" id="baner-img"/>
@@ -131,6 +136,10 @@ export default {
       padding-bottom: 50px;
       .block-admin-creation{
         .creation-page{
+          .save{
+            width: 100%;
+            margin-bottom: 15px;
+          }
           .btn-blue{
             width: 100%;
             margin-left: 0;

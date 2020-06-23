@@ -13,6 +13,8 @@ import AdminUser from '@/pages/AdminUser.vue'
 import Contacts from '@/pages/Contacts.vue'
 import Navigation from '@/pages/Navigation.vue'
 import Product from '@/pages/Product.vue'
+import AdminPartners from '@/pages/AdminPartners.vue'
+import AbminProducts from '@/pages/AbminProducts.vue'
 
 Vue.use(VueRouter)
 
@@ -81,6 +83,16 @@ const routes = [
     path: '/product',
     name: 'Product',
     component: Product
+  },
+  {
+    path: '/adminpartners',
+    name: 'AdminPartners',
+    component: AdminPartners
+  },
+  {
+    path: '/abminproducts',
+    name: 'AbminProducts',
+    component: AbminProducts
   }
 ]
 
