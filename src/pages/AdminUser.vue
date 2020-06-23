@@ -10,122 +10,122 @@
         <BreadCrumbs />
         <div class="block-user">
           <div class="row">
-          <div class=" d-block col-4 col-xl-2">
-            <MenuAdmin />
-          </div>
-          <div class="col-12 col-md-8 col-xl-10">
-            <h4>Пользователи</h4>
-            <h6>Все пользователи</h6>
-            <table class="table table-striped table-user">
-              <thead>
-                <tr>
-                  <th scope="col">Логин</th>
-                  <th scope="col">Статус</th>
-                  <th scope="col">Дата добавления</th>
-                  <th scope="col"></th>
-                  <th scope="col"></th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">VAG</th>
-                  <td>19.03.20</td>
-                  <td class="date-added">1F0 129 620</td>
-                  <td>
-                    <button class="btn-edit">
-                      Редактировать
-                      <i class="fa fa-pencil" aria-hidden="true"></i>
-                    </button>
-                  </td>
-                  <td class="d-flex justify-content-end delete-produkt">
-                    <button class="delete">
-                      <img src="@/assets/img/delete.png" alt="delete">
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">VAG</th>
-                  <td>19.03.20</td>
-                  <td class="date-added">1F0 129 620</td>
-                  <td>
-                    <button class="btn-edit">
-                      Редактировать
-                      <i class="fa fa-pencil" aria-hidden="true"></i>
-                    </button>
-                  </td>
-                  <td class="d-flex justify-content-end delete-produkt">
-                    <button class="delete">
-                      <img src="@/assets/img/delete.png" alt="delete">
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">VAG</th>
-                  <td>19.03.20</td>
-                  <td class="date-added">1F0 129 620</td>
-                  <td>
-                    <button class="btn-edit">
-                      Редактировать
-                      <i class="fa fa-pencil" aria-hidden="true"></i>
-                    </button>
-                  </td>
-                  <td class="d-flex justify-content-end delete-produkt">
-                    <button class="delete">
-                      <img src="@/assets/img/delete.png" alt="delete">
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">VAG</th>
-                  <td>19.03.20</td>
-                  <td class="date-added">1F0 129 620</td>
-                  <td>
-                    <button class="btn-edit">
-                      Редактировать
-                      <i class="fa fa-pencil" aria-hidden="true"></i>
-                    </button>
-                  </td>
-                  <td class="d-flex justify-content-end delete-produkt">
-                    <button class="delete">
-                      <img src="@/assets/img/delete.png" alt="delete">
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">VAG</th>
-                  <td>19.03.20</td>
-                  <td class="date-added">1F0 129 620</td>
-                  <td>
-                    <button class="btn-edit">
-                      Редактировать
-                      <i class="fa fa-pencil" aria-hidden="true"></i>
-                    </button>
-                  </td>
-                  <td class="d-flex justify-content-end delete-produkt">
-                    <button class="delete">
-                      <img src="@/assets/img/delete.png" alt="delete">
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">VAG</th>
-                  <td>19.03.20</td>
-                  <td class="date-added">1F0 129 620</td>
-                  <td>
-                    <button class="btn-edit">
-                      Редактировать
-                      <i class="fa fa-pencil" aria-hidden="true"></i>
-                    </button>
-                  </td>
-                  <td class="d-flex justify-content-end delete-produkt">
-                    <button class="delete">
-                      <img src="@/assets/img/delete.png" alt="delete">
-                    </button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+            <div class=" d-block col-4 col-xl-2">
+              <MenuAdmin />
+            </div>
+            <div class="col-12 col-md-8 col-xl-10">
+              <h4>Пользователи</h4>
+              <h6>Все пользователи</h6>
+              <table class="table table-striped table-user">
+                <thead>
+                  <tr>
+                    <th scope="col">Логин</th>
+                    <th scope="col">Статус</th>
+                    <th scope="col">Дата добавления</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">VAG</th>
+                    <td>19.03.20</td>
+                    <td class="date-added">1F0 129 620</td>
+                    <td>
+                      <button class="btn-edit">
+                        Редактировать
+                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                      </button>
+                    </td>
+                    <td class="d-flex justify-content-end delete-produkt">
+                      <button class="delete">
+                        <img src="@/assets/img/delete.png" alt="delete">
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">VAG</th>
+                    <td>19.03.20</td>
+                    <td class="date-added">1F0 129 620</td>
+                    <td>
+                      <button class="btn-edit">
+                        Редактировать
+                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                      </button>
+                    </td>
+                    <td class="d-flex justify-content-end delete-produkt">
+                      <button class="delete">
+                        <img src="@/assets/img/delete.png" alt="delete">
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">VAG</th>
+                    <td>19.03.20</td>
+                    <td class="date-added">1F0 129 620</td>
+                    <td>
+                      <button class="btn-edit">
+                        Редактировать
+                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                      </button>
+                    </td>
+                    <td class="d-flex justify-content-end delete-produkt">
+                      <button class="delete">
+                        <img src="@/assets/img/delete.png" alt="delete">
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">VAG</th>
+                    <td>19.03.20</td>
+                    <td class="date-added">1F0 129 620</td>
+                    <td>
+                      <button class="btn-edit">
+                        Редактировать
+                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                      </button>
+                    </td>
+                    <td class="d-flex justify-content-end delete-produkt">
+                      <button class="delete">
+                        <img src="@/assets/img/delete.png" alt="delete">
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">VAG</th>
+                    <td>19.03.20</td>
+                    <td class="date-added">1F0 129 620</td>
+                    <td>
+                      <button class="btn-edit">
+                        Редактировать
+                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                      </button>
+                    </td>
+                    <td class="d-flex justify-content-end delete-produkt">
+                      <button class="delete">
+                        <img src="@/assets/img/delete.png" alt="delete">
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">VAG</th>
+                    <td>19.03.20</td>
+                    <td class="date-added">1F0 129 620</td>
+                    <td>
+                      <button class="btn-edit">
+                        Редактировать
+                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                      </button>
+                    </td>
+                    <td class="d-flex justify-content-end delete-produkt">
+                      <button class="delete">
+                        <img src="@/assets/img/delete.png" alt="delete">
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
         </div>
         </div>
       </div>

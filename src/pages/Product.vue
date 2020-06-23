@@ -10,7 +10,7 @@
         <BreadCrumbs />
         <div class="block-tovar">
           <div class="row">
-            <div class="col-5">
+            <div class="col-12 col-xl-5">
               <div class="block-img-tovar">
                 <img src="@/assets/img/img-cart-tovar.png" alt="img-cart-tovar" class="img-cart-tovar">
                 <button class="btn-loupe">
@@ -18,8 +18,9 @@
                 </button>
               </div>
             </div>
-            <div class="col-7">
+            <div class="col-12 col-xl-7">
               <div class="block-info-tovar">
+                <p class="mob-articul d-block d-md-none">Артикул: 4526358</p>
                 <p class="name-tovar">
                   Название запчасти обычно в две строки и не вмещается
                 </p>
@@ -28,7 +29,7 @@
                     <p class="price">3000-3250 <span>грн</span></p>
                     <p class="info-price">уточнение почему две цены </p>
                   </div>
-                  <div class="artikul">
+                  <div class="artikul d-none d-md-flex">
                     <p>Артикул: 4526358</p>
                   </div>
                 </div>
@@ -39,12 +40,11 @@
                 <div class="block-description">
                   <div class="description">
                     <h6>Описание</h6>
-                    <p>Таким образом постоянное информационно-пропагандистское обеспечение нашей деятельности влечет за собой процесс внедрения и модернизации существенных финансовых и административных условий.</p>
-                    <p>Не следует, однако забывать, что постоянный количественный рост и сфера нашей активности позволяет оценить значение позиций, занимаемых участниками в отношении поставленных задач.</p>
+                    <TextReadMore :text="text" :height="98"/>
                   </div>
                   <div class="block-dostavka">
                     <div class="dostavka">
-                      <div class="d-flex align-items-center">
+                      <div class="d-flex align-items-center position-relative">
                         <h5>Доставка </h5>
                         <div class="dop-info">
                           <i class="fa fa-exclamation-circle fa-dop-info" aria-hidden="true"></i>
@@ -70,7 +70,7 @@
                       </ul>
                     </div>
                     <div class="pay">
-                      <div class="d-flex align-items-center">
+                      <div class="d-flex align-items-center position-relative">
                         <h5>Оплата</h5>
                         <div class="dop-info">
                           <i class="fa fa-exclamation-circle fa-dop-info" aria-hidden="true"></i>
@@ -88,7 +88,7 @@
                       </ul>
                     </div>
                     <div class="guarantee">
-                      <div class="d-flex align-items-center">
+                      <div class="d-flex align-items-center position-relative">
                         <h5>Гарантия</h5>
                         <div class="dop-info">
                           <i class="fa fa-exclamation-circle fa-dop-info" aria-hidden="true"></i>
@@ -113,7 +113,7 @@
         </div>
         <div class="table-block">
           <div class="row">
-            <div class="col-6">
+            <div class="col-12 col-md-6">
               <div class="characteristic">
                 <h6>Характеристики автозапчасти</h6>
                 <table class="table table-striped table-characteristic">
@@ -160,9 +160,25 @@
                 </table>
               </div>
             </div>
-            <div class="col-6">
+            <div class="col-12 col-md-6">
               <div class="original-number">
                 <h6>Оригинальные номера</h6>
+                <multiselect
+                  v-model="sorting"
+                  :options="['VAG', 'VAG', 'VAG', 'VAG']"
+                  :searchable="false"
+                  :allowEmpty="false"
+                  :showLabels="false"
+                  class="multiselect-original-number"
+                >
+                  <i
+                    class="fa fa-angle-down caret"
+                    slot="caret"
+                    slot-scope="{ toggle }"
+                    aria-hidden="true"
+                    @mousedown.prevent.stop="toggle"
+                  />
+                </multiselect>
                 <table class="table table-striped table-original-number">
                   <thead>
                     <tr>
@@ -203,7 +219,7 @@
                 </table>
               </div>
             </div>
-            <div class="col-6">
+            <div class="col-12 col-md-6">
               <div class="applicability">
                 <h6>Применяемость запчасти</h6>
                 <table class="table table-striped table-applicability">
@@ -251,7 +267,7 @@
               </div>
 
             </div>
-            <div class="col-6">
+            <div class="col-12 col-md-6">
               <div class="analog-zapchasti">
                 <h6>Аналоги запчасти</h6>
                 <Carousel
@@ -260,9 +276,10 @@
                   :dots="false"
                   :navText="navText"
                 >
-                  <div class="items" v-for="index in new Array(8)" :key="index">
+                <div v-for="i in new Array(3)" :key="i" class="items-wrap">
+                  <div class="items" v-for="index in itemsInColumn" :key="index">
                     <div class="analog-tovar">
-                      <div class="d-flex align-items-center">
+                      <div class="d-flex align-items-start align-items-xl-center w-100 w-xl-unset">
                         <div class="img-tovar">
                           <img src="@/assets/img/img-product-catalog.png" alt="img-product-catalog">
                         </div>
@@ -284,19 +301,7 @@
                       </div>
                     </div>
                   </div>
-                  <!-- <div class="items" v-for="index in new Array(8)" :key="index">
-                    <div class="analog-tovar">
-                      <div class="img-tovar">
-                        <img src="@/assets/img/img-product-catalog.png" alt="img-product-catalog">
-                      </div>
-                      <div class="block-name">
-                        <div class="artikul">
-                          <p>Артикул: 4526358</p>
-                        </div>
-                        <p class="name-tovar">Название запчасти обычно в две строки и не вмещается</p>
-                      </div>
-                    </div>
-                  </div> -->
+                </div>
                 </Carousel>
               </div>
             </div>
@@ -312,17 +317,35 @@
 import Header from '@/components/layout/Header.vue'
 import Footer from '@/components/layout/Footer.vue'
 import BreadCrumbs from '@/components/layout/BreadCrumbs.vue'
+import TextReadMore from '@/components/layout/TextReadMore.vue'
 
 export default {
   name: 'Product',
   components: {
     Header,
     BreadCrumbs,
-    Footer
+    Footer,
+    TextReadMore
   },
   data: () => ({
-    navText: ['<i class="fa fa-angle-left" aria-hidden="true"/>', '<i class="fa fa-angle-right" aria-hidden="true"/>']
-  })
+    navText: ['<i class="fa fa-angle-left" aria-hidden="true"/>', '<i class="fa fa-angle-right" aria-hidden="true"/>'],
+    sorting: 'VAG',
+    itemsInColumn: new Array(3),
+    text: ' <p>Таким образом постоянное информационно-пропагандистское обеспечение нашей деятельности влечет за собой процесс внедрения и модернизации существенных финансовых и административных условий.</p><p>Не следует, однако забывать, что постоянный количественный рост и сфера нашей активности позволяет оценить значение позиций, занимаемых участниками в отношении поставленных задач.</p>'
+  }),
+  created () {
+    this.resize()
+    window.addEventListener('resize', this.resize)
+  },
+  methods: {
+    resize () {
+      if (window.innerWidth > 1199) {
+        this.itemsInColumn = new Array(3)
+      } else if (window.innerWidth <= 1199) {
+        this.itemsInColumn = new Array(2)
+      }
+    }
+  }
 }
 </script>
 
@@ -343,6 +366,7 @@ export default {
         background-color: #ffffff;
         padding: 25px;
         position: relative;
+        height: 100%;
         img{
           width: 100%;
         }
@@ -365,9 +389,18 @@ export default {
               color: #007bff;;
             }
           }
+          &:focus{
+            outline: none;
+          }
         }
       }
       .block-info-tovar{
+        .mob-articul{
+          color: #424242;
+          font-size: 14px;
+          font-weight: 400;
+          margin: 20px 0 10px;
+        }
         .name-tovar{
           color: #242424;
           font-size: 24px;
@@ -436,11 +469,15 @@ export default {
               font-weight: 700;
               margin-bottom: 30px;
             }
-            p{
+            /deep/ p{
               color: #676767;
               font-size: 16px;
               font-weight: 400;
               line-height: 25px;
+              @media (max-width: 1199px){
+                font-size: 14px;
+                line-height: 23px;
+              }
             }
           }
           .block-dostavka{
@@ -482,9 +519,7 @@ export default {
                 color: #120d09;
                 z-index: 3;
                 box-shadow: 0 0 14px 1px rgba(117, 117, 117, 0.18);
-                transform: translateY(-120%);
-                bottom: 0;
-                right: 9%;
+                border-radius: 7px;
                 h4{
                   color: #00b9e5;
                   font-weight: 700;
@@ -497,6 +532,17 @@ export default {
                   font-weight: 400;
                   margin: 0;
                 }
+                &:before {
+                  content: '';
+                  position: absolute;
+                  border: 16px solid transparent;
+                  top: -9px;
+                  left: 25px;
+                  background: #fff;
+                  transform: rotate(45deg);
+                  z-index: -2;
+                }
+
               }
               ul{
                 padding: 0;
@@ -504,10 +550,116 @@ export default {
                   list-style: none;
                   display: flex;
                   align-items: center;
+                  color: #676767;
+                  font-size: 16px;
+                  font-weight: 400;
                   img{
                     margin-right: 10px;
                   }
                 }
+              }
+            }
+            .dostavka{
+              .dop-info-text{
+                bottom: -128px;
+                right: 65px;
+              }
+            }
+            .pay{
+              .dop-info-text{
+                bottom: -128px;
+                right: 82px;
+              }
+            }
+            .guarantee{
+              .dop-info-text{
+                bottom: -128px;
+                right: 65px;
+              }
+            }
+            @media (max-width: 1199px){
+              .dop-info-text{
+                width: 265px;
+                padding: 10px;
+              }
+              .dostavka{
+                .dop-info-text{
+                  right: -26px;
+                }
+              }
+              .pay{
+                .dop-info-text{
+                  right: -8px;
+                }
+              }
+              .guarantee{
+                .dop-info-text{
+                  right: -23px;
+                }
+              }
+            }
+          }
+        }
+      }
+      @media (max-width: 1199px){
+        margin-top: 30px;
+        .block-info-tovar{
+          .price{
+            margin-bottom: 0;
+          }
+          .name-tovar{
+            margin-bottom: 10px;
+          }
+          .info-price{
+            margin-bottom: 20px;
+          }
+          .block-description .description p{
+            font-size: 14px;
+            line-height: 25px;
+          }
+        }
+      }
+      @media (max-width: 767px){
+        margin-top: 20px;
+        .btn-loupe{
+          display: none;
+        }
+        .block-info-tovar{
+          .price{
+            font-size: 24px;
+          }
+          .name-tovar{
+            font-size: 18px;
+          }
+          .info-price{
+            font-size: 14px;
+          }
+          .btn-buy{
+            margin: 0 auto;
+            display: block;
+          }
+          .block-description{
+            margin-top: 30px;
+            flex-wrap: wrap;
+            .description{
+              width: 100%;
+              padding: 0;
+              h6{
+                font-size: 18px;
+                margin-bottom: 20px;
+              }
+            }
+            .block-dostavka{
+              border: none;
+              padding: 0;
+              width: 100%;
+              margin-top: 30px;
+              .dop-info{
+                display: none;
+              }
+              .dostavka ul li{
+                margin-bottom: 8px;
+                font-size: 14px;
               }
             }
           }
@@ -534,6 +686,9 @@ export default {
             font-size: 16px;
             font-weight: 700;
             border: none;
+            &:last-child{
+              padding-left: 0.75rem;
+            }
           }
           td{
             border: none;
@@ -555,6 +710,66 @@ export default {
         }
       }
       .original-number{
+        .multiselect{
+          width: unset;
+        }
+        .multiselect-original-number {
+          min-height: unset;
+          height: 50px;
+          border-radius: 5px 5px 0 0;
+          border: 1px solid #e8e8e8;
+          background-color: #ffffff;
+          display: flex;
+          align-items: center;
+          .caret {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            transition: all .3s;
+            color: #00b9e5;
+            @media (max-width: 767px){
+              right: 5px;
+            }
+          }
+          &.multiselect--active {
+            .caret {
+              transform: translateY(-50%) rotate(180deg);
+            }
+          }
+          /deep/ .multiselect__tags {
+            padding: 0;
+            border: none;
+            background: none;
+            min-height: unset;
+            @media (max-width: 767px){
+              padding-right: 20px;
+            }
+            .multiselect__single {
+              color: #333333;
+              font-size: 14px;
+              font-weight: 400;
+              text-transform: uppercase;
+              background: none;
+              margin-bottom: 0;
+              border-radius: 0;
+              padding-left: 30px;
+              @media (max-width: 993px){
+                padding-left: 13px;
+              }
+            }
+          }
+          /deep/ .multiselect__content-wrapper {
+            min-width: 230px;
+            .multiselect__option--highlight {
+              background: #00b9e5;
+            }
+            .multiselect__option--selected {
+              background: #fff;
+              color: #000;
+            }
+          }
+        }
         h6{
           color: #242424;
           font-size: 24px;
@@ -614,87 +829,101 @@ export default {
         }
         .carousel-analog-tovar{
           position: relative;
-          .analog-tovar{
-            box-shadow: 1px 2px 24px rgba(0, 0, 0, 0.11);
-            border-radius: 5px;
-            background-color: #ffffff;
-            height: 130px;
-            padding: 19px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin: 10px 2px;
-            .img-tovar{
-              max-width: 155px;
+          .items-wrap {
+            padding: 10px 5px;
+            .items{
+              margin-bottom: 21px;
+              &:last-child {
+                margin-bottom: 0;
+              }
+            }
+            .analog-tovar{
+              box-shadow: 0 0 9px 2px rgba(0, 0, 0, 0.11);
               border-radius: 5px;
-              height: 85px;
-              border: 1px solid #dfdfdf;
               background-color: #ffffff;
-              margin: 20px;
+              height: 130px;
+              padding: 19px;
               display: flex;
               align-items: center;
-              justify-content: center;
-              img{
-                width: 60%;
-              }
-            }
-            .block-name{
-              .artikul{
-                max-width: 160px;
+              justify-content: space-between;
+              .img-tovar{
+                max-width: 155px;
                 border-radius: 5px;
+                height: 85px;
                 border: 1px solid #dfdfdf;
-                background-color: #f6f6f6;
-                padding: 7px 10px;
-                margin-bottom: 7px;
-                p{
-                  color: #424242;
-                  font-size: 14px;
-                  font-weight: 400;
-                  margin: 0;
-                  line-height: 1;
-                  text-align: center;
-                }
-              }
-              .name-tovar{
-                color: #242424;
-                font-size: 16px;
-                font-weight: 700;
-                margin: 0;
-                max-width: 270px;
-              }
-            }
-            .block-buy{
-              .price{
-                color: #242424;
-                font-size: 20px;
-                font-weight: 700;
-                margin-bottom: 15px;
-              }
-              .btn-buy{
+                background-color: #ffffff;
+                margin-right: 20px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                border: none;
-                width: 100%;
-                height: 43px;
-                box-shadow: 1px 2px 0 #068fb0;
-                border-radius: 5px;
-                background-color: #00b9e5;
-                color: #ffffff;
-                font-size: 16px;
-                font-weight: 700;
-                text-transform: uppercase;
-                transition: all 0.3s;
                 img{
-                  margin-right: 15px;
-                  width: 25px;
-                  height: 25px;
+                  width: 60%;
                 }
-                &:hover{
-                  background-color: #1f7a90;
+              }
+              .block-name{
+                .artikul{
+                  max-width: 160px;
+                  border-radius: 5px;
+                  border: 1px solid #dfdfdf;
+                  background-color: #f6f6f6;
+                  padding: 7px 10px;
+                  margin-bottom: 7px;
+                  p{
+                    color: #424242;
+                    font-size: 14px;
+                    font-weight: 400;
+                    margin: 0;
+                    line-height: 1;
+                    text-align: center;
+                  }
                 }
-                &:focus{
-                  outline: none;
+                .name-tovar{
+                  color: #242424;
+                  font-size: 16px;
+                  font-weight: 700;
+                  margin: 0;
+                  max-width: 270px;
+                  @media (max-width: 1599px){
+                    font-size: 14px;
+                  }
+                }
+              }
+              .block-buy{
+                .price{
+                  color: #242424;
+                  font-size: 20px;
+                  font-weight: 700;
+                  margin-bottom: 15px;
+                   @media (max-width: 1599px){
+                    font-size: 15px;
+                  }
+                }
+                .btn-buy{
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  border: none;
+                  width: 100%;
+                  height: 43px;
+                  box-shadow: 1px 2px 0 #068fb0;
+                  border-radius: 5px;
+                  background-color: #00b9e5;
+                  color: #ffffff;
+                  font-size: 16px;
+                  font-weight: 700;
+                  text-transform: uppercase;
+                  transition: all 0.3s;
+                  img{
+                    margin-right: 15px;
+                    width: 25px;
+                    height: 25px;
+                  }
+                  &:hover{
+                    background-color: #1f7a90;
+                  }
+                  &:focus{
+                    outline: none;
+                  }
                 }
               }
             }
@@ -704,12 +933,14 @@ export default {
             background: none;
             color: #00b9e5;
             right: 40px;
-            font-size: 20px;
-            top: -30px;
+            font-size: 25px;
+            top: -62px;
             transition: all 0.3s;
             &:hover{
-              transform: scale(1.02);
-              color: #1c697b;
+              i{
+                transform: scale(1.2);
+                color: #1c697b;
+              }
             }
           }
           /deep/ .owl-next{
@@ -717,16 +948,235 @@ export default {
             background: none;
             color: #00b9e5;
             right: 0;
-            font-size: 20px;
-            top: -30px;
+            font-size: 25px;
+            top: -62px;
             transition: all 0.3s;
             &:hover{
-              transform: scale(1.2);
-              color: #1c697b;
+              i{
+                transform: scale(1.2);
+                color: #1c697b;
+              }
+            }
+            &::before{
+              width: 1px;
+              height: 35px;
+              background-color: #dfdfdf;
+              content: '';
+              position: absolute;
+              left: -9px;
+              top: 5px;
             }
           }
         }
       }
+      @media (max-width: 1199px){
+        .characteristic,
+        .applicability,
+        .original-number,
+        .analog-zapchasti{
+          h6{
+            font-size: 18px;
+            margin-bottom: 25px;
+          }
+          .table-characteristic{
+            th,
+            td{
+              font-size: 13px;
+            }
+          }
+          .table-original-number,
+          .table-applicability{
+            thead{
+              tr th{
+                font-size: 14px;
+                line-height: 1;
+                &:last-child{
+                  padding-left: 0;
+                }
+              }
+            }
+            tbody tr{
+              th, td{
+                font-size: 15px;
+              }
+              td{
+                padding-left: 0;
+              }
+            }
+          }
+        }
+        .analog-zapchasti{
+          h6{
+            margin-bottom: 17px;
+          }
+          .carousel-analog-tovar .items-wrap .analog-tovar{
+            flex-wrap: wrap;
+            height: 196px;
+            .img-tovar{
+              max-width: 90px;
+              height: 105px;
+            }
+            .block-buy{
+              width: 100%;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              .price{
+                font-size: 18px;
+                white-space: nowrap;
+                margin-right: 25px;
+                margin-bottom: 0;
+              }
+              .btn-buy{
+                max-width: 145px;
+              }
+            }
+          }
+        }
+      }
+      @media (max-width: 993px){
+        .characteristic,
+        .applicability,
+        .original-number,
+        .analog-zapchasti{
+          .table-characteristic{
+            th,
+            td{
+              font-size: 13px;
+              padding-left: 12px;
+            }
+          }
+          .table-original-number,
+          .table-applicability{
+            thead{
+              tr th{
+                font-size: 13px;
+                padding-left: 12px;
+                line-height: 1;
+                &:last-child{
+                  padding-left: 0;
+                }
+              }
+            }
+            tbody tr{
+              th, td{
+                font-size: 13px;
+                padding: 12px 12px;
+                white-space: nowrap;
+              }
+              td{
+                padding-left: 0;
+              }
+            }
+          }
+        }
+      }
+      @media (max-width: 767px){
+        margin-top: 30px;
+        .characteristic,
+        .original-number{
+          margin-bottom: 30px;
+        }
+        .applicability{
+          margin: 0 0 30px;
+        }
+        .analog-zapchasti{
+          margin: 0;
+          .carousel-analog-tovar{
+            /deep/.owl-prev {
+              top: -54px;
+            }
+            /deep/ .owl-next{
+              top: -54px;
+            }
+            .items-wrap .analog-tovar{
+              padding: 10px;
+              .img-tovar{
+                max-width: 100px;
+                width: 100px;
+                height: 93px;
+                margin-right: 15px;
+              }
+              .block-name{
+                .artikul{
+                  background: none;
+                  border: none;
+                  padding: 0;
+                  p{
+                    text-align: start;
+                  }
+                }
+                .name-tovar{
+                  font-size: 15px;
+                }
+              }
+              .block-buy .btn-buy{
+                font-size: 14px;
+                img{
+                  margin-right: 8px;
+                  width: 20px;
+                  height: 20px;
+                }
+              }
+            }
+          }
+        }
+        .characteristic,
+        .applicability,
+        .original-number,
+        .analog-zapchasti{
+          .table-characteristic{
+            th,
+            td{
+              font-size: 12px;
+              padding-left: 10px;
+            }
+          }
+          .table-original-number{
+            thead{
+              tr th{
+                font-size: 12px;
+                padding-left: 10px;
+                &:last-child{
+                  padding-left: 0;
+                }
+              }
+            }
+            tbody tr{
+              th, td{
+                font-size: 12px;
+                padding: 10px;
+              }
+              td{
+                padding-left: 0;
+              }
+            }
+          }
+          .table-applicability{
+            thead{
+              tr th{
+                font-size: 11px;
+                padding-left: 10px;
+                &:last-child{
+                  padding-left: 0;
+                }
+              }
+            }
+            tbody tr{
+              th, td{
+                font-size: 11px;
+                padding: 10px;
+              }
+              td{
+                padding-left: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+    @media (max-width: 767px){
+      padding: 50px 0;
     }
   }
 </style>
