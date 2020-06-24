@@ -55,21 +55,21 @@ export default {
         subList: [],
         opened: false,
         current: true,
-        route: { name: 'Home' }
+        route: { name: 'Navigation' }
       },
       {
         title: 'iFrame',
         opened: false,
-        route: { name: 'Home' },
+        route: { name: 'Navigation' },
         current: false,
         subList: [
           {
             title: 'Партнеры',
-            route: { name: 'Home' }
+            route: { name: 'Navigation' }
           },
           {
             title: 'Аналитика',
-            route: { name: 'Home' }
+            route: { name: 'Navigation' }
           }
         ]
       },
@@ -77,25 +77,25 @@ export default {
         title: 'Страницы',
         subList: [],
         opened: false,
-        route: { name: 'Home' }
+        route: { name: 'Navigation' }
       },
       {
         title: 'Пользователи',
         opened: false,
-        route: { name: 'Home' },
+        route: { name: 'Navigation' },
         current: false,
         subList: [
           {
             title: 'Основные данные',
-            route: { name: 'Home' }
+            route: { name: 'Navigation' }
           },
           {
             title: 'Все пользователи',
-            route: { name: 'Home' }
+            route: { name: 'Navigation' }
           },
           {
             title: 'Создать нового',
-            route: { name: 'Home' }
+            route: { name: 'Navigation' }
           }
         ]
       }

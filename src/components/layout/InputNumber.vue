@@ -2,7 +2,7 @@
   <div class="form-group imput-number-group">
     <label :for="id" class="lebel-input-admin">{{ text }}</label>
     <input
-      :type="number"
+      type="number"
       :id="id"
       :placeholder="placeholder"
       name="entity"
@@ -37,16 +37,14 @@ export default {
     position: relative;
     display: flex;
     label.lebel-input-admin{
-      max-width: 200px;
-      width: 100%;
+      width: 50%;
     }
     .input-admin{
-      max-width: 158px;
-      width: 100%;
+      width: 50%;
     }
     .button-group{
       position: absolute;
-      right: 53px;
+      right: 15px;
       top: 42%;
       transform: translateY(-50%);
       display: flex;
@@ -58,6 +56,9 @@ export default {
         background: none;
         color: #00b9e5;
         font-size: 12px;
+        &:focus{
+          outline: none;
+        }
       }
       .btn-down{
         position: relative;

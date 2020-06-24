@@ -15,7 +15,7 @@
         <div class="text-error">
           <h6>На сайте нет такой страницы!</h6>
           <p>Возможно не верная ссылка
-            <router-link :to="{ name: 'Home' }" class="logo-block">
+            <router-link :to="{ name: 'Navigation' }" class="logo-block">
               перейти в главную.
             </router-link>
           </p>
