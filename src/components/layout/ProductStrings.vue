@@ -163,9 +163,13 @@ export default {
       transition: all .3s;
       &:hover {
         background: #234e58;
+        box-shadow: 1px 2px 0 #234e58;
       }
       img{
         margin-right: 15px;
+      }
+      &:focus{
+        outline: none;
       }
     }
   }

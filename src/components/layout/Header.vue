@@ -3,7 +3,7 @@
     <div class="container">
       <div class="d-flex align-items-center justify-content-between">
         <div class="d-flex align-items-center header-left">
-          <router-link :to="{ name: 'Home' }" class="logo-block">
+          <router-link :to="{ name: 'Navigation' }" class="logo-block">
             <img src="@/assets/img/logo_Autonova_D.png" alt="logo">
           </router-link>
           <nav class="nav-decstop">

@@ -10,6 +10,11 @@
     <router-link to="/admin-new-user" class="nav-link">AdminNewUser</router-link>
     <router-link to="/admin-user-basic-data" class="nav-link">AdminUserBasicData</router-link>
     <router-link to="/admin-user" class="nav-link">AdminUser</router-link>
+    <router-link to="/abmin-products" class="nav-link">AbminProducts</router-link>
+    <router-link to="/admin-analytics" class="nav-link">AdminAnalytics</router-link>
+    <router-link to="/admin-partners" class="nav-link">AdminPartners</router-link>
+    <router-link to="/contacts" class="nav-link">Contacts</router-link>
+    <router-link to="/product" class="nav-link">Product</router-link>
   </div>
 </template>
 

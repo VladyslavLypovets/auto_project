@@ -112,6 +112,9 @@ export default {
             height: 20px;
           }
         }
+        &:focus{
+          outline: none;
+        }
       }
       .suma p{
         color: #242424;

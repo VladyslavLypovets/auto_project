@@ -15,6 +15,7 @@ import Navigation from '@/pages/Navigation.vue'
 import Product from '@/pages/Product.vue'
 import AdminPartners from '@/pages/AdminPartners.vue'
 import AbminProducts from '@/pages/AbminProducts.vue'
+import AdminAnalytics from '@/pages/AdminAnalytics.vue'
 
 Vue.use(VueRouter)
 
@@ -85,14 +86,19 @@ const routes = [
     component: Product
   },
   {
-    path: '/adminpartners',
+    path: '/admin-partners',
     name: 'AdminPartners',
     component: AdminPartners
   },
   {
-    path: '/abminproducts',
+    path: '/abmin-products',
     name: 'AbminProducts',
     component: AbminProducts
+  },
+  {
+    path: '/admin-analytics',
+    name: 'AdminAnalytics',
+    component: AdminAnalytics
   }
 ]
 
