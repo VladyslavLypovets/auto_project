@@ -1,83 +1,90 @@
 <template>
   <div>
     <Header />
-    <main class="oproducte-main">
-      <div class="home-o-produkte collapsed"
-      :style="{
-        'background-image': `url(${require('@/assets/img/bg-top-o-produkte.png')})`
-      }"
+    <main class="oproducte-main" :class="{'scrolled': currentScrollPosition !== 0}">
+      <div
+        class="scroller"
+        @mousewheel="scroll"
+        @touchmove="touch"
       >
-        <div class="container d-flex flex-column align-items-center justify-content-center">{
-          <h2>О продукции</h2>
-          <p>Таким образом постоянное информационно-пропагандистское обеспечение нашей деятельности влечет за собой процесс внедрения и модернизации существенных финансовых и административных условий. </p>
-          <div class="scroll">
+        <div class="home-o-produkte"
+        :class="{'collapsed': currentScrollPosition !== 0}"
+        :style="{
+          'background-image': `url(${require('@/assets/img/bg-top-o-produkte.png')})`
+        }"
+        >
+          <div class="container d-flex flex-column align-items-center justify-content-center">{
+            <h2>О продукции</h2>
+            <p>Таким образом постоянное информационно-пропагандистское обеспечение нашей деятельности влечет за собой процесс внедрения и модернизации существенных финансовых и административных условий. </p>
+            <div class="scroll">
+              <div class="d-flex align-items-center justify-content-between">
+                <h6>Качество продукции</h6>
+                <h6>Профессиональные консультанты</h6>
+                <h6>Наши клиенты</h6>
+              </div>
+              <div class="block-scroll d-flex align-items-center justify-content-between">
+                <div class="circle active"></div>
+                <div class="line active"></div>
+                <div class="circle active"></div>
+                <div class="line"></div>
+                <div class="circle"></div>
+              </div>
+            </div>
+            <div class="mouse">
+              <img src="@/assets/img/mouse.png" alt="mouse" class="img-mouse">
+              <div class="vertical-line"></div>
+            </div>
+          </div>
+        </div>
+        <div class="produkt-quality">
+          <div class="container">
+            <img src="@/assets/img/bg-top-element.png" alt="bg-top-element" class="bg-top-element">
+            <h4>Качество продукции</h4>
             <div class="d-flex align-items-center justify-content-between">
-              <h6>Качество продукции</h6>
-              <h6>Профессиональные консультанты</h6>
-              <h6>Наши клиенты</h6>
+              <p class="text-quality">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, n</p>
+              <p class="text-quality">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, n</p>
             </div>
-            <div class="block-scroll d-flex align-items-center justify-content-between">
-              <div class="circle active"></div>
-              <div class="line active"></div>
-              <div class="circle active"></div>
-              <div class="line"></div>
-              <div class="circle"></div>
-            </div>
-          </div>
-          <div class="mouse">
-            <img src="@/assets/img/mouse.png" alt="mouse" class="img-mouse">
-            <div class="vertical-line"></div>
+            <img src="@/assets/img/bg-bottom-element.png" alt="bg-bottom-element" class="bg-bottom-element">
           </div>
         </div>
-      </div>
-      <div class="produkt-quality">
-        <div class="container">
-          <img src="@/assets/img/bg-top-element.png" alt="bg-top-element" class="bg-top-element">
-          <h4>Качество продукции</h4>
-          <div class="d-flex align-items-center justify-content-between">
-            <p class="text-quality">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, n</p>
-            <p class="text-quality">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, n</p>
+        <div class="prof-consultanty">
+          <div class="container">
+            <img src="@/assets/img/bg-top-element.png" alt="bg-top-element" class="bg-top-element">
+            <h4>Профессиональные консультанты</h4>
+            <div class="align-items-center justify-content-between d-none d-xl-flex">
+              <div class="advantages" v-for="(consultant, index) in consultantsData" :key="index">
+                <img :src="require(`@/assets/img/${consultant.img}.png`)" alt="advantages" class="img-advantages">
+                <h6>{{ consultant.title }}</h6>
+                <p>
+                  {{ consultant.text }}
+                </p>
+              </div>
+            </div>
+            <Carousel
+              :items="1"
+              class="d-block d-xl-none carousel-mob-advantages"
+              :dots="false"
+              :navText="navText"
+            >
+              <div class="advantages" v-for="(consultant, index) in consultantsData" :key="index">
+                <img :src="require(`@/assets/img/${consultant.img}.png`)" alt="advantages" class="img-advantages">
+                <h6>{{ consultant.title }}</h6>
+                <p>
+                  {{ consultant.text }}
+                </p>
+              </div>
+            </Carousel>
+            <img src="@/assets/img/bg-bottom-element.png" alt="bg-bottom-element" class="bg-bottom-element">
           </div>
+        </div>
+        <div class="our-clients">
+          <img src="@/assets/img/bg-top-element.png" alt="bg-top-element" class="bg-top-element">
+          <OurPartnersClients />
           <img src="@/assets/img/bg-bottom-element.png" alt="bg-bottom-element" class="bg-bottom-element">
         </div>
-      </div>
-      <div class="prof-consultanty">
-        <div class="container">
-          <img src="@/assets/img/bg-top-element.png" alt="bg-top-element" class="bg-top-element">
-          <h4>Профессиональные консультанты</h4>
-          <div class="align-items-center justify-content-between d-none d-xl-flex">
-            <div class="advantages" v-for="(consultant, index) in consultantsData" :key="index">
-              <img :src="require(`@/assets/img/${consultant.img}.png`)" alt="advantages" class="img-advantages">
-              <h6>{{ consultant.title }}</h6>
-              <p>
-                {{ consultant.text }}
-              </p>
-            </div>
-          </div>
-          <Carousel
-            :items="1"
-            class="d-block d-xl-none carousel-mob-advantages"
-            :dots="false"
-            :navText="navText"
-          >
-            <div class="advantages" v-for="(consultant, index) in consultantsData" :key="index">
-              <img :src="require(`@/assets/img/${consultant.img}.png`)" alt="advantages" class="img-advantages">
-              <h6>{{ consultant.title }}</h6>
-              <p>
-                {{ consultant.text }}
-              </p>
-            </div>
-          </Carousel>
-          <img src="@/assets/img/bg-bottom-element.png" alt="bg-bottom-element" class="bg-bottom-element">
-        </div>
-      </div>
-      <div class="our-clients">
-        <img src="@/assets/img/bg-top-element.png" alt="bg-top-element" class="bg-top-element">
-        <OurPartnersClients />
-        <img src="@/assets/img/bg-bottom-element.png" alt="bg-bottom-element" class="bg-bottom-element">
+        <Footer />
       </div>
     </main>
-    <Footer />
   </div>
 </template>
 
@@ -111,16 +118,47 @@ export default {
         text: 'Повседневная практика показывает, что рамки и место обучения кадров играет важную роль в формировании систем массового участия. Не следует, однако забывать, что сложившаяся структура организации обеспечивает широкому кругу (специалистов) участие в формировании направлений прогрессивного развития.'
       }
     ],
+    currentScrollPosition: 0,
     navText: ['<i class="fa fa-angle-left" aria-hidden="true"/>', '<i class="fa fa-angle-right" aria-hidden="true"/>']
-  })
+  }),
+  methods: {
+    scroll (e) {
+      if (e.deltaY > 0) {
+        this.moveBottom()
+      } else {
+        this.moveTop()
+      }
+    },
+    touch (e) {
+      console.log(e)
+    },
+    moveBottom () {
+      if (this.currentScrollPosition < 4) {
+        this.currentScrollPosition += 1
+      }
+    },
+    moveTop () {
+      if (this.currentScrollPosition > 0) {
+        this.currentScrollPosition -= 1
+      }
+    }
+  },
+  created () {
+    window.addEventListener('scroll', this.scroll)
+  }
 }
 </script>
 
 <style lang="scss" scoped>
   .oproducte-main{
-    padding: 218px 0 0;
-    // padding-top: 86px;
+    // padding: 218px 0 0;
+    padding-top: 86px;
+    max-height: 100vh;
     overflow: hidden;
+    transition: all .3s;
+    &.scrolled {
+      padding-top: 218px;
+    }
     .home-o-produkte{
       min-height: calc(100vh - 86px);
       background-size: cover;
@@ -130,6 +168,7 @@ export default {
       align-items: center;
       justify-content: center;
       padding: 20px 0;
+      transition: all .5s;
       h2{
         color: #ffffff;
         font-size: 48px;
@@ -139,6 +178,9 @@ export default {
         margin-bottom: 30px;
         position: relative;
         padding-top: 40px;
+        opacity: 1;
+        pointer-events: unset;
+        transition: all .4s;
         &::after{
           position: absolute;
           content: '';
@@ -159,6 +201,9 @@ export default {
         max-width: 655px;
         text-align: center;
         margin-bottom: 100px;
+        opacity: 1;
+        pointer-events: unset;
+        transition: all .4s;
       }
       .scroll{
         width: 778px;
@@ -203,6 +248,9 @@ export default {
       }
       .mouse{
         margin-top: 110px;
+        opacity: 1;
+        pointer-events: unset;
+        transition: all .4s;
         .vertical-line{
           width: 1px;
           height: 71px;
@@ -222,13 +270,22 @@ export default {
         min-height: 132px;
         z-index: 2;
         h2{
-          display: none;
+          opacity: 0;
+          pointer-events: none;
+          height: 0;
+          margin: 0;
         }
         p{
-          display: none;
+          opacity: 0;
+          pointer-events: none;
+          height: 0;
+          margin: 0;
         }
         .mouse{
-          display: none;
+          opacity: 0;
+          pointer-events: none;
+          height: 0;
+          margin: 0;
         }
         @media (max-width: 1599px){
           min-height: 100px;

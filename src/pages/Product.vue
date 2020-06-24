@@ -7,13 +7,13 @@
     }"
     >
       <div class="container">
-        <BreadCrumbs />
+        <BreadCrumbs :current="'Название запчасти обычно в две строки и не вмещается'" />
         <div class="block-tovar">
           <div class="row">
             <div class="col-12 col-xl-5">
               <div class="block-img-tovar">
                 <img src="@/assets/img/img-cart-tovar.png" alt="img-cart-tovar" class="img-cart-tovar">
-                <button class="btn-loupe">
+                <button class="btn-loupe" @mouseup="open()">
                   <i class="fa fa-search" aria-hidden="true"></i>
                 </button>
               </div>
@@ -116,7 +116,7 @@
             <div class="col-12 col-md-6">
               <div class="characteristic">
                 <h6>Характеристики автозапчасти</h6>
-                <table class="table table-striped table-characteristic">
+                <table class="table table-striped table-characteristic mb-0">
                   <thead>
                     <tr>
                       <th scope="col">Марка авто;</th>
@@ -179,7 +179,7 @@
                     @mousedown.prevent.stop="toggle"
                   />
                 </multiselect>
-                <table class="table table-striped table-original-number">
+                <table class="table table-striped table-original-number mb-0">
                   <thead>
                     <tr>
                       <th scope="col">Оригинальный номер поставщика</th>
@@ -279,7 +279,7 @@
                 <div v-for="i in new Array(3)" :key="i" class="items-wrap">
                   <div class="items" v-for="index in itemsInColumn" :key="index">
                     <div class="analog-tovar">
-                      <div class="d-flex align-items-start align-items-xl-center w-100 w-xl-unset">
+                      <div class="d-flex align-items-start align-items-xl-center">
                         <div class="img-tovar">
                           <img src="@/assets/img/img-product-catalog.png" alt="img-product-catalog">
                         </div>
@@ -308,6 +308,13 @@
           </div>
         </div>
       </div>
+      <div class="fancy-box-wrap" :class="{'open': fancyOpen}">
+        <div class="fancy-box" :class="{'open': fancyOpen}">
+          <i class="fa fa-times" @click="fancyOpen = false"></i>
+          <img src="@/assets/img/img-cart-tovar.png" alt="img-cart-tovar">
+        </div>
+        <div class="overlay" @click="fancyOpen = false"></div>
+      </div>
     </main>
     <Footer />
   </div>
@@ -329,6 +336,7 @@ export default {
   },
   data: () => ({
     navText: ['<i class="fa fa-angle-left" aria-hidden="true"/>', '<i class="fa fa-angle-right" aria-hidden="true"/>'],
+    fancyOpen: false,
     sorting: 'VAG',
     itemsInColumn: new Array(3),
     text: ' <p>Таким образом постоянное информационно-пропагандистское обеспечение нашей деятельности влечет за собой процесс внедрения и модернизации существенных финансовых и административных условий.</p><p>Не следует, однако забывать, что постоянный количественный рост и сфера нашей активности позволяет оценить значение позиций, занимаемых участниками в отношении поставленных задач.</p>'
@@ -344,6 +352,9 @@ export default {
       } else if (window.innerWidth <= 1199) {
         this.itemsInColumn = new Array(2)
       }
+    },
+    open () {
+      this.fancyOpen = true
     }
   }
 }
@@ -355,6 +366,9 @@ export default {
     min-height: calc(100vh - 60px);
     background-repeat: no-repeat;
     background-position-y: bottom;
+    @media(max-width: 1199px) {
+      padding-bottom: 50px;
+    }
     .block-tovar{
       margin-top: 49px;
       .block-img-tovar{
@@ -438,7 +452,6 @@ export default {
         .btn-buy{
           width: 235px;
           height: 55px;
-          box-shadow: 1px 2px 0 #068fb0;
           border-radius: 5px;
           background-color: #068fb0;
           color: #ffffff;
@@ -584,17 +597,20 @@ export default {
               }
               .dostavka{
                 .dop-info-text{
-                  right: -26px;
+                  right: unset;
+                  left: 62px;
                 }
               }
               .pay{
                 .dop-info-text{
-                  right: -8px;
+                  right: unset;
+                  left: 43px;
                 }
               }
               .guarantee{
                 .dop-info-text{
-                  right: -23px;
+                  right: unset;
+                  left: 58px;
                 }
               }
             }
@@ -689,6 +705,9 @@ export default {
             &:last-child{
               padding-left: 0.75rem;
             }
+            @media(max-width: 1199px) {
+              padding: 13px 0 13px 30px;
+            }
           }
           td{
             border: none;
@@ -715,12 +734,15 @@ export default {
         }
         .multiselect-original-number {
           min-height: unset;
-          height: 50px;
+          height: 46px;
           border-radius: 5px 5px 0 0;
           border: 1px solid #e8e8e8;
           background-color: #ffffff;
           display: flex;
           align-items: center;
+          @media(max-width: 1199px) {
+            height: 43px;
+          }
           .caret {
             position: absolute;
             top: 50%;
@@ -846,18 +868,26 @@ export default {
               display: flex;
               align-items: center;
               justify-content: space-between;
+              @media(max-width: 1199px) {
+                padding: 12px;
+              }
               .img-tovar{
+                padding: 12px 0;
                 max-width: 155px;
                 border-radius: 5px;
-                height: 85px;
                 border: 1px solid #dfdfdf;
                 background-color: #ffffff;
                 margin-right: 20px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
+                width: 100%;
+                border-radius: 5px;
                 img{
                   width: 60%;
+                }
+                @media(max-width: 1199px) {
+                  margin-right: 10px;
                 }
               }
               .block-name{
@@ -868,6 +898,9 @@ export default {
                   background-color: #f6f6f6;
                   padding: 7px 10px;
                   margin-bottom: 7px;
+                  @media(max-width: 1199px) {
+                    margin-bottom: 14px;
+                  }
                   p{
                     color: #424242;
                     font-size: 14px;
@@ -1173,6 +1206,64 @@ export default {
             }
           }
         }
+      }
+    }
+    .fancy-box-wrap {
+      .fancy-box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+        padding: 15px;
+        position: fixed;
+        top: 50px;
+        left: 5%;
+        width: 90%;
+        height: calc(100vh - 100px);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity .3s;
+        z-index: 5;
+        background: #fff;
+        border-radius: 10px;
+        img {
+          width: 80%;
+          height: 100%;
+          object-fit: contain;
+        }
+        i {
+          position: absolute;
+          color: #000;
+          opacity: 0.6;
+          right: 20px;
+          top: 20px;
+          font-size: 20px;
+          cursor: pointer;
+          transition: all .3s;
+          &:hover {
+            opacity: 1;
+          }
+        }
+        &.open{
+          opacity: 1;
+          pointer-events: unset;
+        }
+      }
+      .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100vw;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 4;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity .3s;
+      }
+      &.open .overlay{
+        opacity: 1;
+        pointer-events: unset;
       }
     }
     @media (max-width: 767px){
