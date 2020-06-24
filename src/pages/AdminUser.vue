@@ -16,115 +16,23 @@
             <div class="col-12 col-md-8 col-xl-10">
               <h4>Пользователи</h4>
               <h6>Все пользователи</h6>
-              <table class="table table-striped table-user">
-                <thead>
-                  <tr>
-                    <th scope="col">Логин</th>
-                    <th scope="col">Статус</th>
-                    <th scope="col">Дата добавления</th>
-                    <th scope="col"></th>
-                    <th scope="col"></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">VAG</th>
-                    <td>19.03.20</td>
-                    <td class="date-added">1F0 129 620</td>
-                    <td>
-                      <button class="btn-edit">
-                        Редактировать
-                        <i class="fa fa-pencil" aria-hidden="true"></i>
-                      </button>
-                    </td>
-                    <td class="d-flex justify-content-end delete-produkt">
-                      <button class="delete">
-                        <img src="@/assets/img/delete.png" alt="delete">
-                      </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">VAG</th>
-                    <td>19.03.20</td>
-                    <td class="date-added">1F0 129 620</td>
-                    <td>
-                      <button class="btn-edit">
-                        Редактировать
-                        <i class="fa fa-pencil" aria-hidden="true"></i>
-                      </button>
-                    </td>
-                    <td class="d-flex justify-content-end delete-produkt">
-                      <button class="delete">
-                        <img src="@/assets/img/delete.png" alt="delete">
-                      </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">VAG</th>
-                    <td>19.03.20</td>
-                    <td class="date-added">1F0 129 620</td>
-                    <td>
-                      <button class="btn-edit">
-                        Редактировать
-                        <i class="fa fa-pencil" aria-hidden="true"></i>
-                      </button>
-                    </td>
-                    <td class="d-flex justify-content-end delete-produkt">
-                      <button class="delete">
-                        <img src="@/assets/img/delete.png" alt="delete">
-                      </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">VAG</th>
-                    <td>19.03.20</td>
-                    <td class="date-added">1F0 129 620</td>
-                    <td>
-                      <button class="btn-edit">
-                        Редактировать
-                        <i class="fa fa-pencil" aria-hidden="true"></i>
-                      </button>
-                    </td>
-                    <td class="d-flex justify-content-end delete-produkt">
-                      <button class="delete">
-                        <img src="@/assets/img/delete.png" alt="delete">
-                      </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">VAG</th>
-                    <td>19.03.20</td>
-                    <td class="date-added">1F0 129 620</td>
-                    <td>
-                      <button class="btn-edit">
-                        Редактировать
-                        <i class="fa fa-pencil" aria-hidden="true"></i>
-                      </button>
-                    </td>
-                    <td class="d-flex justify-content-end delete-produkt">
-                      <button class="delete">
-                        <img src="@/assets/img/delete.png" alt="delete">
-                      </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">VAG</th>
-                    <td>19.03.20</td>
-                    <td class="date-added">1F0 129 620</td>
-                    <td>
-                      <button class="btn-edit">
-                        Редактировать
-                        <i class="fa fa-pencil" aria-hidden="true"></i>
-                      </button>
-                    </td>
-                    <td class="d-flex justify-content-end delete-produkt">
-                      <button class="delete">
-                        <img src="@/assets/img/delete.png" alt="delete">
-                      </button>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+              <v-data-table
+                :headers="headers"
+                :items="items"
+                class="elevation-1"
+              >
+                <template v-slot:item.change>
+                  <button class="btn-edit">
+                    Редактировать
+                    <i class="fa fa-pencil" aria-hidden="true"></i>
+                  </button>
+                </template>
+                <template v-slot:item.delete>
+                  <button class="delete">
+                    <img src="@/assets/img/delete.png" alt="delete">
+                  </button>
+                </template>
+              </v-data-table>
             </div>
         </div>
         </div>
@@ -147,7 +55,43 @@ export default {
     Footer,
     BreadCrumbs,
     MenuAdmin
-  }
+  },
+  data: () => ({
+    headers: [
+      {
+        text: 'Логин',
+        value: 'login',
+        align: 'start'
+      },
+      { text: 'Статус', value: 'state', align: 'center' },
+      { text: 'Дата добавления', value: 'date', align: 'center' },
+      { text: ' ', value: 'change', align: 'center' },
+      { text: ' ', value: 'delete', align: 'right' }
+    ],
+    items: [
+      {
+        login: 'VAG',
+        state: '19.03.20',
+        date: '1F0 129 620',
+        change: '',
+        delete: ''
+      },
+      {
+        login: 'VAG',
+        state: '19.03.20',
+        date: '1F0 129 620',
+        change: '',
+        delete: ''
+      },
+      {
+        login: 'VAG',
+        state: '19.03.20',
+        date: '1F0 129 620',
+        change: '',
+        delete: ''
+      }
+    ]
+  })
 }
 </script>
 
@@ -242,6 +186,46 @@ export default {
           background-color: #f7f7f7;
         }
 
+      }
+      .elevation-1 {
+        /deep/ .v-data-table-header tr {
+          background-color: #f7f7f7;
+          border-radius: 5px 5px 0 0;
+          th {
+            border-bottom: none !important;
+            span{
+              color: #676767;
+              font-size: 16px;
+              font-weight: 700;
+            }
+          }
+        }
+        /deep/ tr {
+          td {
+            font-size: 16px;
+            border-bottom: none !important;
+            color: #676767;
+            font-weight: 700;
+          }
+          &:hover {
+            background: #fff !important;
+          }
+          &:nth-child(2n) {
+            background-color: #f7f7f7 !important;
+            border-radius: 5px 5px 0 0;
+          }
+        }
+        .btn-edit {
+          color: #00b9e5;
+          i {
+            margin-left: 1.5vw;
+          }
+        }
+        @media(max-width: 767px) {
+          /deep/ tr td:last-child {
+            border-bottom: thin solid rgba(0,0,0,.12) !important;
+          }
+        }
       }
     }
   }

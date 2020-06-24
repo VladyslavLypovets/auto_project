@@ -29,7 +29,10 @@
 
 <script>
 export default {
-  name: 'MenuProductAdmin'
+  name: 'MenuProductAdmin',
+  data: () => ({
+    lang: 'РУ'
+  })
 }
 </script>
 

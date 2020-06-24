@@ -1,41 +1,44 @@
 <template>
   <div>
     <Header />
-    <main class="oproducte-main" :class="{'scrolled': currentScrollPosition !== 0}">
-      <div
-        class="scroller"
-        @mousewheel="scroll"
-        @touchmove="touch"
+    <main
+      class="oproducte-main"
+      :class="{'scrolled': currentScrollPosition !== 0}"
+      @mousewheel="scroll"
+    >
+      <div class="home-o-produkte"
+      :class="{'collapsed': currentScrollPosition !== 0}"
+      :style="{
+        'background-image': `url(${require('@/assets/img/bg-top-o-produkte.png')})`
+      }"
       >
-        <div class="home-o-produkte"
-        :class="{'collapsed': currentScrollPosition !== 0}"
-        :style="{
-          'background-image': `url(${require('@/assets/img/bg-top-o-produkte.png')})`
-        }"
-        >
-          <div class="container d-flex flex-column align-items-center justify-content-center">{
-            <h2>О продукции</h2>
-            <p>Таким образом постоянное информационно-пропагандистское обеспечение нашей деятельности влечет за собой процесс внедрения и модернизации существенных финансовых и административных условий. </p>
-            <div class="scroll">
-              <div class="d-flex align-items-center justify-content-between">
-                <h6>Качество продукции</h6>
-                <h6>Профессиональные консультанты</h6>
-                <h6>Наши клиенты</h6>
-              </div>
-              <div class="block-scroll d-flex align-items-center justify-content-between">
-                <div class="circle active"></div>
-                <div class="line active"></div>
-                <div class="circle active"></div>
-                <div class="line"></div>
-                <div class="circle"></div>
-              </div>
+        <div class="container d-flex flex-column align-items-center justify-content-center">{
+          <h2>О продукции</h2>
+          <p>Таким образом постоянное информационно-пропагандистское обеспечение нашей деятельности влечет за собой процесс внедрения и модернизации существенных финансовых и административных условий. </p>
+          <div class="scroll">
+            <div class="d-flex align-items-center justify-content-between">
+              <h6>Качество продукции</h6>
+              <h6>Профессиональные консультанты</h6>
+              <h6>Наши клиенты</h6>
             </div>
-            <div class="mouse">
-              <img src="@/assets/img/mouse.png" alt="mouse" class="img-mouse">
-              <div class="vertical-line"></div>
+            <div class="block-scroll d-flex align-items-center justify-content-between">
+              <div class="circle" :class="{active: currentScrollPosition >= 1}"></div>
+              <div class="line" :class="{active: currentScrollPosition >= 2}"></div>
+              <div class="circle" :class="{active: currentScrollPosition >= 2}"></div>
+              <div class="line" :class="{active: currentScrollPosition >= 3}"></div>
+              <div class="circle" :class="{active: currentScrollPosition === 3}"></div>
             </div>
           </div>
+          <div class="mouse">
+            <img src="@/assets/img/mouse.png" alt="mouse" class="img-mouse">
+            <div class="vertical-line"></div>
+          </div>
         </div>
+      </div>
+      <div
+        class="scroller"
+        :style="{'transform': `translateY(-${scrollHeight}px)`}"
+      >
         <div class="produkt-quality">
           <div class="container">
             <img src="@/assets/img/bg-top-element.png" alt="bg-top-element" class="bg-top-element">
@@ -119,21 +122,23 @@ export default {
       }
     ],
     currentScrollPosition: 0,
-    navText: ['<i class="fa fa-angle-left" aria-hidden="true"/>', '<i class="fa fa-angle-right" aria-hidden="true"/>']
+    navText: ['<i class="fa fa-angle-left" aria-hidden="true"/>', '<i class="fa fa-angle-right" aria-hidden="true"/>'],
+    animationdebounce: false
   }),
   methods: {
     scroll (e) {
-      if (e.deltaY > 0) {
-        this.moveBottom()
-      } else {
-        this.moveTop()
+      if (!this.animationdebounce && window.innerWidth > 1199) {
+        this.animationdebounce = true
+        if (e.deltaY > 0) {
+          this.moveBottom()
+        } else {
+          this.moveTop()
+        }
+        setTimeout(() => { this.animationdebounce = false }, 400)
       }
     },
-    touch (e) {
-      console.log(e)
-    },
     moveBottom () {
-      if (this.currentScrollPosition < 4) {
+      if (this.currentScrollPosition < 3) {
         this.currentScrollPosition += 1
       }
     },
@@ -143,21 +148,29 @@ export default {
       }
     }
   },
-  created () {
-    window.addEventListener('scroll', this.scroll)
+  computed: {
+    scrollHeight () {
+      return (window.innerHeight - 218) * (this.currentScrollPosition - 1)
+    }
   }
 }
 </script>
 
 <style lang="scss" scoped>
   .oproducte-main{
-    // padding: 218px 0 0;
     padding-top: 86px;
     max-height: 100vh;
     overflow: hidden;
     transition: all .3s;
+    @media(max-width: 1199px) {
+      overflow: auto;
+      max-height: unset;
+    }
     &.scrolled {
       padding-top: 218px;
+    }
+    .scroller {
+      transition: all .3s;
     }
     .home-o-produkte{
       min-height: calc(100vh - 86px);
@@ -224,6 +237,7 @@ export default {
             height: 20px;
             border: 1px solid rgba(255, 255, 255, 0.25);
             border-radius: 100%;
+            transition: all .3s;
             &.active{
               border-color: #00b9e5;
               background: #00b9e5;;
@@ -233,6 +247,7 @@ export default {
             height: 1px;
             background-color: rgba(255, 255, 255, 0.25);
             width: 45.5%;
+            transition: all .3s;
             &.active{
               border-color: #00b9e5;
               background: #00b9e5;;
@@ -274,12 +289,14 @@ export default {
           pointer-events: none;
           height: 0;
           margin: 0;
+          padding: 0;
         }
         p{
           opacity: 0;
           pointer-events: none;
           height: 0;
           margin: 0;
+          padding: 0;
         }
         .mouse{
           opacity: 0;
@@ -294,7 +311,7 @@ export default {
     }
     .produkt-quality{
       position: relative;
-      min-height: calc(100vh - 218px);
+      height: calc(100vh - 218px);
       background-size: cover;
       background-repeat: no-repeat;
       display: flex;
@@ -333,12 +350,13 @@ export default {
         letter-spacing: 0.54px;
         background: #fff;
         @media (max-width: 1599px){
-          line-height: 1.6;
+          line-height: 1.5;
+          font-size: 16px;
         }
       }
       @media (max-width: 1399px){
         h4{
-          font-size: 43px;
+          font-size: 36px;
           margin-bottom: 25px;
         }
         .text-quality{
@@ -352,7 +370,7 @@ export default {
     }
     .prof-consultanty{
       position: relative;
-      min-height: calc(100vh - 218px);
+      height: calc(100vh - 218px);
       background-size: cover;
       background-repeat: no-repeat;
       display: flex;
@@ -371,7 +389,7 @@ export default {
       }
       .advantages{
         width: 32%;
-        height: 390px;
+        height: 360px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -486,7 +504,7 @@ export default {
     }
     .our-clients{
       position: relative;
-      min-height: calc(100vh - 218px);
+      height: calc(100vh - 278px);
       background-size: cover;
       background-repeat: no-repeat;
       display: flex;
