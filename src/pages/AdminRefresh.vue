@@ -27,8 +27,8 @@
                   <div class="link-price d-flex flex-wrap align-items-center">
                     <p>Ссылка на прайс XLS:</p>
                     <div class="d-flex align-items-center overflow-hidden">
-                      <router-link to="/" class="price-link">https://share.mindmanager.com/#publish/7mwlSBVow1IsmN4ibiyYto_WGbhoRsT0ZgaynupG</router-link>
-                      <button class="btn-copy d-block d-md-none">
+                      <router-link to="/" class="price-link">{{ link }}</router-link>
+                      <button class="btn-copy d-block d-md-none" v-clipboard:copy="link">
                         <img src="@/assets/img/copy.png" alt="copy" class="img-btn-copy">
                      </button>
                     </div>
@@ -62,8 +62,10 @@ export default {
     MenuAdmin,
     BtnBlue,
     BtnBorderBlue
-  }
-
+  },
+  data: () => ({
+    link: 'https://share.mindmanager.com/#publish/7mwlSBVow1IsmN4ibiyYto_WGbhoRsT0ZgaynupG'
+  })
 }
 </script>
 

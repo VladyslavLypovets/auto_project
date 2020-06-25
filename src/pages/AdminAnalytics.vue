@@ -29,6 +29,30 @@
               <div class="col-2">
                 <BtnBlue text="Поиск"/>
               </div>
+              <div class="col-3 offset-1">
+                <DatePicker
+                  :value="moment(date1, 'DD.MM.YYYY').toDate()"
+                  format="DD.MM.YYYY"
+                  @input="(val) => date1 = moment(val).format('DD.MM.YYYY')"
+                  class="date-picker-wrap"
+                >
+                  <div slot="input" class="date-picker">
+                    Дата с {{ date1 }}
+                  </div>
+                </DatePicker>
+              </div>
+              <div class="col-3">
+                <DatePicker
+                  :value="moment(date2, 'DD.MM.YYYY').toDate()"
+                  format="DD.MM.YYYY"
+                  @input="(val) => date2 = moment(val).format('DD.MM.YYYY')"
+                  class="date-picker-wrap"
+                >
+                  <div slot="input" class="date-picker">
+                    Дата по {{ date2 }}
+                  </div>
+                </DatePicker>
+              </div>
             </div>
             <table class="table table-striped table-admin-analytics">
               <thead>
@@ -123,11 +147,13 @@
 
 <script>
 import Header from '@/components/layout/Header.vue'
+import moment from 'moment'
 import Footer from '@/components/layout/Footer.vue'
 import BreadCrumbs from '@/components/layout/BreadCrumbs.vue'
 import MenuAdmin from '@/components/layout/MenuAdmin.vue'
 import InputAdmin from '@/components/layout/InputAdmin.vue'
 import BtnBlue from '@/components/layout/BtnBlue.vue'
+import DatePicker from 'vue2-datepicker'
 
 export default {
   name: 'AdminAnalytics',
@@ -137,9 +163,14 @@ export default {
     BreadCrumbs,
     MenuAdmin,
     InputAdmin,
-    BtnBlue
-  }
-
+    BtnBlue,
+    DatePicker
+  },
+  data: () => ({
+    moment,
+    date1: '24.03.2020',
+    date2: '24.03.2020'
+  })
 }
 </script>
 
@@ -251,6 +282,11 @@ export default {
           font-size: 16px;
           font-weight: 400;
         }
+      }
+    }
+    .date-picker-wrap {
+      /deep/ .mx-icon-calendar, /deep/ .mx-icon-clear{
+        display: none;
       }
     }
   }

@@ -1,7 +1,9 @@
 <template>
-  <div class="dialog-wrap" id="dialogs">
+  <div class="dialog-wrap" :class="{ open: activeDialog }" id="dialogs">
     <div class="overllay"></div>
-    <DailogsWorkSite />
+    <component
+      :is="activeDialog"
+    />
   </div>
 </template>
 
@@ -10,6 +12,17 @@ import DailogsWorkSite from '@/components/dialogs/DailogsWorkSite.vue'
 
 export default {
   name: 'DialogsWrap',
+  data: () => ({
+    activeDialog: ''
+  }),
+  created () {
+    this.$root.$on('openDialog', name => {
+      this.activeDialog = name
+    })
+    this.$root.$on('closeDialog', name => {
+      this.activeDialog = ''
+    })
+  },
   components: {
     DailogsWorkSite
   }
@@ -27,6 +40,9 @@ export default {
     z-index: 100;
     justify-content: center;
     align-items: center;
+    &.open {
+      display: flex;
+    }
     .overllay{
       position: absolute;
       top: 0;

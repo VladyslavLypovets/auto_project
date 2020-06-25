@@ -35,7 +35,7 @@
             v-if="item.subList.length"
           >
             <li v-for="subItem in item.subList" :key="subItem.title">
-              <router-link class="sub-link" :to="subItem.route">{{ subItem.title }}</router-link>
+              <router-link class="sub-link" :class="{ 'active' : subItem.current }" :to="subItem.route">{{ subItem.title }}</router-link>
             </li>
           </ul>
         </li>
@@ -54,7 +54,7 @@ export default {
         title: 'Страницы',
         subList: [],
         opened: false,
-        current: true,
+        current: false,
         route: { name: 'Navigation' }
       },
       {
@@ -65,7 +65,7 @@ export default {
         subList: [
           {
             title: 'Партнеры',
-            route: { name: 'Navigation' }
+            route: { name: 'AdminPartners' }
           },
           {
             title: 'Аналитика',
@@ -95,12 +95,34 @@ export default {
           },
           {
             title: 'Создать нового',
-            route: { name: 'Navigation' }
+            route: { name: 'AdminNewUser' }
           }
         ]
       }
     ]
-  })
+  }),
+  created () {
+    const routeName = this.$route.name
+    this.menuList = this.menuList.map(item => {
+      if (item.route.name === routeName) {
+        return { ...item, current: true }
+      }
+      if (item.subList.length && item.subList.find(subItem => subItem.route.name === routeName)) {
+        return {
+          ...item,
+          opened: true,
+          current: true,
+          subList: item.subList.map(subItem => {
+            if (subItem.route.name === routeName) {
+              return { ...subItem, current: true }
+            }
+            return subItem
+          })
+        }
+      }
+      return item
+    })
+  }
 }
 </script>
 
@@ -176,6 +198,9 @@ export default {
               font-size: 14px;
               font-weight: 700;
               text-decoration: none;
+              &.active {
+                color: #00b9e5;
+              }
             }
           }
           @media(max-width: 992px) {

@@ -18,8 +18,8 @@
               <div class="block-form">
                 <InputAdmin  id="domen" placeholder="Укажите домен"/>
                 <div class="copy-link">
-                  <router-link to="/" class="link">https://share.mindmanager.com/#publish/</router-link>
-                  <button class="btn-copy">
+                  <a :href="link" target="_blank" class="link">{{ link }}</a>
+                  <button class="btn-copy" v-clipboard:copy="link">
                       <img src="@/assets/img/copy.png" alt="copy" class="img-btn-copy">
                     </button>
                 </div>
@@ -76,31 +76,32 @@ export default {
     ],
     items: [
       {
-        id: 'VAG',
+        id: 'VAG-1',
         domen: 'VAG',
         kay: '1F0 129 620'
       },
       {
-        id: 'VAG',
+        id: 'VAG-2',
         domen: 'VAG',
         kay: '1F0 129 620'
       },
       {
-        id: 'VAG',
+        id: 'VAG-3',
         domen: 'VAG',
         kay: '1F0 129 620'
       },
       {
-        id: 'VAG',
+        id: 'VAG-4',
         domen: 'VAG',
         kay: '1F0 129 620'
       },
       {
-        id: 'VAG',
+        id: 'VAG-5',
         domen: 'VAG',
         kay: '1F0 129 620'
       }
-    ]
+    ],
+    link: 'https://share.mindmanager.com/#publish/'
   })
 }
 </script>

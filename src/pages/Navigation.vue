@@ -15,7 +15,6 @@
     <router-link to="/admin-analytics" class="nav-link">AdminAnalytics</router-link>
     <router-link to="/admin-partners" class="nav-link">AdminPartners</router-link>
     <router-link to="/contacts" class="nav-link">Contacts</router-link>
-    <router-link to="/product" class="nav-link">Product</router-link>
     <router-link to="/about-company" class="nav-link">AboutCompany</router-link>
   </div>
 </template>

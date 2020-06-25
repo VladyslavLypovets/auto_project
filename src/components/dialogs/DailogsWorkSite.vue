@@ -1,6 +1,6 @@
 <template>
   <div class="dailog dialog-work-site">
-    <button class="btn-zero close close-icon-wrap">
+    <button class="btn-zero close close-icon-wrap" @click="$root.$emit('closeDialog')">
       <Cross />
     </button>
     <form>
@@ -8,7 +8,7 @@
         <h2>Упростить работу с сайтом</h2>
         <img src="@/assets/img/two-settings-cogwheels.png" alt="cogwheels">
       </div>
-      <div class="select-marka">
+      <div class="select-marka mb-4">
         <multiselect
           v-model="marka"
           placeholder="Выберите марку вашего авто"
@@ -27,9 +27,9 @@
             @mousedown.prevent.stop="toggle"
           />
         </multiselect>
-        <p>Можете пропустить данный шаг, нажать кнопу подтвердть</p>
+        <p class="mb-0" v-show="!secondSelectVisible">Можете пропустить данный шаг, нажать кнопу подтвердть</p>
       </div>
-      <div class="select-model">
+      <div class="select-model" v-show="secondSelectVisible">
         <multiselect
           v-model="model"
           placeholder="Укажите модель авто"
@@ -66,6 +66,11 @@ export default {
     marka: '',
     model: ''
   }),
+  computed: {
+    secondSelectVisible () {
+      return !!this.marka
+    }
+  },
   components: {
     Cross
   }
