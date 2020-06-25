@@ -16,15 +16,15 @@
           <div class="col-12 col-md-8 col-xl-10">
             <h4>Товары</h4>
             <div class="row">
-              <div class="col-4">
+              <div class="pt-0 pb-0 col-12 col-xl-4">
                 <InputAdmin text="Артикул товара" id="articul-product"/>
                 <InputAdmin text="Производитель" id="generator"/>
               </div>
-              <div class="col-4">
+              <div class="pt-0 pb-0 col-12 col-xl-4">
                 <InputAdmin text="Название товара" id="name-products"/>
                 <InputNumber text="В наличии" id="in-stock"/>
               </div>
-              <div class="col-4">
+              <div class="pt-0 pb-0 col-12 col-xl-4">
                 <InputAdmin text="Категория товара" id="category-product"/>
                 <div class="d-flex">
                   <InputDoubleNumber text="Цена"/>
@@ -33,118 +33,32 @@
                   </div>
                 </div>
               </div>
-              <div class="col-4">
+              <div class="pt-0 pb-0 col-12 col-md-8 col-xl-4">
                 <InputAdmin text="Продавец" id="seller"/>
               </div>
-              <div class="col-4">
+              <div class="pt-0 pb-0 col-12 col-md-4 d-flex justify-content-center justify-content-md-end">
                 <BtnBlue text="Найти"/>
               </div>
-              <div class="col-12 d-flex align-item-center">
+              <div class="pt-0 pb-0 col-12 d-flex align-item-center flex-wrap justify-content-between">
                 <button class="btn-gray">Редактировать</button>
                 <button class="btn-white">Удалить</button>
                 <RadioAdmin text="Применить для выбранных" id="apply-selected" name="apply-selected" class="apply-selected"/>
               </div>
             </div>
-            <table class="table table-striped table-admin-products">
-              <thead>
-                <tr>
-                  <th scope="col"><RadioAdmin id="row-selection-1" class="row-selection"/></th>
-                  <th scope="col">Артикул товара</th>
-                  <th scope="col">Название товара</th>
-                  <th scope="col">Цена</th>
-                  <th scope="col">Производитель</th>
-                  <th scope="col">Категория товара</th>
-                  <th scope="col">Наличие товар</th>
-                  <th scope="col"></th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row"><RadioAdmin id="row-selection-2" class="row-selection"/></th>
-                  <td>VAG</td>
-                  <td>VAG</td>
-                  <td>VAG</td>
-                  <td>VAG</td>
-                  <td>VAG</td>
-                  <td>VAG</td>
-                  <td>
-                    <button class="btn-edit">
-                      <i class="fa fa-pencil" aria-hidden="true"></i>
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row"><RadioAdmin id="row-selection-3" class="row-selection"/></th>
-                  <td>VAG</td>
-                  <td>VAG</td>
-                  <td>VAG</td>
-                  <td>VAG</td>
-                  <td>VAG</td>
-                  <td>VAG</td>
-                  <td>
-                    <button class="btn-edit">
-                      <i class="fa fa-pencil" aria-hidden="true"></i>
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row"><RadioAdmin id="row-selection-4" class="row-selection"/></th>
-                  <td>VAG</td>
-                  <td>VAG</td>
-                  <td>VAG</td>
-                  <td>VAG</td>
-                  <td>VAG</td>
-                  <td>VAG</td>
-                  <td>
-                    <button class="btn-edit">
-                      <i class="fa fa-pencil" aria-hidden="true"></i>
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row"><RadioAdmin id="row-selection-5" class="row-selection"/></th>
-                  <td>VAG</td>
-                  <td>VAG</td>
-                  <td>VAG</td>
-                  <td>VAG</td>
-                  <td>VAG</td>
-                  <td>VAG</td>
-                  <td>
-                    <button class="btn-edit">
-                      <i class="fa fa-pencil" aria-hidden="true"></i>
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row"><RadioAdmin id="row-selection-6" class="row-selection"/></th>
-                  <td>VAG</td>
-                  <td>VAG</td>
-                  <td>VAG</td>
-                  <td>VAG</td>
-                  <td>VAG</td>
-                  <td>VAG</td>
-                  <td>
-                    <button class="btn-edit">
-                      <i class="fa fa-pencil" aria-hidden="true"></i>
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row"><RadioAdmin id="row-selection-7" class="row-selection"/></th>
-                  <td>VAG</td>
-                  <td>VAG</td>
-                  <td>VAG</td>
-                  <td>VAG</td>
-                  <td>VAG</td>
-                  <td>VAG</td>
-                  <td>
-                    <button class="btn-edit">
-                      <i class="fa fa-pencil" aria-hidden="true"></i>
-                    </button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+            <v-data-table
+                :headers="headers"
+                :items="items"
+                class="elevation-1"
+              >
+                <template v-slot:item.checbox>
+                  <RadioAdmin id="row-selection-1" class="row-selection"/>
+                </template>
+                <template v-slot:item.change>
+                  <button class="btn-edit">
+                    <i class="fa fa-pencil" aria-hidden="true"></i>
+                  </button>
+                </template>
+            </v-data-table>
           </div>
         </div>
       </div>
@@ -177,7 +91,71 @@ export default {
     InputDoubleNumber,
     BtnBlue,
     RadioAdmin
-  }
+  },
+  data: () => ({
+    headers: [
+      {
+        select: '',
+        value: 'checbox',
+        align: 'start'
+      },
+      { text: 'Артикул товара', value: 'articulProduct', align: 'center' },
+      { text: 'Название товара', value: 'nameProduct', align: 'center' },
+      { text: 'Цена', value: 'price', align: 'center' },
+      { text: 'Производитель', value: 'manufacture', align: 'center' },
+      { text: 'Категория товара', value: 'categoriProduct', align: 'center' },
+      { text: 'Наличие товар', value: 'availbility', align: 'center' },
+      { text: ' ', value: 'change', align: 'right' }
+    ],
+    items: [
+      {
+        checbox: '',
+        articulProduct: 'VAG',
+        nameProduct: 'VAG',
+        price: 'VAG',
+        manufacture: 'VAG',
+        categoriProduct: 'VAG',
+        availbility: 'VAG',
+        change: ''
+      },
+      {
+        articulProduct: 'VAG',
+        nameProduct: 'VAG',
+        price: 'VAG',
+        manufacture: 'VAG',
+        categoriProduct: 'VAG',
+        availbility: 'VAG',
+        change: ''
+      },
+      {
+        articulProduct: 'VAG',
+        nameProduct: 'VAG',
+        price: 'VAG',
+        manufacture: 'VAG',
+        categoriProduct: 'VAG',
+        availbility: 'VAG',
+        change: ''
+      },
+      {
+        articulProduct: 'VAG',
+        nameProduct: 'VAG',
+        price: 'VAG',
+        manufacture: 'VAG',
+        categoriProduct: 'VAG',
+        availbility: 'VAG',
+        change: ''
+      },
+      {
+        articulProduct: 'VAG',
+        nameProduct: 'VAG',
+        price: 'VAG',
+        manufacture: 'VAG',
+        categoriProduct: 'VAG',
+        availbility: 'VAG',
+        change: ''
+      }
+    ]
+  })
 }
 </script>
 
@@ -190,12 +168,19 @@ export default {
     background-position-y: center;
     .block-products{
       margin-top: 50px;
+      @media (max-width: 767px){
+        margin-top: 0;
+      }
       h4{
         color: #242424;
         font-size: 30px;
         font-weight: 700;
         text-transform: uppercase;
         margin-bottom: 40px;
+        @media (max-width: 767px){
+         margin-bottom: 25px;
+         font-size: 24px;
+        }
       }
       /deep/.form-group{
         align-items: start;
@@ -203,6 +188,11 @@ export default {
       /deep/ .double-imput-number-group{
         .input-admin{
           width: 100%;
+        }
+        @media (max-width: 1599px){
+          label{
+           font-size: 14px;
+          }
         }
       }
       /deep/ label.lebel-input-admin{
@@ -216,6 +206,9 @@ export default {
         display: flex;
         align-items: center;
         justify-content: center;
+        @media (max-width: 1599px){
+          font-size: 14px;
+        }
       }
       /deep/ .input-admin{
         width: 50%;
@@ -241,6 +234,18 @@ export default {
           font-weight: 700;
           margin: 0;
         }
+        @media (max-width: 1599px){
+          max-width: 35px;
+          p{
+            font-size: 14px;
+          }
+        }
+        @media (max-width: 1199px){
+          max-width: 70px;
+          p{
+            font-size: 14px;
+          }
+        }
       }
       .btn-blue{
         width: 141px;
@@ -262,6 +267,15 @@ export default {
           background-color: #00b9e5;
           box-shadow: 1px 2px 0 #00b9e5;
         }
+        @media (max-width: 1199px){
+          max-width: 200px;
+        }
+        @media (max-width: 7679px){
+          max-width: unset;
+          width: 48%;
+          margin-right: 0;
+          margin-top: 20px;
+        }
       }
       .btn-white{
         color: #00b9e5;
@@ -279,6 +293,12 @@ export default {
           background-color: #00b9e5;
           color: #fff;
         }
+        @media (max-width: 7679px){
+          max-width: unset;
+          margin-right: 0;
+          width: 48%;
+          margin-top: 20px;
+        }
       }
       /deep/ .apply-selected{
         margin: 0;
@@ -291,59 +311,124 @@ export default {
           margin: 0;
           text-transform: none;
         }
+        @media (max-width: 1199px){
+          margin-top: 15px;
+        }
       }
-      .table-admin-products{
+      .elevation-1 {
         margin-top: 40px;
-        thead th{
-          border: none;
-          border-radius: 5px 5px 0 0;
+        /deep/ .v-data-table-header tr {
           background-color: #f7f7f7;
-          color: #676767;
-          font-size: 16px;
-          font-weight: 700;
-          text-align: center;
-          &:nth-child(2){
-            text-align: start;
-          }
-        }
-        tbody tr td{
-          color: #676767;
-          font-size: 16px;
-          font-weight: 400;
-          border: none;
-          text-align: center;
-          &:nth-child(2){
-            font-weight: 700;
-            text-align: start;
-          }
-        }
-        tbody tr th{
-          border: none;
-        }
-        .btn-edit{
-          border: none;
-          background: none;
-          font-size: 14px;
-          color: #00b9e5;
-          &:focus{
-            outline: none;
-          }
-          &:hover{
-            transform: scale(1.1);
-            color: #30626e;
-            i{
-              transform: scale(1.1);
-              color: #30626e;
+          border-radius: 5px 5px 0 0;
+          th {
+            border-bottom: none !important;
+            span{
+              color: #676767;
+              font-size: 16px;
+              font-weight: 700;
+              @media (max-width: 993px){
+                font-size: 14px;
+              }
             }
           }
+          &:hover {
+            background: #f7f7f7 !important;
+          }
+        }
+        /deep/ tr {
+          td {
+            font-size: 16px;
+            border-bottom: none !important;
+            color: #676767;
+            font-weight: 400;
+            @media (max-width: 993px){
+              font-size: 14px;
+              white-space: nowrap;
+            }
+          }
+          &:hover {
+            background: #fff !important;
+          }
+          &:nth-child(2n) {
+            background-color: #f7f7f7 !important;
+            border-radius: 5px 5px 0 0;
+          }
+        }
+        .btn-edit {
+          color: #00b9e5;
+          transition: all 0.3s;
+          i {
+            margin-left: 1.5vw;
+          }
+          &:hover{
+            color: #286573;
+            transform: scale(1.05);
+          }
+        }
+        .delete{
+          transition: all 0.3s;
+          &:hover{
+            transform: scale(1.09);
+          }
+        }
+        @media(max-width: 767px) {
+          /deep/ tr td:last-child {
+            border-bottom: thin solid rgba(0,0,0,.12) !important;
+          }
         }
       }
-      .table-striped tbody tr:nth-of-type(odd) {
-        background-color: white;
-      }
-      .table-striped tbody tr:nth-of-type(even) {
-        background-color: #f7f7f7;
-      }
+      // .table-admin-products{
+      //   margin-top: 40px;
+      //   thead th{
+      //     border: none;
+      //     border-radius: 5px 5px 0 0;
+      //     background-color: #f7f7f7;
+      //     color: #676767;
+      //     font-size: 16px;
+      //     font-weight: 700;
+      //     text-align: center;
+      //     &:nth-child(2){
+      //       text-align: start;
+      //     }
+      //   }
+      //   tbody tr td{
+      //     color: #676767;
+      //     font-size: 16px;
+      //     font-weight: 400;
+      //     border: none;
+      //     text-align: center;
+      //     &:nth-child(2){
+      //       font-weight: 700;
+      //       text-align: start;
+      //     }
+      //   }
+      //   tbody tr th{
+      //     border: none;
+      //   }
+      //   .btn-edit{
+      //     border: none;
+      //     background: none;
+      //     font-size: 14px;
+      //     color: #00b9e5;
+      //     &:focus{
+      //       outline: none;
+      //     }
+      //     &:hover{
+      //       transform: scale(1.1);
+      //       color: #30626e;
+      //       i{
+      //         transform: scale(1.1);
+      //         color: #30626e;
+      //       }
+      //     }
+      //   }
+      // }
+      // .table-striped tbody tr:nth-of-type(odd) {
+      //   background-color: white;
+      // }
+      // .table-striped tbody tr:nth-of-type(even) {
+      //   background-color: #f7f7f7;
+      // }
     }
   }
 </style>

@@ -9,17 +9,17 @@
       <div class="d-none d-md-flex home-o-produkte"
       :class="{'collapsed': currentScrollPosition !== 0}"
       :style="{
-        'background-image': `url(${require('@/assets/img/bg-top-o-produkte.png')})`
+        'background-image': `url(${require('@/assets/img/bg-home-ocompany.png')})`
       }"
       >
         <div class="container d-flex flex-column align-items-center justify-content-center">{
-          <h2>О продукции</h2>
+          <h2>БОЛЬШОЙ ЗАГОЛОВОК И НАЗВАНИЕ КОМПАНИИ</h2>
           <p>Таким образом постоянное информационно-пропагандистское обеспечение нашей деятельности влечет за собой процесс внедрения и модернизации существенных финансовых и административных условий. </p>
           <div class="scroll">
             <div class="d-flex align-items-center justify-content-between">
-              <h6>Качество<br class="d-flex d-xl-none"/> продукции</h6>
-              <h6>Профессиональные<br class="d-flex d-xl-none"/> консультанты</h6>
-              <h6>Наши<br class="d-flex d-xl-none"/> клиенты</h6>
+              <h6>О компании</h6>
+              <h6>Преимущества</h6>
+              <h6>наши партнеры</h6>
             </div>
             <div class="block-scroll d-flex align-items-center justify-content-between">
               <div class="circle" :class="{active: currentScrollPosition >= 1}"></div>
@@ -37,11 +37,11 @@
       </div>
       <div class="mob-name-page d-flex d-md-none"
       :style="{
-        'background-image': `url(${require('@/assets/img/mob-o-product.png')})`
+        'background-image': `url(${require('@/assets/img/mob-bg-company.png')})`
       }"
       >
         <div class="container">
-          <h2>О продукции</h2>
+          <h2>О нас</h2>
         </div>
       </div>
       <div
@@ -50,20 +50,20 @@
       >
         <div class="produkt-quality">
           <div class="container">
-            <img src="@/assets/img/bg-top-element.png" alt="bg-top-element" class="bg-top-element">
-            <h4>Качество продукции</h4>
+            <img src="@/assets/img/bg-top-company.png" alt="bg-top-element" class="bg-top-company">
+            <h4>О компании</h4>
             <div class="d-none d-md-flex align-items-center justify-content-between">
               <p class="text-quality">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, n</p>
               <p class="text-quality">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, n</p>
             </div>
             <TextReadMore :text="text" :height="288" class="d-block d-md-none"/>
-            <img src="@/assets/img/bg-bottom-element.png" alt="bg-bottom-element" class="bg-bottom-element">
+            <img src="@/assets/img/bg-bottom-company.png" alt="bg-bottom-compan" class="bg-bottom-company">
           </div>
         </div>
         <div class="prof-consultanty">
           <div class="container">
-            <img src="@/assets/img/bg-top-element.png" alt="bg-top-element" class="bg-top-element">
-            <h4>Профессиональные консультанты</h4>
+            <img src="@/assets/img/bg-top-company.png" alt="bg-top-element" class="bg-top-company">
+            <h4>Преимущества</h4>
             <div class="align-items-center justify-content-between d-none d-xl-flex">
               <div class="advantages" v-for="(consultant, index) in consultantsData" :key="index">
                 <img :src="require(`@/assets/img/${consultant.img}.png`)" alt="advantages" class="img-advantages">
@@ -87,13 +87,13 @@
                 </p>
               </div>
             </Carousel>
-            <img src="@/assets/img/bg-bottom-element.png" alt="bg-bottom-element" class="bg-bottom-element">
+            <img src="@/assets/img/bg-bottom-company.png" alt="bg-bottom-company" class="bg-bottom-company">
           </div>
         </div>
         <div class="our-clients">
-          <img src="@/assets/img/bg-top-element.png" alt="bg-top-element" class="bg-top-element">
-          <OurPartnersClients  text="Наши клиенты"/>
-          <img src="@/assets/img/bg-bottom-element.png" alt="bg-bottom-element" class="bg-bottom-element">
+          <img src="@/assets/img/bg-top-company.png" alt="bg-top-company" class="bg-top-company">
+          <OurPartnersClients text="Наши партнеры"/>
+          <img src="@/assets/img/bg-bottom-company.png" alt="bg-bottom-company" class="bg-bottom-company">
         </div>
         <Footer />
       </div>
@@ -108,7 +108,7 @@ import OurPartnersClients from '@/components/layout/OurPartnersClients.vue'
 import TextReadMore from '@/components/layout/TextReadMore.vue'
 
 export default {
-  name: 'AboutProduct',
+  name: 'AboutCompany',
   components: {
     Header,
     Footer,
@@ -118,17 +118,17 @@ export default {
   data: () => ({
     consultantsData: [
       {
-        img: 'advantages',
+        img: 'brake',
         title: 'Преимущества 1',
         text: 'Повседневная практика показывает, что рамки и место обучения кадров играет важную роль в формировании систем массового участия. Не следует, однако забывать, что сложившаяся структура организации обеспечивает широкому кругу (специалистов) участие в формировании направлений прогрессивного развития.'
       },
       {
-        img: 'advantages',
+        img: 'brake',
         title: 'Преимущества 2',
         text: 'Повседневная практика показывает, что рамки и место обучения кадров играет важную роль в формировании систем массового участия. Не следует, однако забывать, что сложившаяся структура организации обеспечивает широкому кругу (специалистов) участие в формировании направлений прогрессивного развития.'
       },
       {
-        img: 'advantages',
+        img: 'brake',
         title: 'Преимущества 3',
         text: 'Повседневная практика показывает, что рамки и место обучения кадров играет важную роль в формировании систем массового участия. Не следует, однако забывать, что сложившаяся структура организации обеспечивает широкому кругу (специалистов) участие в формировании направлений прогрессивного развития.'
       }
@@ -214,6 +214,7 @@ export default {
         opacity: 1;
         pointer-events: unset;
         transition: all .4s;
+        text-align: center;
         &::after{
           position: absolute;
           content: '';
@@ -225,7 +226,7 @@ export default {
           transform: translateX(-50%);
         }
         @media (max-width: 1199px){
-          font-size: 39px;
+          font-size: 35px;
         }
       }
       p{
@@ -245,8 +246,8 @@ export default {
         }
       }
       .scroll{
-        width: 778px;
-        max-width: 778px;
+        width: 535px;
+        max-width: 535px;
         h6{
           color: #ffffff;
           font-size: 16px;
@@ -255,8 +256,8 @@ export default {
           text-transform: uppercase;
         }
         .block-scroll{
-          width: 645px;
-          max-width: 645px;
+          width: 415px;
+          max-width: 415px;
           margin: 0 auto;
           .circle{
             width: 20px;
@@ -387,17 +388,17 @@ export default {
       // padding: 200px 0;
       background-position-y: center;
       overflow: hidden;
-      img.bg-top-element{
+      img.bg-top-company{
         position: absolute;
-        right: -3%;
-        top: 15%;
+        right: -4%;
+        top: 0;
         z-index: -1;
         @media (max-width: 1199px){
           width: 20%;
           top: 5%;
         }
       }
-      img.bg-bottom-element{
+      img.bg-bottom-company{
         position: absolute;
         left: -3%;
         bottom: -4%;
@@ -436,7 +437,7 @@ export default {
         .text-quality{
           font-size: 15px;
         }
-        // img.bg-bottom-element{
+        // img.bg-bottom-company{
         //   bottom: 0;
         //   left: -7%;
         // }
@@ -452,11 +453,11 @@ export default {
         h4{
           font-size: 24px;
         }
-        img.bg-top-element{
+        img.bg-top-company{
           top: 0;
           opacity: 0.4;
         }
-        img.bg-bottom-element{
+        img.bg-bottom-company{
           opacity: 0.4;
         }
         /deep/ p{
@@ -499,7 +500,7 @@ export default {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        background-color: #00b9e5;
+        background-color: #2d2d2d;;
         padding: 0 30px;
         transition: all 0.3s;
         h6{
@@ -524,20 +525,20 @@ export default {
           }
         }
         &:nth-child(2){
-          background-color: #0f9ec0;
+          background-color: rgba(45, 45, 45, 0.48);
         }
         &:hover{
-          background-color: #79949a;
+          background-color: #00b9e5;
           transform: scale(1.02);
         }
         // @media (max-width: 767px){
         //   width: 100%;
         // }
       }
-      img.bg-top-element{
+      img.bg-top-company{
         position: absolute;
-        right: -3%;
-        top: 8%;
+        right: -4%;
+        top: 0;
         z-index: -1;
         @media (max-width: 1199px){
           width: 20%;
@@ -547,7 +548,7 @@ export default {
           opacity: 0.4;
         }
       }
-      img.bg-bottom-element{
+      img.bg-bottom-company{
         position: absolute;
         left: -3%;
         bottom: -10%;
@@ -580,10 +581,10 @@ export default {
             font-size: 13px;
           }
         }
-        // img.bg-top-element{
+        // img.bg-top-company{
         //   top: -18%;
         // }
-        // img.bg-bottom-element{
+        // img.bg-bottom-company{
         //   left: -7%;
         //   bottom: -30%;
         // }
@@ -646,7 +647,7 @@ export default {
           width: 100%;
           margin: 0 auto;
         }
-        img.bg-top-element{
+        img.bg-top-company{
           display: none;
         }
         /deep/ p{
@@ -666,10 +667,10 @@ export default {
       justify-content: center;
       // padding: 200px 0;
       background-position-y: center;
-      img.bg-top-element{
+      img.bg-top-company{
         position: absolute;
-        right: -3%;
-        top: 8%;
+        right: -4%;
+        top: 0;
         z-index: -1;
         @media (max-width: 1199px){
           width: 20%;
@@ -680,7 +681,7 @@ export default {
           top: 0;
         }
       }
-       img.bg-bottom-element{
+       img.bg-bottom-company{
         display: none;
         @media (max-width: 1199px){
           position: absolute;
@@ -698,7 +699,7 @@ export default {
       }
       @media (max-width: 1199px){
         height: unset;
-        padding: 0;
+        padding: 50px 0;
       }
     }
   }

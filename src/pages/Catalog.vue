@@ -444,6 +444,9 @@ export default {
     }
     .catalog-produkt{
       margin-top: 30px;
+      @media (max-width: 1199px){
+        margin-top: 0;
+      }
       .filter{
         border-radius: 5px;
         background-color: #f7f7f7;

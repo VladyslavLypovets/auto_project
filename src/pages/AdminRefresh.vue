@@ -76,12 +76,18 @@ export default {
     background-position-y: bottom;
     .block-admin-refresh{
       margin-top: 50px;
+      @media (max-width: 767px){
+        margin-top: 0;
+      }
       h4{
         color: #242424;
         margin-bottom: 25px;
         font-size: 24px;
         font-weight: 700;
         text-transform: uppercase;
+        @media (max-width: 767px){
+          margin-bottom: 0;
+        }
       }
       .btn-blue{
         width: 95%;
@@ -147,6 +153,9 @@ export default {
         }
 
       }
+    }
+    @media (max-width: 993px){
+      padding-bottom: 50px;
     }
   }
 </style>

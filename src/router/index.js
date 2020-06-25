@@ -16,6 +16,7 @@ import Product from '@/pages/Product.vue'
 import AdminPartners from '@/pages/AdminPartners.vue'
 import AbminProducts from '@/pages/AbminProducts.vue'
 import AdminAnalytics from '@/pages/AdminAnalytics.vue'
+import AboutCompany from '@/pages/AboutCompany.vue'
 
 Vue.use(VueRouter)
 
@@ -99,6 +100,11 @@ const routes = [
     path: '/admin-analytics',
     name: 'AdminAnalytics',
     component: AdminAnalytics
+  },
+  {
+    path: '/about-company',
+    name: 'AboutCompany',
+    component: AboutCompany
   }
 ]
 
