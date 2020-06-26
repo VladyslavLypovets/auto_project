@@ -33,7 +33,7 @@
         </div>
       </div>
       <div class="container">
-        <BreadCrumbs />
+        <BreadCrumbs :routes="[{ title: 'Контакты', route: '/' }]"/>
         <div class="block-info-form">
           <div class="row">
             <div class="col-12 col-xl-4">

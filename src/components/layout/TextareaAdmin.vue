@@ -1,7 +1,14 @@
 <template>
   <div class="form-group">
     <label :for="id" class="lebel-input-admin">{{ text }}</label>
-    <textarea class="textarea-input-admin" :id="id" name="story"></textarea>
+    <textarea
+      class="textarea-input-admin"
+      :id="id"
+      name="story"
+      :placeholder="placeholder"
+      v-model="value"
+    >
+    </textarea>
   </div>
 </template>
 
@@ -11,13 +18,15 @@ export default {
   props: {
     text: String,
     id: String,
-    value: String,
     placeholder: String,
     type: {
       type: String,
       default: 'text'
     }
-  }
+  },
+  data: () => ({
+    value: ''
+  })
 }
 </script>
 
@@ -38,6 +47,8 @@ export default {
       background-color: #ffffff;
       flex: 1;
       margin-left: 20px;
+      padding: 5px;
+      resize: none;
     }
     @media (max-width: 767px){
       flex-wrap: wrap;

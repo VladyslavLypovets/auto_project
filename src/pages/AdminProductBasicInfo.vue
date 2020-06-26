@@ -15,14 +15,14 @@
           </div>
           <div class="col-12 col-md-8 col-xl-10">
             <h4>Товар</h4>
-            <MenuProductAdmin @change="val => activePage = val"/>
-            <div class="basic-info" v-if="activePage === 1">
+            <MenuProductAdmin :active="activePage" @change="val => activePage = val"/>
+            <div class="basic-info" v-if="activePage === 0">
               <h4>Основные данные</h4>
               <div class="block-info">
-                <InputAdmin text="Идентификатор" id="identifier-1"/>
+                <InputAdmin text="Идентификатор" id="identifier-1" placeholder="test"/>
                 <InputAdmin text="Кат номер" id="kat-number"/>
                 <InputAdmin text="Идентификатор из TecDok" id="identifier-tecdok"/>
-                <InputAdmin text="Имя" id="name" v-model="name"/>
+                <InputAdmin text="Имя" id="name"/>
                 <InputAdmin text="Короткое имя" id="short-name"/>
                 <InputAdmin text="Значение" id="value"/>
                 <InputAdmin text="Единица измерения" id="until"/>
@@ -71,7 +71,7 @@
                 </div>
               </div>
             </div>
-            <div class="original-numbers" v-if="activePage === 2">
+            <div class="original-numbers" v-if="activePage === 1">
               <div class="row">
                 <div class="col-12 col-xl-3">
                   <div class="vendor-cod">
@@ -115,7 +115,7 @@
                 </div>
               </div>
             </div>
-            <div class="applicability" v-if="activePage === 3">
+            <div class="applicability" v-if="activePage === 2">
               <h4>Перечень авто</h4>
               <div class="block-applicability">
                 <v-data-table
@@ -136,7 +136,7 @@
                 <BtnBlue text="Добавить"/>
               </div>
             </div>
-            <div class="analogs" v-if="activePage === 4">
+            <div class="analogs" v-if="activePage === 3">
               <h4>пЕРЕЧЕНЬ АНАЛОГов</h4>
               <div class="block-analog">
               <v-data-table
@@ -196,8 +196,7 @@ export default {
     BtnBlue
   },
   data: () => ({
-    name: 'ttest',
-    activePage: 1,
+    activePage: 0,
     headers: [
       {
         text: 'ID товаров',

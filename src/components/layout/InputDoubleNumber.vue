@@ -8,12 +8,11 @@
         placeholder="От"
         name="entity"
         class="input-admin"
-        :value="value"
-        @input="val => $emit('input', val.target.value)"
+        v-model="value1"
       >
       <div class="button-group">
-        <button class="btn-up"><i class="fa fa-angle-up" aria-hidden="true"></i></button>
-        <button class="btn-down"><i class="fa fa-angle-down" aria-hidden="true"></i></button>
+        <button class="btn-up" @click="up('value1')"><i class="fa fa-angle-up" aria-hidden="true"></i></button>
+        <button class="btn-down" @click="down('value1')"><i class="fa fa-angle-down" aria-hidden="true"></i></button>
       </div>
     </div>
     <div class="input-button">
@@ -23,12 +22,11 @@
         placeholder="До"
         name="entity"
         class="input-admin"
-        :value="value"
-        @input="val => $emit('input', val.target.value)"
+        v-model="value2"
       >
       <div class="button-group">
-        <button class="btn-up"><i class="fa fa-angle-up" aria-hidden="true"></i></button>
-        <button class="btn-down"><i class="fa fa-angle-down" aria-hidden="true"></i></button>
+        <button class="btn-up" @click="up('value2')"><i class="fa fa-angle-up" aria-hidden="true"></i></button>
+        <button class="btn-down" @click="down('value2')"><i class="fa fa-angle-down" aria-hidden="true"></i></button>
       </div>
     </div>
   </div>
@@ -40,10 +38,29 @@ export default {
   props: {
     text: String,
     id: String,
-    value: String,
     placeholder: String,
     type: {
       default: 'text'
+    }
+  },
+  data: () => ({
+    value1: undefined,
+    value2: undefined
+  }),
+  methods: {
+    up (field) {
+      if (this[field]) {
+        this[field] += 1
+      } else {
+        this[field] = 1
+      }
+    },
+    down (field) {
+      if (this[field]) {
+        this[field] -= 1
+      } else {
+        this[field] = -1
+      }
     }
   }
 }
@@ -66,6 +83,7 @@ export default {
     .input-button{
       position: relative;
       .input-admin{
+        padding-left: 5px;
         width: 100%;
         &::placeholder{
           color: #676767;

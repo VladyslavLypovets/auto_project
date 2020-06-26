@@ -6,9 +6,8 @@
       :id="id"
       :placeholder="placeholder"
       name="entity"
+      v-model="value"
       class="input-admin"
-      :value="value"
-      @input="val => $emit('input', val.target.value)"
     >
   </div>
 </template>
@@ -19,13 +18,15 @@ export default {
   props: {
     text: String,
     id: String,
-    value: String,
     placeholder: String,
     type: {
       type: String,
       default: 'text'
     }
-  }
+  },
+  data: () => ({
+    value: ''
+  })
 }
 </script>
 

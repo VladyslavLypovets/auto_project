@@ -1,19 +1,26 @@
 <template>
   <div>
     <div class="d-none d-xl-flex align-items-center menu-product-admin">
-      <button class="btn-product-admin active" @click="$emit('change', 1)">Основные данные</button>
-      <button class="btn-product-admin" @click="$emit('change', 2)">Оригинальные номера</button>
-      <button class="btn-product-admin" @click="$emit('change', 3)">Применяемость</button>
-      <button class="btn-product-admin" @click="$emit('change', 4)">Аналоги</button>
+      <button
+        v-for="(item, index) in items"
+        :key="index"
+        class="btn-product-admin"
+        :class="{ active: active === index }"
+        @click="$emit('change', index)"
+      >
+        {{ item }}
+      </button>
     </div>
     <div class="d-flex d-xl-none align-items-center">
      <multiselect
-        v-model="lang"
-        :options="['УКР', 'РУ']"
+        v-model="activeSelect"
+        class="multiselect"
+        :options="items"
         :searchable="false"
         :allowEmpty="false"
         :hideSelected="true"
         :showLabels="false"
+        @input="val => $emit('change', items.findIndex(item => item === val))"
       >
         <i
           class="fa fa-angle-down caret"
@@ -30,8 +37,18 @@
 <script>
 export default {
   name: 'MenuProductAdmin',
+  props: {
+    active: Number
+  },
   data: () => ({
-    lang: 'РУ'
+    lang: 'РУ',
+    items: [
+      'Основные данные',
+      'Оригинальные номера',
+      'Применяемость',
+      'Аналоги'
+    ],
+    activeSelect: 'Основные данные'
   })
 }
 </script>
@@ -58,6 +75,31 @@ export default {
       &:focus{
         outline: none;
       }
+    }
+  }
+  .multiselect {
+    position: relative;
+    .caret {
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      font-size: 18px;
+      transform: translateY(-50%) rotate(0);
+      transition: all .3s;
+      color: #00b9e5;
+    }
+    &--active .caret{
+      transform: translateY(-50%) rotate(180deg);
+    }
+    /deep/ .multiselect__tags {
+      background-color: #f6f6f6;
+    }
+    /deep/ .multiselect__single {
+      color: #00b9e5;
+      background-color: #f6f6f6;
+    }
+    /deep/ .multiselect__option--highlight {
+      background: #00b9e5;
     }
   }
 </style>

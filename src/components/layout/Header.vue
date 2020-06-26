@@ -1,66 +1,81 @@
 <template>
   <header>
-    <div class="container">
-      <div class="d-flex align-items-center justify-content-between">
-        <div class="d-flex align-items-center header-left">
-          <router-link :to="{ name: 'Navigation' }" class="logo-block">
-            <img src="@/assets/img/logo_Autonova_D.png" alt="logo">
-          </router-link>
-          <nav class="nav-decstop">
-            <router-link to="/" class="nav-link">О нас</router-link>
-            <router-link to="/" class="nav-link">О продукции</router-link>
-            <router-link to="/" class="nav-link">Контакты</router-link>
-          </nav>
-        </div>
-        <div class="search-languages-block d-flex">
-          <div class="search d-none d-xl-block">
-            <form class="input-search" method="POST">
-              <input type="text" class="form-control" name="search" placeholder="Поиск на сайте">
-              <button class="btn-search">
+    <div class="position-relative w-100">
+      <div class="container">
+        <div class="d-flex align-items-center justify-content-between">
+          <div class="d-flex align-items-center header-left">
+            <router-link :to="{ name: 'Navigation' }" class="logo-block">
+              <img src="@/assets/img/logo_Autonova_D.png" alt="logo">
+            </router-link>
+            <nav class="nav-decstop">
+              <router-link to="/" class="nav-link">О нас</router-link>
+              <router-link to="/" class="nav-link">О продукции</router-link>
+              <router-link to="/" class="nav-link">Контакты</router-link>
+            </nav>
+          </div>
+          <div class="search-languages-block d-flex">
+            <div class="search d-none d-xl-block">
+              <form class="input-search" method="POST">
+                <input type="text" class="form-control" name="search" placeholder="Поиск на сайте">
+                <button class="btn-search">
+                  <i class="fa fa-search" aria-hidden="true"></i>
+                </button>
+              </form>
+            </div>
+            <div class="mob-search d-flex align-items-center d-xl-none">
+              <button class="btn-search" @click="mobileSearch = !mobileSearch">
                 <i class="fa fa-search" aria-hidden="true"></i>
               </button>
-            </form>
+            </div>
+            <div class="lang d-flex align-items-center">
+              <multiselect
+                v-model="lang"
+                :options="['УКР', 'РУ']"
+                :searchable="false"
+                :allowEmpty="false"
+                :hideSelected="true"
+                :showLabels="false"
+              >
+                <i
+                  class="fa fa-angle-down caret"
+                  slot="caret"
+                  slot-scope="{ toggle }"
+                  aria-hidden="true"
+                  @mousedown.prevent.stop="toggle"
+                />
+              </multiselect>
+            </div>
+            <div
+              class="d-flex align-items-center d-md-none burger"
+              @click="isMenuOpen = !isMenuOpen"
+            >
+              <img src="@/assets/img/menu.png" alt="menu" v-if="!isMenuOpen">
+              <img src="@/assets/img/close.png" alt="close" v-else>
+            </div>
           </div>
-          <div class="mob-search d-flex align-items-center d-xl-none">
+        </div>
+        <nav
+          class="menu d-flex d-md-none"
+          :class="{ open: isMenuOpen }"
+        >
+          <router-link to="/" class="nav-link">О нас</router-link>
+          <router-link to="/" class="nav-link">О продукции</router-link>
+          <router-link to="/" class="nav-link">Контакты</router-link>
+        </nav>
+      </div>
+      <div
+        class="mobile-search"
+        :class="{open: mobileSearch}"
+      >
+        <div class="container">
+          <div class="search-wrap">
+            <input type="text">
             <button class="btn-search">
               <i class="fa fa-search" aria-hidden="true"></i>
             </button>
           </div>
-          <div class="lang d-flex align-items-center">
-            <multiselect
-              v-model="lang"
-              :options="['УКР', 'РУ']"
-              :searchable="false"
-              :allowEmpty="false"
-              :hideSelected="true"
-              :showLabels="false"
-            >
-              <i
-                class="fa fa-angle-down caret"
-                slot="caret"
-                slot-scope="{ toggle }"
-                aria-hidden="true"
-                @mousedown.prevent.stop="toggle"
-              />
-            </multiselect>
-          </div>
-          <div
-            class="d-flex align-items-center d-md-none burger"
-            @click="isMenuOpen = !isMenuOpen"
-          >
-            <img src="@/assets/img/menu.png" alt="menu" v-if="!isMenuOpen">
-            <img src="@/assets/img/close.png" alt="close" v-else>
-          </div>
         </div>
       </div>
-      <nav
-        class="menu d-flex d-md-none"
-        :class="{ open: isMenuOpen }"
-      >
-        <router-link to="/" class="nav-link">О нас</router-link>
-        <router-link to="/" class="nav-link">О продукции</router-link>
-        <router-link to="/" class="nav-link">Контакты</router-link>
-      </nav>
     </div>
   </header>
 </template>
@@ -70,7 +85,8 @@ export default {
   name: 'Header',
   data: () => ({
     lang: 'РУ',
-    isMenuOpen: false
+    isMenuOpen: false,
+    mobileSearch: false
   })
 }
 </script>
@@ -219,6 +235,46 @@ export default {
               }
             }
           }
+        }
+      }
+    }
+    .mobile-search {
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      transform: translateY(0);
+      opacity: 0;
+      pointer-events: none;
+      transition: all .3s;
+      z-index: 1;
+      padding: 15px 0;
+      background: #fff;
+      width: 100%;
+      box-shadow: 1px 4px 5px rgba(0, 0, 0, 0.08);
+      &.open {
+        transform: translateY(calc(100% + 7px));
+        opacity: 1;
+        pointer-events: unset;
+      }
+      .search-wrap {
+        position: relative;
+        input{
+          width: 100%;
+          height: 35px;
+          border: none;
+          border-bottom: 1px solid #dcdcdc;
+          padding-right: 30px;
+          outline: none;
+        }
+        .btn-search {
+          position: absolute;
+          border: none;
+          background: none;
+          right: 5px;
+          font-size: 17px;
+          top: 50%;
+          transform: translateY(-50%);
+          color: #00b9e5;
         }
       }
     }

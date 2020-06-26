@@ -6,15 +6,17 @@
       </router-link>
       <img src="@/assets/img/bread-crumbs-arrow.png" alt="bread-crumbs-arrow">
     </div>
-    <div class="block-admin">
-      <router-link to="/" class="link-admin">
-        Админ
-      </router-link>
-      <img src="@/assets/img/bread-crumbs-arrow.png" alt="bread-crumbs-arrow">
-    </div>
-    <div class="block-current-page">
-      <p>{{ current }}</p>
-    </div>
+    <template v-for="(route, index) in routes">
+      <div class="block-admin" :key="index" v-if="index !== routes.length - 1">
+        <router-link :to="route.route" class="link-admin">
+          {{ route.title }}
+        </router-link>
+        <img src="@/assets/img/bread-crumbs-arrow.png" alt="bread-crumbs-arrow">
+      </div>
+      <div class="block-current-page" :key="index" v-else>
+        <p>{{ route.title }}</p>
+      </div>
+    </template>
   </div>
 </template>
 
@@ -25,6 +27,10 @@ export default {
     current: {
       type: String,
       default: 'Страницы'
+    },
+    routes: {
+      type: Array,
+      default: () => [{ title: 'Админ', route: '/' }, { title: 'Страницы', route: '/' }]
     }
   }
 }

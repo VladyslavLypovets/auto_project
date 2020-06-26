@@ -7,12 +7,11 @@
       :placeholder="placeholder"
       name="entity"
       class="input-admin"
-      :value="value"
-      @input="val => $emit('input', val.target.value)"
+      v-model="value"
     >
     <div class="button-group">
-      <button class="btn-up"><i class="fa fa-angle-up" aria-hidden="true"></i></button>
-      <button class="btn-down"><i class="fa fa-angle-down" aria-hidden="true"></i></button>
+      <button class="btn-up" @click="up"><i class="fa fa-angle-up" aria-hidden="true"></i></button>
+      <button class="btn-down" @click="down"><i class="fa fa-angle-down" aria-hidden="true"></i></button>
     </div>
   </div>
 </template>
@@ -23,10 +22,28 @@ export default {
   props: {
     text: String,
     id: String,
-    value: String,
     placeholder: String,
     type: {
       default: 'text'
+    }
+  },
+  data: () => ({
+    value: undefined
+  }),
+  methods: {
+    up () {
+      if (this.value) {
+        this.value += 1
+      } else {
+        this.value = 1
+      }
+    },
+    down () {
+      if (this.value) {
+        this.value -= 1
+      } else {
+        this.value = -1
+      }
     }
   }
 }
@@ -41,6 +58,7 @@ export default {
     }
     .input-admin{
       width: 50%;
+      padding-left: 5px;
     }
     .button-group{
       position: absolute;

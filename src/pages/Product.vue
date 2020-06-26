@@ -7,7 +7,7 @@
     }"
     >
       <div class="container">
-        <BreadCrumbs :current="'Название запчасти обычно в две строки и не вмещается'" />
+        <BreadCrumbs :routes="[{ title: 'Каталог', route: '/catalog' }, { title: 'Название запчасти обычно в две строки и не вмещается', route: '/' }]" />
         <div class="block-tovar">
           <div class="row">
             <div class="col-12 col-xl-5">
