@@ -7,7 +7,7 @@
       <img src="@/assets/img/bread-crumbs-arrow.png" alt="bread-crumbs-arrow">
     </div>
     <div class="block-admin">
-      <router-link to="/" class="link-admin">
+      <router-link to="/admin-refresh" class="link-admin">
         Админ
       </router-link>
       <img src="@/assets/img/bread-crumbs-arrow.png" alt="bread-crumbs-arrow">

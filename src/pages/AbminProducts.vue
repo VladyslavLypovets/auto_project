@@ -36,10 +36,10 @@
               <div class="pt-0 pb-0 col-12 col-md-8 col-xl-4">
                 <InputAdmin text="Продавец" id="seller"/>
               </div>
-              <div class="pt-0 pb-0 col-12 col-md-4 d-flex justify-content-center justify-content-md-end">
+              <div class="pt-0 pb-0 col-12 col-md-4 d-flex justify-content-center justify-content-md-end justify-content-xl-start">
                 <BtnBlue text="Найти"/>
               </div>
-              <div class="pt-0 pb-0 col-12 d-flex align-item-center flex-wrap justify-content-between">
+              <div class="pt-0 pb-0 col-12 d-flex align-item-center flex-wrap justify-content-between justify-content-xl-start">
                 <button class="btn-gray">Редактировать</button>
                 <button class="btn-white">Удалить</button>
                 <RadioAdmin text="Применить для выбранных" id="apply-selected" name="apply-selected" class="apply-selected"/>
@@ -269,11 +269,11 @@ export default {
         }
         @media (max-width: 1199px){
           max-width: 200px;
+          margin-right: 0;
         }
-        @media (max-width: 7679px){
+        @media (max-width: 767px){
           max-width: unset;
           width: 48%;
-          margin-right: 0;
           margin-top: 20px;
         }
       }
@@ -293,9 +293,11 @@ export default {
           background-color: #00b9e5;
           color: #fff;
         }
-        @media (max-width: 7679px){
+        @media (max-width: 1199px){
+           margin-right: 0;
+        }
+        @media (max-width: 767px){
           max-width: unset;
-          margin-right: 0;
           width: 48%;
           margin-top: 20px;
         }

@@ -7,9 +7,9 @@
             <img src="@/assets/img/logo_Autonova_D.png" alt="logo">
           </router-link>
           <nav class="nav-decstop">
-            <router-link to="/" class="nav-link">О нас</router-link>
-            <router-link to="/" class="nav-link">О продукции</router-link>
-            <router-link to="/" class="nav-link">Контакты</router-link>
+            <router-link to="/about-company" class="nav-link">О нас</router-link>
+            <router-link to="/about-product" class="nav-link">О продукции</router-link>
+            <router-link to="/contacts" class="nav-link">Контакты</router-link>
           </nav>
         </div>
         <div class="search-languages-block d-flex">
@@ -57,9 +57,9 @@
         class="menu d-flex d-md-none"
         :class="{ open: isMenuOpen }"
       >
-        <router-link to="/" class="nav-link">О нас</router-link>
-        <router-link to="/" class="nav-link">О продукции</router-link>
-        <router-link to="/" class="nav-link">Контакты</router-link>
+        <router-link to="/about-company" class="nav-link">О нас</router-link>
+        <router-link to="/about-product" class="nav-link">О продукции</router-link>
+        <router-link to="/contacts" class="nav-link">Контакты</router-link>
       </nav>
     </div>
   </header>
