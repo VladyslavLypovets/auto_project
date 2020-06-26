@@ -55,7 +55,7 @@ export default {
         subList: [],
         opened: false,
         current: false,
-        route: { name: 'Navigation' }
+        route: { name: 'AdminAddPage' }
       },
       {
         title: 'iFrame',
@@ -69,15 +69,15 @@ export default {
           },
           {
             title: 'Аналитика',
-            route: { name: 'Navigation' }
+            route: { name: 'AdminAnalytics' }
           }
         ]
       },
       {
-        title: 'Страницы',
+        title: 'Товары',
         subList: [],
         opened: false,
-        route: { name: 'Navigation' }
+        route: { name: 'AbminProducts' }
       },
       {
         title: 'Пользователи',
@@ -87,11 +87,11 @@ export default {
         subList: [
           {
             title: 'Основные данные',
-            route: { name: 'Navigation' }
+            route: { name: 'AdminUserBasicData' }
           },
           {
             title: 'Все пользователи',
-            route: { name: 'Navigation' }
+            route: { name: 'AdminUser' }
           },
           {
             title: 'Создать нового',

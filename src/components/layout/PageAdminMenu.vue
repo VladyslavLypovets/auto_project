@@ -6,13 +6,13 @@
         <li class="main-point-menu"><span>Перечень страниц</span>
           <ul class="sub-point-menu">
             <li><router-link class="link-sub-point" to="/">Главная</router-link></li>
-            <li><router-link class="link-sub-point" to="/">Контакты</router-link></li>
+            <li><router-link class="link-sub-point" to="/contacts">Контакты</router-link></li>
           </ul>
         </li>
         <li class="main-point-menu"><span>Шаблоны</span>
           <ul class="sub-point-menu">
-            <li><router-link class="link-sub-point" to="/">О нас</router-link></li>
-            <li><router-link class="link-sub-point" to="/">О продукции</router-link></li>
+            <li><router-link class="link-sub-point" to="/about-company">О нас</router-link></li>
+            <li><router-link class="link-sub-point" to="/about-product">О продукции</router-link></li>
           </ul>
         </li>
       </ul>
