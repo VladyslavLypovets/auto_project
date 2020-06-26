@@ -1,10 +1,14 @@
 <template>
-  <div>
+  <div
+    class="wrap"
+    :class="{'no-scroll': filterOpen}"
+  >
     <Header />
-    <main class="home-main"
-    :style="{
-      'background-image': `url(${require('@/assets/img/bg-contacrs.png')})`
-    }"
+    <main
+      class="home-main"
+      :style="{
+        'background-image': `url(${require('@/assets/img/bg-contacrs.png')})`
+      }"
     >
       <div class="baner-home d-none d-md-block"
         :style="{
@@ -203,7 +207,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-12 col-xl-9">
+            <div class="col-12 col-xl-9 mt">
               <div class="d-flex">
                 <button class="btn-filter-mob d-block d-xl-none" @click="filterOpen = !filterOpen">
                   <img src="@/assets/img/big-filter.png" alt="big-filter">
@@ -363,6 +367,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  .wrap.no-scroll {
+      max-height: 100vh;
+      overflow: hidden;
+    }
   .home-main{
     padding: 86px 0;
     min-height: calc(100vh - 60px);
@@ -444,9 +452,6 @@ export default {
     }
     .catalog-produkt{
       margin-top: 30px;
-      @media (max-width: 1199px){
-        margin-top: 0;
-      }
       .filter{
         border-radius: 5px;
         background-color: #f7f7f7;
@@ -725,6 +730,7 @@ export default {
             top: 0;
             width: 40vw;
             height: 100vh;
+            overflow: auto;
             z-index: 10;
             cursor: pointer;
             z-index: 5;
@@ -738,7 +744,9 @@ export default {
           }
         }
         @media (max-width: 767px){
-          padding: 25px 15px;
+          &.open {
+            padding: 25px 15px;
+          }
           h6{
             margin-bottom: 15px;
           }
@@ -1030,13 +1038,13 @@ export default {
     padding: 0 15px;
     margin: 0 -15px;
     .fa-angle-down {
-      transform: rotate(180deg);
+      transform: rotate(0);
       transition: all .3s;
     }
     &.open {
       max-height: 500px;
       .fa-angle-down {
-        transform: rotate(0);
+        transform: rotate(180deg);
       }
     }
   }

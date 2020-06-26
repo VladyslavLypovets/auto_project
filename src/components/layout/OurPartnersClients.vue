@@ -133,6 +133,12 @@ export default {
         width: 100%;
       }
     }
+    @media (max-width: 767px){
+      .carousel-mob-clients{
+        width: 80%;
+        margin-left: 10%;
+      }
+    }
     @media (max-width: 1199px){
       h4{
         font-size: 36px;

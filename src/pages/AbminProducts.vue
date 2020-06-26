@@ -50,8 +50,8 @@
                 :items="items"
                 class="elevation-1"
               >
-                <template v-slot:item.checbox>
-                  <RadioAdmin id="row-selection-1" class="row-selection"/>
+                <template v-slot:item.checbox="{ item }">
+                  <RadioAdmin :id="`row-selection-${item.checbox}`" class="row-selection"/>
                 </template>
                 <template v-slot:item.change>
                   <button class="btn-edit">
@@ -109,7 +109,7 @@ export default {
     ],
     items: [
       {
-        checbox: '',
+        checbox: '1',
         articulProduct: 'VAG',
         nameProduct: 'VAG',
         price: 'VAG',
@@ -119,6 +119,7 @@ export default {
         change: ''
       },
       {
+        checbox: '2',
         articulProduct: 'VAG',
         nameProduct: 'VAG',
         price: 'VAG',
@@ -128,6 +129,7 @@ export default {
         change: ''
       },
       {
+        checbox: '3',
         articulProduct: 'VAG',
         nameProduct: 'VAG',
         price: 'VAG',
@@ -137,6 +139,7 @@ export default {
         change: ''
       },
       {
+        checbox: '4',
         articulProduct: 'VAG',
         nameProduct: 'VAG',
         price: 'VAG',
@@ -146,6 +149,7 @@ export default {
         change: ''
       },
       {
+        checbox: '5',
         articulProduct: 'VAG',
         nameProduct: 'VAG',
         price: 'VAG',

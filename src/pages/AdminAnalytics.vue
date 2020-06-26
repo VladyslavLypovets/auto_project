@@ -58,92 +58,14 @@
                 :headers="headers"
                 :items="items"
                 class="elevation-1"
+                :itemsPerPage="40"
               >
                 <template v-slot:item.linkProduct>
                   <a href="https://kasta.ua/market/aksessuary/" class="link">https://kasta.ua/market/aksessuary/</a>
                 </template>
             </v-data-table>
-            <!-- <table class="table table-striped table-admin-analytics">
-              <thead>
-                <tr>
-                  <th scope="col">ID</th>
-                  <th scope="col">Домен</th>
-                  <th scope="col">Дата</th>
-                  <th scope="col">Ссылка на товар</th>
-                  <th scope="col">Переход в магазин</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">VAG</th>
-                  <td>VAG</td>
-                  <td>18.03.2020</td>
-                  <td>
-                    <router-link to="/" class="link-website">
-                      https://kasta.ua/market/aksessuary/
-                    </router-link>
-                  </td>
-                  <td>2</td>
-                </tr>
-                <tr>
-                  <th scope="row">VAG</th>
-                  <td>VAG</td>
-                  <td>18.03.2020</td>
-                  <td>
-                    <router-link to="/" class="link-website">
-                      https://kasta.ua/market/aksessuary/
-                    </router-link>
-                  </td>
-                  <td>3</td>
-                </tr>
-                <tr>
-                  <th scope="row">VAG</th>
-                  <td>VAG</td>
-                  <td>18.03.2020</td>
-                  <td>
-                    <router-link to="/" class="link-website">
-                      https://kasta.ua/market/aksessuary/
-                    </router-link>
-                  </td>
-                  <td>18</td>
-                </tr>
-                <tr>
-                  <th scope="row">VAG</th>
-                  <td>VAG</td>
-                  <td>18.03.2020</td>
-                  <td>
-                    <router-link to="/" class="link-website">
-                      https://kasta.ua/market/aksessuary/
-                    </router-link>
-                  </td>
-                  <td>100</td>
-                </tr>
-                <tr>
-                  <th scope="row">VAG</th>
-                  <td>VAG</td>
-                  <td>18.03.2020</td>
-                  <td>
-                    <router-link to="/" class="link-website">
-                      https://kasta.ua/market/aksessuary/
-                    </router-link>
-                  </td>
-                  <td>200</td>
-                </tr>
-                <tr>
-                  <th scope="row">VAG</th>
-                  <td>VAG</td>
-                  <td>18.03.2020</td>
-                  <td>
-                    <router-link to="/" class="link-website">
-                      https://kasta.ua/market/aksessuary/
-                    </router-link>
-                  </td>
-                  <td>240</td>
-                </tr>
-              </tbody>
-            </table> -->
             <div class="show-more">
-              <BtnBlue text="Показать еще"/>
+              <BtnBlue text="Показать еще" @click="showMore()"/>
             </div>
           </div>
         </div>
@@ -227,7 +149,13 @@ export default {
         transitionStore: '2'
       }
     ]
-  })
+  }),
+  methods: {
+    showMore () {
+      const arr = this.items.slice(0, 5)
+      this.items = this.items.concat(arr)
+    }
+  }
 }
 </script>
 
