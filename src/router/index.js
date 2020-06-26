@@ -17,6 +17,7 @@ import AdminPartners from '@/pages/AdminPartners.vue'
 import AbminProducts from '@/pages/AbminProducts.vue'
 import AdminAnalytics from '@/pages/AdminAnalytics.vue'
 import AboutCompany from '@/pages/AboutCompany.vue'
+import Search from '@/pages/Search.vue'
 
 Vue.use(VueRouter)
 
@@ -30,6 +31,11 @@ const routes = [
     path: '/catalog',
     name: 'Catalog',
     component: Catalog
+  },
+  {
+    path: '/search',
+    name: 'Search',
+    component: Search
   },
   {
     path: '/error',

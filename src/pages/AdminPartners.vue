@@ -312,9 +312,6 @@ export default {
       .theme--light.v-data-table .v-data-table-header th.sortable:hover {
         color: unset;
       }
-      @media (max-width: 767px){
-        margin-top: 0;
-      }
     }
     @media (max-width: 993px){
       padding-bottom: 50px;

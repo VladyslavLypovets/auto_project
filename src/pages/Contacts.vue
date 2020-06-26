@@ -296,6 +296,7 @@ export default {
               color: #333333;
               font-size: 16px;
               font-weight: 400;
+              padding: 10px;
             }
           }
         }

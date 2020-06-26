@@ -342,9 +342,6 @@ export default {
     background-position-y: bottom;
     .block-product-basicinfo{
       margin-top: 50px;
-      @media (max-width: 767px){
-        margin-top: 0;
-      }
       h4{
         color: #242424;
         font-size: 30px;
