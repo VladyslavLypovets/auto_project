@@ -21,7 +21,11 @@ export default {
     })
     this.$root.$on('closeDialog', name => {
       this.activeDialog = ''
+      this.$router.push({ ...this.$route, query: {} })
     })
+    if (this.$route.query.activeDialog) {
+      this.activeDialog = this.$route.query.activeDialog
+    }
   },
   components: {
     DailogsWorkSite
