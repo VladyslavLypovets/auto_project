@@ -42,7 +42,7 @@ export default {
 
 <style lang="scss" scoped>
   .error-main{
-    padding: 20px 0;
+    padding: 83px 0 20px;
     min-height: calc(100vh - 60px);
     background-size: cover;
     background-repeat: no-repeat;
@@ -59,6 +59,10 @@ export default {
     .error-number img{
       width: 100%;
       max-width: 45vw;
+      margin-top: 30px;
+      @media (max-width: 1199px){
+        max-width: unset;
+      }
       @media (max-width: 767px){
         max-width: 285px;
       }
@@ -71,6 +75,7 @@ export default {
         font-weight: 400;
         margin-bottom: 29px;
         margin-top: 50px;
+        letter-spacing: 1.4px;
         @media (max-width: 1199px){
           font-size: 29px;
           margin-bottom: 20px;
@@ -81,6 +86,7 @@ export default {
         }
       }
       p{
+        letter-spacing: 1.4px;
         color: #323232;
         font-size: 24px;
         font-weight: 400;

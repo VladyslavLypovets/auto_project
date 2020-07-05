@@ -13,11 +13,11 @@
       >
         <div class="container">
           <div class="row">
-            <div class="col-6 col-xl-8">
+            <div class="col-6 col-xl-7">
               <h3>Контакты</h3>
               <p>Таким образом постоянное информационно-пропагандистское обеспечение нашей деятельности влечет за собой процесс внедрения и модернизации существенных финансовых и административных условий. </p>
             </div>
-            <div class="col-6 col-xl-4">
+            <div class="col-6 col-xl-5">
               <img src="@/assets/img/car-contacts.png" alt="car-contascts">
             </div>
           </div>
@@ -113,13 +113,14 @@ export default {
 
 <style lang="scss" scoped>
   .contacts-main{
-    padding: 86px 0 150px;
+    padding: 83px 0 150px;
     min-height: calc(100vh - 60px);
     background-repeat: no-repeat;
     background-position-y: bottom;
     .baner-contacts{
       background-size: cover;
-      padding: 70px 0 30px;
+      padding: 60px 0 27px;
+      background-position-y: bottom;
       h3{
         color: #ffffff;
         font-size: 48px;

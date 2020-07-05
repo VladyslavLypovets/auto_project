@@ -133,6 +133,16 @@ export default {
         font-size: 14px;
         font-weight: 400;
         margin: 15px 0 0;
+        position: relative;
+        padding-bottom: 25px;
+        &::before{
+          position: absolute;
+          content: '';
+          height: 1px;
+          background: #e8e8e8;
+          width: 100%;
+          bottom: 0;
+        }
       }
       .multiselect-marka,
       .multiselect-model{

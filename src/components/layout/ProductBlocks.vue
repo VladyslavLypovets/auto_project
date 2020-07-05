@@ -148,6 +148,7 @@ export default {
     }
     &:hover{
       transform: scale(1.005);
+      box-shadow: 1px 2px 24px rgba(0, 0, 0, 0.31);
     }
   }
 </style>

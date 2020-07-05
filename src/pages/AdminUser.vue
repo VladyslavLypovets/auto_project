@@ -10,10 +10,10 @@
         <BreadCrumbs />
         <div class="block-user">
           <div class="row">
-            <div class=" d-block col-4 col-xl-2">
+            <div class=" d-block col-4 col-xl-2 pr-4">
               <MenuAdmin />
             </div>
-            <div class="col-12 col-md-8 col-xl-10">
+            <div class="col-12 col-md-8 col-xl-10 pl-md-4 pl-3">
               <h4>Пользователи</h4>
               <h6>Все пользователи</h6>
               <v-data-table
@@ -65,7 +65,7 @@ export default {
       },
       { text: 'Статус', value: 'state', align: 'center' },
       { text: 'Дата добавления', value: 'date', align: 'center' },
-      { text: ' ', value: 'change', align: 'center' },
+      { text: ' ', value: 'change', align: 'right' },
       { text: ' ', value: 'delete', align: 'right' }
     ],
     items: [
@@ -111,7 +111,7 @@ export default {
 
 <style lang="scss" scoped>
   .admin-user-main{
-    padding: 86px 0 150px;
+    padding: 83px 0 150px;
     min-height: calc(100vh - 60px);
     background-size: cover;
     background-repeat: no-repeat;

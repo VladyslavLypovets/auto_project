@@ -10,10 +10,10 @@
       <BreadCrumbs />
       <div class="block-products">
         <div class="row">
-          <div class=" d-block col-4 col-xl-2">
+          <div class=" d-block col-4 col-xl-2 pr-4">
             <MenuAdmin />
           </div>
-          <div class="col-12 col-md-8 col-xl-10">
+          <div class="col-12 col-md-8 col-xl-10 pl-md-4 pl-3">
             <h4>Товары</h4>
             <div class="row">
               <div class="pt-0 pb-0 col-12 col-xl-4">
@@ -165,7 +165,7 @@ export default {
 
 <style lang="scss" scoped>
   .admin-products-main{
-    padding: 86px 0 55px;
+    padding: 83px 0 55px;
     min-height: calc(100vh - 60px);
     background-size: cover;
     background-repeat: no-repeat;
@@ -206,7 +206,8 @@ export default {
         font-weight: 700;
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
+        padding-left: 20px;
         @media (max-width: 1599px){
           font-size: 14px;
         }

@@ -10,13 +10,13 @@
       <BreadCrumbs />
       <div class="menu-admin-page">
         <div class="row">
-          <div class=" d-block col-4 col-xl-2">
+          <div class=" d-block col-4 col-xl-2 pr-4">
             <MenuAdmin />
           </div>
-          <div class="col-12 col-md-3 col-xl-2">
+          <div class="col-12 col-md-3 col-xl-2 pl-md-4 pl-3">
             <PageAdminMenu />
           </div>
-          <div class="col-12 col-md-5 col-xl-8">
+          <div class="col-12 col-md-5 col-xl-8 pl-md-4 pl-3">
             <div class="add-page">
               <BtnBlue text="Добавить страницу"/>
               <p>Шаблон страницы о нас</p>
@@ -53,7 +53,7 @@ export default {
 
 <style lang="scss" scoped>
   .admin-addpage-main{
-    padding: 86px 0 55px;
+    padding: 83px 0 55px;
     min-height: calc(100vh - 60px);
     background-size: cover;
     background-repeat: no-repeat;

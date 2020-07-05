@@ -59,9 +59,14 @@ export default {
     padding: 10px 20px;
     margin-bottom: 20px;
     max-height: 185px;
-    display: block;
+    height: 185px;
+    display: flex;
     text-decoration: none;
     transition: all 0.3s;
+    align-items: center;
+    @media(max-width: 1199px) {
+      height: 167px;
+    }
     &:hover {
       transform: scale(1.005);
     }
@@ -110,7 +115,6 @@ export default {
       border-left: 1px solid #c9c9c9;
       padding-left: 20px;
       .block-price-quantity{
-        margin-bottom: 10px;
         .price{
           color: #242424;
           font-size: 18px;
@@ -144,6 +148,7 @@ export default {
       color: #242424;
       font-size: 20px;
       font-weight: 700;
+      line-height: 1;
       // margin-bottom: 15px;
       @media (max-width: 993px){
         font-size: 17px;

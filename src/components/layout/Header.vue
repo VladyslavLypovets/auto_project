@@ -97,7 +97,7 @@ export default {
     width: 100%;
     top: 0;
     left: 0;
-    height: 86px;
+    height: 83px;
     box-shadow: 1px 2px 7px rgba(0, 0, 0, 0.19);
     background-color: #ffffff;
     z-index: 2;
@@ -112,7 +112,7 @@ export default {
         font-weight: 700;
         text-transform: uppercase;
         border-bottom: 4px solid #fff;
-        height: 86px;
+        height: 83px;
         display: flex;
         align-items: center;
         transition: all 0.3s;
@@ -126,10 +126,13 @@ export default {
       .search{
         .input-search{
           background: #fff;
-          width: 330px;
+          width: 400px;
           height: 100%;
           display: flex;
-          align-items: center;
+          align-items: flex-end;
+          @media (max-width: 1599px){
+            width: 330px;
+          }
           input {
             width: 100%;
             border-radius: 0;
@@ -190,7 +193,7 @@ export default {
           }
           /deep/ .multiselect__tags {
             width: 62px;
-            height: 34px;
+            min-height: 34px;
             border-radius: 5px;
             background-color: #00b9e5;
             border: none;

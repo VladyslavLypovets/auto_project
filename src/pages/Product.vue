@@ -3,7 +3,7 @@
     <Header />
     <main class="cart-tovar-main"
     :style="{
-      'background-image': `url(${require('@/assets/img/bg-contacrs.png')})`
+      'background-image': `url(${require('@/assets/img/bg-catalog.png')})`
     }"
     >
       <div class="container">
@@ -278,7 +278,7 @@
                 >
                 <div v-for="i in new Array(3)" :key="i" class="items-wrap">
                   <div class="items" v-for="index in itemsInColumn" :key="index">
-                    <div class="analog-tovar">
+                    <router-link  to="/product" class="analog-tovar">
                       <div class="d-flex align-items-start align-items-xl-center">
                         <div class="img-tovar">
                           <img src="@/assets/img/img-product-catalog.png" alt="img-product-catalog">
@@ -299,7 +299,7 @@
                            Купить
                         </button>
                       </div>
-                    </div>
+                    </router-link>
                   </div>
                 </div>
                 </Carousel>
@@ -362,10 +362,11 @@ export default {
 
 <style lang="scss" scoped>
   .cart-tovar-main{
-    padding: 86px 0;
+    padding: 83px 0;
     min-height: calc(100vh - 60px);
     background-repeat: no-repeat;
     background-position-y: bottom;
+    background-position-x: center;
     @media(max-width: 1199px) {
       padding-bottom: 50px;
     }
@@ -380,7 +381,7 @@ export default {
         background-color: #ffffff;
         padding: 25px;
         position: relative;
-        height: 100%;
+        height: 90%;
         img{
           width: 100%;
         }
@@ -474,7 +475,7 @@ export default {
           margin-top: 35px;
           display: flex;
           .description{
-            width: 50%;
+            width: 55%;
             padding-right: 30px;
             h6{
               color: #242424;
@@ -494,7 +495,7 @@ export default {
             }
           }
           .block-dostavka{
-            width: 50%;
+            width: 45%;
             border-left: 1px solid #dfdfdf;
             padding-left: 30px;
             .dostavka,
@@ -864,10 +865,13 @@ export default {
               border-radius: 5px;
               background-color: #ffffff;
               height: 130px;
-              padding: 19px;
+              padding: 19px 27px 19px 19px;
               display: flex;
               align-items: center;
               justify-content: space-between;
+              @media(max-width: 1599px) {
+                padding: 19px;
+              }
               @media(max-width: 1199px) {
                 padding: 12px;
               }
@@ -886,7 +890,7 @@ export default {
                 img{
                   width: 60%;
                 }
-                @media(max-width: 1199px) {
+                @media(max-width: 1599px) {
                   margin-right: 10px;
                 }
               }
@@ -927,7 +931,7 @@ export default {
                   font-size: 20px;
                   font-weight: 700;
                   margin-bottom: 15px;
-                   @media (max-width: 1599px){
+                  @media (max-width: 1599px){
                     font-size: 15px;
                   }
                 }
@@ -946,10 +950,17 @@ export default {
                   font-weight: 700;
                   text-transform: uppercase;
                   transition: all 0.3s;
+                  @media (max-width: 1599px){
+                    font-size: 14px;
+                  }
                   img{
                     margin-right: 15px;
                     width: 25px;
                     height: 25px;
+                  @media (max-width: 1599px){
+                    width: 22px;
+                    height: 22px;
+                  }
                   }
                   &:hover{
                     background-color: #1f7a90;
@@ -966,7 +977,7 @@ export default {
             background: none;
             color: #00b9e5;
             right: 40px;
-            font-size: 25px;
+            font-size: 30px;
             top: -62px;
             transition: all 0.3s;
             &:hover{
@@ -981,7 +992,7 @@ export default {
             background: none;
             color: #00b9e5;
             right: 0;
-            font-size: 25px;
+            font-size: 30px;
             top: -62px;
             transition: all 0.3s;
             &:hover{
@@ -997,7 +1008,7 @@ export default {
               content: '';
               position: absolute;
               left: -9px;
-              top: 5px;
+              top: 10px;
             }
           }
         }

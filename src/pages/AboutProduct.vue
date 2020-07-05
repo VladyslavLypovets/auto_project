@@ -171,7 +171,7 @@ export default {
 
 <style lang="scss" scoped>
   .oproducte-main{
-    padding-top: 86px;
+    padding-top: 83px;
     max-height: 100vh;
     overflow: hidden;
     transition: all .3s;
@@ -210,14 +210,14 @@ export default {
         text-transform: uppercase;
         margin-bottom: 30px;
         position: relative;
-        padding-top: 40px;
+        padding-top: 80px;
         opacity: 1;
         pointer-events: unset;
         transition: all .4s;
         &::after{
           position: absolute;
           content: '';
-          top: 0;
+          top: 37px;
           left: 50%;
           width: 106px;
           height: 6px;
@@ -394,7 +394,7 @@ export default {
         z-index: -1;
         @media (max-width: 1199px){
           width: 20%;
-          top: 5%;
+          top: 0;
         }
       }
       img.bg-bottom-element{
@@ -419,10 +419,9 @@ export default {
         color: #000000;
         font-size: 18px;
         font-weight: 400;
-        line-height: 1.8;
+        line-height: 39px;
         width: 48%;
         letter-spacing: 0.54px;
-        background: #fff;
         @media (max-width: 1599px){
           line-height: 1.5;
           font-size: 16px;
@@ -451,6 +450,7 @@ export default {
       @media (max-width: 767px){
         h4{
           font-size: 24px;
+          text-align: center;
         }
         img.bg-top-element{
           top: 0;
@@ -494,13 +494,13 @@ export default {
       }
       .advantages{
         width: 32%;
-        height: 360px;
+        height: 390px;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         background-color: #00b9e5;
-        padding: 0 30px;
+        padding: 30px;
         transition: all 0.3s;
         h6{
           color: #ffffff;
@@ -616,7 +616,7 @@ export default {
         }
         .advantages{
           margin: 0 auto;
-          width: 45%;
+          width: 52%;
           height: 480px;
           img{
             width: unset;
