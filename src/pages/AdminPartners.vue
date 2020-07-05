@@ -10,10 +10,10 @@
         <BreadCrumbs />
         <div class="block-partners">
           <div class="row">
-            <div class=" d-block col-4 col-xl-2">
+            <div class=" d-block col-4 col-xl-2 pr-4">
               <MenuAdmin />
             </div>
-            <div class="col-12 col-md-8 col-xl-10">
+            <div class="col-12 col-md-8 col-xl-10 pl-md-4 pl-3">
               <h4>Партнеры</h4>
               <div class="block-form">
                 <InputAdmin  id="domen" placeholder="Укажите домен"/>
@@ -108,7 +108,7 @@ export default {
 
 <style lang="scss" scoped>
   .admin-partners-main{
-    padding: 86px 0 150px;
+    padding: 83px 0 150px;
     min-height: calc(100vh - 60px);
     background-size: cover;
     background-repeat: no-repeat;

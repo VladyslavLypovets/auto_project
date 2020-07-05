@@ -10,11 +10,14 @@
       <BreadCrumbs />
       <div class="block-product-basicinfo">
         <div class="row">
-          <div class=" d-block col-4 col-xl-2">
+          <div class=" d-block col-4 col-xl-2 pr-4">
             <MenuAdmin />
           </div>
-          <div class="col-12 col-md-8 col-xl-10">
-            <h4>Товар</h4>
+          <div class="col-12 col-md-8 col-xl-10 pl-md-4 pl-3">
+            <div class="d-flex align-items-center justify-content-between name-page">
+              <h4>Товар</h4>
+              <BtnBlue text="Сохранить"/>
+            </div>
             <MenuProductAdmin :active="activePage" @change="val => activePage = val"/>
             <div class="basic-info" v-if="activePage === 0">
               <h4>Основные данные</h4>
@@ -145,7 +148,7 @@
                 class="elevation-4"
               >
                 <template v-slot:item.name>
-                  <router-link to="/" class="link-admin">
+                  <router-link to="/product" class="link-admin" target="_blank">
                     Подшипник 15*42*13 63022RS
                   </router-link>
                 </template>
@@ -335,26 +338,32 @@ export default {
 
 <style lang="scss" scoped>
   .admin-product-basicinfo-main{
-    padding: 86px 0 50px;
+    padding: 83px 0 50px;
     min-height: calc(100vh - 60px);
     background-size: cover;
     background-repeat: no-repeat;
     background-position-y: bottom;
     .block-product-basicinfo{
       margin-top: 50px;
-      h4{
-        color: #242424;
-        font-size: 30px;
-        font-weight: 700;
+      .name-page{
         margin-bottom: 40px;
-        text-transform: uppercase;
-        @media (max-width: 767px){
-         margin-bottom: 25px;
-         font-size: 24px;
+        h4{
+          color: #242424;
+          font-size: 30px;
+          font-weight: 700;
+          margin-bottom: 0;
+          text-transform: uppercase;
+          @media (max-width: 767px){
+          margin-bottom: 25px;
+          font-size: 24px;
+          }
         }
       }
       .basic-info{
         margin-top: 45px;
+        @media (max-width: 767px){
+          margin-top: 25px;
+        }
         h4{
           color: #242424;
           font-size: 24px;
@@ -362,6 +371,9 @@ export default {
           line-height: 48px;
           text-transform: uppercase;
           margin-bottom: 30px;
+          @media (max-width: 767px){
+            margin-bottom: 20px;
+          }
         }
         .block-info{
           p{
@@ -464,6 +476,7 @@ export default {
               border: 1px solid #dfdfdf;
               th {
                 border: 1px solid #dfdfdf;
+                padding: 0 10px;
                 span{
                   color: #676767;
                   font-size: 16px;
@@ -582,6 +595,11 @@ export default {
             width: 100%;
             flex: none;
             margin: 0 0 15px;
+             @media (max-width: 767px){
+              &::placeholder{
+                font-size: 13px;
+              }
+            }
           }
           .btn-blue{
             width: 210px;

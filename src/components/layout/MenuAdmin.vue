@@ -233,7 +233,7 @@ export default {
             margin-bottom: 15px;
           }
           .sub-menu-item {
-            max-height: 150px;
+            max-height: 200px;
             padding: 15px 0 0;
             border-top: 1px solid #dfdfdf;
           }

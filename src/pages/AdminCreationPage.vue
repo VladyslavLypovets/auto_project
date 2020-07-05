@@ -10,10 +10,10 @@
       <BreadCrumbs />
       <div class="block-admin-creation">
         <div class="row">
-          <div class=" d-block col-4 col-xl-2">
+          <div class=" d-block col-4 col-xl-2 pr-4">
             <MenuAdmin />
           </div>
-          <div class="d-none d-md-block col-12 col-md-3 col-xl-2">
+          <div class="d-none d-md-block col-12 col-md-3 col-xl-2 pl-md-4 pl-3">
             <PageAdminMenu />
           </div>
           <div class="d-block col-12 d-md-none">
@@ -22,11 +22,11 @@
           <div class="col-12 col-xl-8">
             <div class="creation-page">
               <div class="d-flex align-items-center justify-content-between flex-wrap">
-                <div class="language-switch d-flex">
+                <div class="language-switch d-flex order-2 order-md-1">
                   <button class="language active">UA</button>
                   <button class="language">RU</button>
                 </div>
-                <div class="save">
+                <div class="save order-1 order-md-2 mt-3 mt-md-0">
                   <BtnBlue text="Сохранить"/>
                 </div>
               </div>
@@ -85,7 +85,7 @@ export default {
 
 <style lang="scss" scoped>
   .admin-creationpage-main{
-    padding: 86px 0 150px;
+    padding: 83px 0 150px;
     min-height: calc(100vh - 60px);
     background-size: cover;
     background-repeat: no-repeat;
@@ -119,11 +119,16 @@ export default {
               background-color: #00b9e5;
               box-shadow: 1px 2px 0 #068fb0;
               color: #ffffff;
+              border: none;
             }
             &:hover{
               background-color: #00b9e5;
             }
           }
+        }
+        .save{
+          display: flex;
+          justify-content: flex-end;
         }
         .btn-blue{
           margin-left: 22%;
@@ -148,6 +153,7 @@ export default {
             margin-top: 20px;
             margin-bottom: 30px;
             justify-content: space-around;
+            width: 100%;
             .language{
               width: 100px;
             }

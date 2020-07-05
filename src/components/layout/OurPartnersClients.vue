@@ -116,8 +116,8 @@ export default {
           color: #c0c0c0;
           left: -20%;
           font-size: 32px;
-          top: 50%;
-          transform: translateY(-50%);
+          bottom: 53%;
+          transform: translateY(50%);
         }
         /deep/ .owl-next{
           position: absolute;
@@ -125,8 +125,8 @@ export default {
           color: #c0c0c0;
           right: -20%;
           font-size: 32px;
-          top: 50%;
-          transform: translateY(-50%);
+          bottom: 53%;
+          transform: translateY(50%);
         }
       }
       .client-partner{
@@ -137,6 +137,12 @@ export default {
       .carousel-mob-clients{
         width: 80%;
         margin-left: 10%;
+      }
+      .client-partner {
+        height: 83px;
+        img.logo-client-partner{
+          max-width: 90px;
+        }
       }
     }
     @media (max-width: 1199px){
@@ -150,10 +156,12 @@ export default {
       }
       .carousel-mob-clients{
         /deep/ .owl-prev{
-          left: -70px;
+          left: -40px;
+          bottom: 55%;
         }
         /deep/ .owl-next{
-          right: -70px;
+          right: -40px;
+          bottom: 55%;
         }
       }
     }

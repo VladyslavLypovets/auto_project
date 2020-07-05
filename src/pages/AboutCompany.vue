@@ -12,7 +12,7 @@
         'background-image': `url(${require('@/assets/img/bg-home-ocompany.png')})`
       }"
       >
-        <div class="container d-flex flex-column align-items-center justify-content-center">{
+        <div class="container d-flex flex-column align-items-center justify-content-center">
           <h2>БОЛЬШОЙ ЗАГОЛОВОК И НАЗВАНИЕ КОМПАНИИ</h2>
           <p>Таким образом постоянное информационно-пропагандистское обеспечение нашей деятельности влечет за собой процесс внедрения и модернизации существенных финансовых и административных условий. </p>
           <div class="scroll">
@@ -171,7 +171,7 @@ export default {
 
 <style lang="scss" scoped>
   .oproducte-main{
-    padding-top: 86px;
+    padding-top: 83px;
     max-height: 100vh;
     overflow: hidden;
     transition: all .3s;
@@ -210,7 +210,7 @@ export default {
         text-transform: uppercase;
         margin-bottom: 30px;
         position: relative;
-        padding-top: 40px;
+        padding-top: 80px;
         opacity: 1;
         pointer-events: unset;
         transition: all .4s;
@@ -218,7 +218,7 @@ export default {
         &::after{
           position: absolute;
           content: '';
-          top: 0;
+          top: 37px;
           left: 50%;
           width: 106px;
           height: 6px;
@@ -390,12 +390,12 @@ export default {
       overflow: hidden;
       img.bg-top-company{
         position: absolute;
-        right: -4%;
+        right: -6%;
         top: 0;
         z-index: -1;
         @media (max-width: 1199px){
           width: 20%;
-          top: 5%;
+          top: 0;
         }
       }
       img.bg-bottom-company{
@@ -420,10 +420,9 @@ export default {
         color: #000000;
         font-size: 18px;
         font-weight: 400;
-        line-height: 1.8;
+        line-height: 39px;
         width: 48%;
         letter-spacing: 0.54px;
-        background: #fff;
         @media (max-width: 1599px){
           line-height: 1.5;
           font-size: 16px;
@@ -452,10 +451,12 @@ export default {
       @media (max-width: 767px){
         h4{
           font-size: 24px;
+          text-align: center;
         }
         img.bg-top-company{
           top: 0;
           opacity: 0.4;
+          width: 30%;
         }
         img.bg-bottom-company{
           opacity: 0.4;
@@ -495,13 +496,13 @@ export default {
       }
       .advantages{
         width: 32%;
-        height: 360px;
+        height: 390px;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        background-color: #2d2d2d;;
-        padding: 0 30px;
+        background-color: #2d2d2d;
+        padding: 30px;
         transition: all 0.3s;
         h6{
           color: #ffffff;
@@ -537,7 +538,7 @@ export default {
       }
       img.bg-top-company{
         position: absolute;
-        right: -4%;
+        right: -6%;
         top: 0;
         z-index: -1;
         @media (max-width: 1199px){
@@ -617,7 +618,7 @@ export default {
         }
         .advantages{
           margin: 0 auto;
-          width: 45%;
+          width: 52%;
           height: 480px;
           img{
             width: unset;
@@ -669,7 +670,7 @@ export default {
       background-position-y: center;
       img.bg-top-company{
         position: absolute;
-        right: -4%;
+        right: -6%;
         top: 0;
         z-index: -1;
         @media (max-width: 1199px){
@@ -679,6 +680,7 @@ export default {
         @media (max-width: 767px){
           opacity: 0.4;
           top: 0;
+          width: 33%;
         }
       }
        img.bg-bottom-company{

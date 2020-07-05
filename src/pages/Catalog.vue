@@ -7,7 +7,7 @@
     <main
       class="home-main"
       :style="{
-        'background-image': `url(${require('@/assets/img/bg-contacrs.png')})`
+        'background-image': `url(${require('@/assets/img/bg-catalog.png')})`
       }"
     >
       <div class="baner-home d-none d-md-block"
@@ -144,11 +144,9 @@
                     <RangeSlider v-model="range" />
                     <div class="d-flex justify-content-between">
                       <div class="form-group">
-                        <label>От</label>
                         <input type="text" class="form-control from" v-model="range[0]">
                       </div>
                       <div class="form-group">
-                        <label>До</label>
                         <input type="text" class="form-control to" v-model="range[1]">
                       </div>
                     </div>
@@ -248,7 +246,7 @@
                         <span></span>
                       </button>
                       <button
-                        class="blocks"
+                        class="blocks d-none d-md-block"
                         :class="{ 'active': activeView === 2}"
                         @click="activeView = 2"
                       >
@@ -372,10 +370,11 @@ export default {
       overflow: hidden;
     }
   .home-main{
-    padding: 86px 0;
+    padding: 83px 0;
     min-height: calc(100vh - 60px);
     background-repeat: no-repeat;
     background-position-y: bottom;
+    background-position-x: center;
     .baner-home{
       background-size: cover;
       padding: 70px 0 40px;
@@ -491,7 +490,7 @@ export default {
               }
             }
             i{
-              font-size: 18px;
+              font-size: 21px;
               line-height: 1;
               z-index: 3;
               color: #000;
@@ -557,7 +556,7 @@ export default {
               margin: 0;
             }
             i{
-              font-size: 18px;
+              font-size: 21px;
               line-height: 1;
               z-index: 3;
               color: #000;
@@ -603,7 +602,7 @@ export default {
               margin: 0;
             }
             i{
-              font-size: 18px;
+              font-size: 21px;
               line-height: 1;
               z-index: 3;
               color: #000;
@@ -635,12 +634,8 @@ export default {
             }
             .form-group{
               width: calc(50% - 10px);
-              label {
-                font-size: 12px;
-                color: #313131;
-                margin-bottom: 7px;
-              }
               input.form-control {
+                margin-top: 25px;
                 border: 1px solid #dce1d4;
                 border-radius: 0;
                 color: rgba(49, 49, 49, 0.6);
@@ -673,7 +668,7 @@ export default {
               margin: 0;
             }
             i{
-              font-size: 18px;
+              font-size: 21px;
               line-height: 1;
               z-index: 3;
               color: #000;
@@ -790,7 +785,7 @@ export default {
           outline: none;
         }
         @media (max-width: 767px){
-          width: 45px;
+          max-width: 45px;
           height: 45px;
           img{
             margin: 0;
@@ -907,6 +902,7 @@ export default {
           .blocks{
             border: none;
             background: none;
+            position: relative;
             span{
               display: block;
               width: 9px;
@@ -931,6 +927,18 @@ export default {
             &.active {
               span {
                 background-color: #00b9e5;
+              }
+            }
+            &::before{
+              position: absolute;
+              content: '';
+              left: -23px;
+              top: -16px;
+              width: 2px;
+              background-color: #fff;
+              height: 54px;
+              @media (max-width: 767px){
+                display: none;
               }
             }
           }
@@ -1010,7 +1018,7 @@ export default {
         @media (max-width: 767px){
           border: none;
           padding: 0;
-          margin-top: 50px;
+          margin-top: 30px;
         }
       }
       .block-info-text{
@@ -1035,7 +1043,7 @@ export default {
     max-height: 40px;
     overflow: hidden;
     transition: all .3s;
-    padding: 0 15px;
+    padding: 0 25px 0 15px;
     margin: 0 -15px;
     .fa-angle-down {
       transform: rotate(0);

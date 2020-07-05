@@ -10,10 +10,10 @@
       <BreadCrumbs />
       <div class="block-analytics">
         <div class="row">
-          <div class=" d-block col-4 col-xl-2">
+          <div class=" d-block col-4 col-xl-2 pr-4">
             <MenuAdmin />
           </div>
-          <div class="col-12 col-md-8 col-xl-10 pt-0 pb-0 ">
+          <div class="col-12 col-md-8 col-xl-10 pt-0 pb-0 pl-md-4 pl-3">
             <h4>Аналитика</h4>
             <div class="row">
               <div class="col-12 col-xl-4 pt-0 pb-0 ">
@@ -29,7 +29,7 @@
               <div class="order-2 order-xl-1 col-12 col-md-2 pt-0 pb-0 ">
                 <BtnBlue text="Поиск"/>
               </div>
-              <div class="pt-0 pb-0 order-1 oder-xl-2 col-12 col-xl-6 d-flex align-items-start justify-content-start justify-content-xl-end flex-wrap">
+              <div class="pt-0 pb-0 order-1 oder-xl-2 col-12 col-xl-6 d-flex align-items-start justify-content-start justify-content-md-between justify-content-xl-end flex-wrap">
                 <DatePicker
                   :value="moment(date1, 'DD.MM.YYYY').toDate()"
                   format="DD.MM.YYYY"
@@ -61,7 +61,7 @@
                 :itemsPerPage="40"
               >
                 <template v-slot:item.linkProduct>
-                  <a href="https://kasta.ua/market/aksessuary/" class="link">https://kasta.ua/market/aksessuary/</a>
+                  <a href="https://kasta.ua/market/aksessuary/" target="_blank" class="link">https://kasta.ua/market/aksessuary/</a>
                 </template>
             </v-data-table>
             <div class="show-more">
@@ -161,7 +161,7 @@ export default {
 
 <style  lang="scss" scoped>
   .admin-analytics-main{
-    padding: 86px 0 55px;
+    padding: 83px 0 55px;
     min-height: calc(100vh - 60px);
     background-size: cover;
     background-repeat: no-repeat;
@@ -215,6 +215,9 @@ export default {
         bottom: 0!important;
         transform: translateY(103%)!important;
       }
+      /deep/ .mx-datepicker-body {
+        background-color: #fff;
+      }
       .date-picker{
         border-radius: 5px;
         background-color: #f7f7f7;
@@ -242,6 +245,9 @@ export default {
             margin-left: 8px;
           }
         }
+        @media (max-width: 1599px){
+          font-size: 14px;
+        }
         @media (max-width: 767px){
           max-width: unset;
           margin-right: 0;
@@ -255,9 +261,17 @@ export default {
         &:last-child{
           margin-right: 0;
         }
+        @media (max-width: 1599px){
+          width: 47%;
+        }
+        @media (max-width: 1199px){
+          margin-bottom: 20px;
+        }
         @media (max-width: 767px){
           max-width: unset;
           margin-right: 0;
+          margin-bottom: 0;
+          width: 100%;
         }
       }
       .elevation-1 {
