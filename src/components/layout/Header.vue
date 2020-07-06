@@ -18,13 +18,17 @@
               <form class="input-search" method="POST">
                 <input type="text" class="form-control" name="search" placeholder="Поиск на сайте">
                 <button class="btn-search">
-                  <i class="fa fa-search" aria-hidden="true"></i>
+                  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="23" height="23" viewBox="0 0 23 23">
+                    <image id="search" width="23" height="23" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAXCAYAAADgKtSgAAAB9ElEQVRIia3VS4iPURjH8c9ojAUSTWoyRU0klxRjJ00UU6RkFhZI2FAWLimzk5SShRUbSSIrWZBI2EgRo1ByV265JGIzrp08f729nf/M/53mtznPuX3f532e55zT5OJrGbViE5ZjDsbgF57iCo7hZm5jUWV4E7ZjD0YPsvcsNuNdI/AWnMKqwvxjXMYbjEUnFqI55tPmbtzPwZsL9uEC+Dm24nxmz2QcjLWTcAHz8L68cES0K7Ah7DuYXwec9BI92Bv99nCsblgeYAa+YBZe1QGXdQYrY2wu+sqedwZY/G6j4KQd+B32+vJkgncV+icqgEVuroe9KAefGvZnvKgIT7obbUcOPirs70MAJ32NdmQO/jHsibkFDag9lnzIwWsZbokDUkXpRC+O9X05+CX8jP62ivCegufncvD0OyejvwxrGwS34VDYn3KVVjuhvVEtSUexbhBwR9yObdHfiW/14OliWo0fkdTjcWd0F6pJHLb9uIfpMdaP2zkPylfuEpzG+MLYnwjduNKHinobxfAk53lNKbkzIzT9/x34V6ZF8I042bujn8JzDVMG8ryo5P1SzMaEiOkzXMXDwrp9kTPxUnXV7qeB4FV0IJKa9AgLUijLYRmqduFI7J0WldQ6XPCU9C1RZUnpTegtPnPD8YGNcb+vwa2/wX1ozTq6KRUAAAAASUVORK5CYII="/>
+                  </svg>
                 </button>
               </form>
             </div>
             <div class="mob-search d-flex align-items-center d-xl-none">
               <button class="btn-search" @click="mobileSearch = !mobileSearch">
-                <i class="fa fa-search" aria-hidden="true"></i>
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="23" height="23" viewBox="0 0 23 23">
+                  <image id="search" width="23" height="23" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAXCAYAAADgKtSgAAAB9ElEQVRIia3VS4iPURjH8c9ojAUSTWoyRU0klxRjJ00UU6RkFhZI2FAWLimzk5SShRUbSSIrWZBI2EgRo1ByV265JGIzrp08f729nf/M/53mtznPuX3f532e55zT5OJrGbViE5ZjDsbgF57iCo7hZm5jUWV4E7ZjD0YPsvcsNuNdI/AWnMKqwvxjXMYbjEUnFqI55tPmbtzPwZsL9uEC+Dm24nxmz2QcjLWTcAHz8L68cES0K7Ah7DuYXwec9BI92Bv99nCsblgeYAa+YBZe1QGXdQYrY2wu+sqedwZY/G6j4KQd+B32+vJkgncV+icqgEVuroe9KAefGvZnvKgIT7obbUcOPirs70MAJ32NdmQO/jHsibkFDag9lnzIwWsZbokDUkXpRC+O9X05+CX8jP62ivCegufncvD0OyejvwxrGwS34VDYn3KVVjuhvVEtSUexbhBwR9yObdHfiW/14OliWo0fkdTjcWd0F6pJHLb9uIfpMdaP2zkPylfuEpzG+MLYnwjduNKHinobxfAk53lNKbkzIzT9/x34V6ZF8I042bujn8JzDVMG8ryo5P1SzMaEiOkzXMXDwrp9kTPxUnXV7qeB4FV0IJKa9AgLUijLYRmqduFI7J0WldQ6XPCU9C1RZUnpTegtPnPD8YGNcb+vwa2/wX1ozTq6KRUAAAAASUVORK5CYII="/>
+                </svg>
               </button>
             </div>
             <div class="lang d-flex align-items-center">
@@ -71,7 +75,9 @@
           <div class="search-wrap">
             <input type="text">
             <button class="btn-search">
-              <i class="fa fa-search" aria-hidden="true"></i>
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="23" height="23" viewBox="0 0 23 23">
+                <image id="search" width="23" height="23" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAXCAYAAADgKtSgAAAB9ElEQVRIia3VS4iPURjH8c9ojAUSTWoyRU0klxRjJ00UU6RkFhZI2FAWLimzk5SShRUbSSIrWZBI2EgRo1ByV265JGIzrp08f729nf/M/53mtznPuX3f532e55zT5OJrGbViE5ZjDsbgF57iCo7hZm5jUWV4E7ZjD0YPsvcsNuNdI/AWnMKqwvxjXMYbjEUnFqI55tPmbtzPwZsL9uEC+Dm24nxmz2QcjLWTcAHz8L68cES0K7Ah7DuYXwec9BI92Bv99nCsblgeYAa+YBZe1QGXdQYrY2wu+sqedwZY/G6j4KQd+B32+vJkgncV+icqgEVuroe9KAefGvZnvKgIT7obbUcOPirs70MAJ32NdmQO/jHsibkFDag9lnzIwWsZbokDUkXpRC+O9X05+CX8jP62ivCegufncvD0OyejvwxrGwS34VDYn3KVVjuhvVEtSUexbhBwR9yObdHfiW/14OliWo0fkdTjcWd0F6pJHLb9uIfpMdaP2zkPylfuEpzG+MLYnwjduNKHinobxfAk53lNKbkzIzT9/x34V6ZF8I042bujn8JzDVMG8ryo5P1SzMaEiOkzXMXDwrp9kTPxUnXV7qeB4FV0IJKa9AgLUijLYRmqduFI7J0WldQ6XPCU9C1RZUnpTegtPnPD8YGNcb+vwa2/wX1ozTq6KRUAAAAASUVORK5CYII="/>
+              </svg>
             </button>
           </div>
         </div>

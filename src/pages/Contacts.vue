@@ -40,19 +40,55 @@
               <div class="contact-info">
                 <h4>Контактная информация</h4>
                 <div class="info">
-                  <i class="fa fa-map-marker" aria-hidden="true"></i>
+                  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="13" height="18.031" viewBox="0 0 13 18.031">
+                    <defs>
+                      <filter id="filter" x="213" y="583" width="13" height="18.031" filterUnits="userSpaceOnUse">
+                        <feFlood result="flood" flood-color="#00b9e5"/>
+                        <feComposite result="composite" operator="in" in2="SourceGraphic"/>
+                        <feBlend result="blend" in2="SourceGraphic"/>
+                      </filter>
+                    </defs>
+                    <path id="pin" class="cls-1" d="M219.728,583A6.472,6.472,0,0,0,213,589.429c0,4.118,3.992,7.106,6.229,11.4a0.309,0.309,0,0,0,.545,0c2.024-3.868,5.483-6.461,6.125-10.186A6.547,6.547,0,0,0,219.728,583Zm-0.225,9.8a3.372,3.372,0,1,1,3.406-3.371A3.388,3.388,0,0,1,219.5,592.8Z" transform="translate(-213 -583)"/>
+                  </svg>
                   <p>Проспект курортный 4/3, Коблево, 57453, Украина</p>
                 </div>
                 <div class="info">
-                  <i class="fa fa-mobile" aria-hidden="true"></i>
+                  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="10" height="18" viewBox="0 0 10 18">
+                    <defs>
+                      <filter id="filter" x="214" y="632" width="10" height="18" filterUnits="userSpaceOnUse">
+                        <feFlood result="flood" flood-color="#00b9e5"/>
+                        <feComposite result="composite" operator="in" in2="SourceGraphic"/>
+                        <feBlend result="blend" in2="SourceGraphic"/>
+                      </filter>
+                    </defs>
+                    <path id="phone" class="cls-1" d="M222.841,632h-7.682A1.194,1.194,0,0,0,214,633.215v15.568A1.194,1.194,0,0,0,215.159,650h7.682a1.193,1.193,0,0,0,1.164-1.215V633.215A1.194,1.194,0,0,0,222.841,632Zm-5.07.877h2.458a0.147,0.147,0,0,1,0,.294h-2.458A0.147,0.147,0,0,1,217.771,632.876ZM219,649.392a0.609,0.609,0,1,1,.582-0.608A0.6,0.6,0,0,1,219,649.392Zm4.195-1.643h-8.39V633.927h8.39v13.822Z" transform="translate(-214 -632)"/>
+                  </svg>
                   <router-link to="+380 67 24 245 39" class="link-contact">+380 67 24 245 39</router-link>
                 </div>
                 <div class="info">
-                  <i class="fa fa-envelope" aria-hidden="true"></i>
+                  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16">
+                    <defs>
+                      <filter id="filter" x="211" y="681" width="16" height="16" filterUnits="userSpaceOnUse">
+                        <feFlood result="flood" flood-color="#00b9e5"/>
+                        <feComposite result="composite" operator="in" in2="SourceGraphic"/>
+                        <feBlend result="blend" in2="SourceGraphic"/>
+                      </filter>
+                    </defs>
+                    <path id="mail" class="cls-1" d="M219,689.341L227,697H211ZM219,681l-8,6v8.615l5.472-5.238-4.058-3.187,6.586-4.94,6.586,4.94-4.058,3.188L227,695.616V687Z" transform="translate(-211 -681)"/>
+                  </svg>
                   <router-link to="mailto: info@ppzht.ru" class="link-contact">info@ppzht.ru</router-link>
                 </div>
                 <div class="info">
-                  <i class="fa fa-clock-o" aria-hidden="true"></i>
+                  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16">
+                    <defs>
+                      <filter id="filter" x="210" y="732" width="16" height="16" filterUnits="userSpaceOnUse">
+                        <feFlood result="flood" flood-color="#00b9e5"/>
+                        <feComposite result="composite" operator="in" in2="SourceGraphic"/>
+                        <feBlend result="blend" in2="SourceGraphic"/>
+                      </filter>
+                    </defs>
+                    <path id="clock" class="cls-1" d="M218,732a8,8,0,1,0,8,8A8.01,8.01,0,0,0,218,732Zm0,14.3a6.3,6.3,0,1,1,6.3-6.3A6.306,6.306,0,0,1,218,746.3Zm4.169-6.545h-3.595v-4.324a0.659,0.659,0,0,0-1.318,0v4.981a0.66,0.66,0,0,0,.659.66h4.254A0.659,0.659,0,1,0,222.169,739.752Z" transform="translate(-210 -732)"/>
+                  </svg>
                   <p>
                     Режим работы офиса: <br />Пн - Пт с 9:00 до 18:00
                   </p>
@@ -223,9 +259,8 @@ export default {
           display: flex;
           align-items: center;
           margin-bottom: 30px;
-          i{
-            font-size: 18px;
-            color: #00b9e5;
+          svg{
+            fill: #00b9e5;
             margin-right: 15px;
           }
           p,

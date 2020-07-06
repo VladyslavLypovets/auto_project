@@ -1,24 +1,29 @@
 <template>
   <div class="product-strings">
-    <div class="row">
-      <router-link to="/product" class="col-2 d-flex align-items-center">
+    <div class="row d-flex align-items-center">
+      <!-- <router-link to="/product" class="col-2 d-flex align-items-center">
         <img src="@/assets/img/img-product-catalog.png" alt="img-product-catalog" class="img-product">
-      </router-link>
-      <div class="col-7 d-flex flex-column">
-        <router-link to="/product" class="name-product">
-          Название запчасти обычно в две строки и не вмещается
+      </router-link> -->
+      <div class="col-9 d-flex pl-1 pr-1">
+        <router-link to="/product" class="img-link d-flex align-items-center">
+          <img src="@/assets/img/img-product-catalog.png" alt="img-product-catalog" class="img-product">
         </router-link>
-        <p class="marka">
-          BMW<span>4526358</span>
-        </p>
-        <div class="info-tovar">
-          <div class="info">
-            <p>принадлежность к авто</p>
-            <p>модель</p>
-          </div>
-          <div>
-            <p>марка</p>
-            <p>основная категория</p>
+        <div>
+          <router-link to="/product" class="name-product">
+            Название запчасти обычно в две строки и не вмещается
+          </router-link>
+          <p class="marka">
+            BMW<span>4526358</span>
+          </p>
+          <div class="info-tovar">
+            <div class="info">
+              <p>принадлежность к авто</p>
+              <p>модель</p>
+            </div>
+            <div>
+              <p>марка</p>
+              <p>основная категория</p>
+            </div>
           </div>
         </div>
       </div>
@@ -75,8 +80,21 @@ export default {
     &:hover {
       transform: scale(1.005);
     }
-    .img-product{
+    .img-link{
+      max-width: 200px;
+      margin-right: 20px;
       width: 100%;
+      img{
+        width: 100%;
+      }
+      @media (max-width: 1599px){
+        max-width: 190px;
+        margin-right: 17px;
+      }
+      @media (max-width: 1199px){
+        max-width: 150px;
+        margin-right: 15px;
+      }
     }
     .name-product{
       color: #242424;
