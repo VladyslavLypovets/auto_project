@@ -595,6 +595,9 @@ export default {
             width: 100%;
             flex: none;
             margin: 0 0 15px;
+            &:focus{
+              border: 7px solid #00b9e5;
+            }
              @media (max-width: 767px){
               &::placeholder{
                 font-size: 13px;
@@ -778,6 +781,9 @@ export default {
             width: 100%;
             flex: none;
             margin: 0 0 15px;
+            &:focus{
+              border: 7px solid #00b9e5;
+            }
           }
           .btn-blue{
             width: 210px;

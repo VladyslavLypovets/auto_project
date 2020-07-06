@@ -15,7 +15,6 @@
           :options="['BMW-1', 'BMW-2', 'BMW-3', 'BMW-4']"
           :searchable="false"
           :allowEmpty="false"
-          :hideSelected="true"
           :showLabels="false"
           class="multiselect-marka"
         >
@@ -36,7 +35,6 @@
           :options="['X5', 'X6', 'X7']"
           :searchable="false"
           :allowEmpty="false"
-          :hideSelected="true"
           :showLabels="false"
           class="multiselect-model"
         >
@@ -146,17 +144,15 @@ export default {
       }
       .multiselect-marka,
       .multiselect-model{
-        min-height: unset;
         height: 50px;
         border-radius: 5px;
         border: 1px solid #e8e8e8;
         background-color: #ffffff;
         display: flex;
         align-items: center;
-        padding: 0 0 0 20px;
-        max-width: 650px;
-        margin-right: 0;
+        padding-left: 20px;
         transition: all .3s;
+        box-sizing: border-box;
         cursor: pointer;
         &:hover {
           .caret {
@@ -206,9 +202,12 @@ export default {
           }
         }
         /deep/ .multiselect__content-wrapper {
-          min-width: unset;
-          max-width: 673px;
-          left: 0;
+          top: 0px;
+          left: -1px;
+          width: calc(100% + 2px);
+          bottom: unset;
+          border: 1px solid #e8e8e8;
+          border-radius: 5px;
           .multiselect__element {
             max-width:  100%;
             span.multiselect__option {
@@ -230,6 +229,10 @@ export default {
                 span{
                   color: #00b9e5;
                 }
+              }
+              &--selected {
+                color: #afafaf;
+                font-weight: 400;
               }
             }
             &:first-child span.multiselect__option:before{

@@ -33,7 +33,7 @@
                     <p>Артикул: 4526358</p>
                   </div>
                 </div>
-                <button class="btn-buy">
+                <button class="btn-buy" @click="openNewTab()">
                   <img src="@/assets/img/btn-img.png" alt="btn-img">
                    Купить
                 </button>
@@ -165,7 +165,7 @@
                 <h6>Оригинальные номера</h6>
                 <multiselect
                   v-model="sorting"
-                  :options="['VAG', 'VAG', 'VAG', 'VAG']"
+                  :options="['VAG-1', 'VAG-2', 'VAG-3', 'VAG-4']"
                   :searchable="false"
                   :allowEmpty="false"
                   :showLabels="false"
@@ -355,6 +355,9 @@ export default {
     },
     open () {
       this.fancyOpen = true
+    },
+    openNewTab () {
+      window.open('https://google.com')
     }
   }
 }

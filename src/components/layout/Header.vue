@@ -172,6 +172,8 @@ export default {
         height: 34px;
         padding-left: 25px;
         .multiselect {
+          min-height: unset;
+          cursor: pointer;
           .caret {
             position: absolute;
             right: 10px;
@@ -179,17 +181,6 @@ export default {
             transform: translateY(-50%);
             transition: all .3s;
             cursor: pointer;
-          }
-          &--active {
-            .caret {
-              transform: translateY(-50%) rotate(180deg);
-            }
-          }
-          i{
-            font-size: 13px;
-            line-height: 1;
-            z-index: 3;
-            color: #ffffff;
           }
           /deep/ .multiselect__tags {
             width: 62px;
@@ -200,6 +191,7 @@ export default {
             padding: 5px;
             display: flex;
             align-items: center;
+              transition: all .3s;
             .multiselect__single {
               background-color: #00b9e5;
               color: #ffffff;
@@ -207,7 +199,31 @@ export default {
               font-weight: 700;
               text-transform: uppercase;
               margin: 0;
+              transition: all .3s;
             }
+          }
+          &--active {
+            .caret {
+              transform: translateY(-50%) rotate(180deg);
+              color: #000;
+            }
+            /deep/ .multiselect__tags {
+              background-color: #fff;
+              border: 1px solid #e8e8e8;
+              border-bottom: none;
+              border-bottom-left-radius: 0;
+              border-bottom-right-radius: 0;
+              .multiselect__single {
+                background-color: #fff;
+                color: #000;
+              }
+            }
+          }
+          i{
+            font-size: 13px;
+            line-height: 1;
+            z-index: 3;
+            color: #ffffff;
           }
           /deep/ .multiselect__content-wrapper{
             width:  62px;
@@ -217,10 +233,10 @@ export default {
             span.multiselect__option.multiselect__option--highlight {
               max-width:  62px;
               background: #fff;
+              min-height: unset;
               height: 34px;
               display: flex;
               align-items: center;
-              justify-content: center;
               transition: all 0.3s;
               span{
                 color: #000;

@@ -17,7 +17,7 @@
       <div class="suma">
         <p>3000-3250 грн</p>
       </div>
-      <button class="btn-buy">
+      <button class="btn-buy" @click="openNewTab()">
         <img src="@/assets/img/btn-img.png" alt="btn-img">
         Купить
       </button>
@@ -27,7 +27,12 @@
 
 <script>
 export default {
-  name: 'ProductBlocks'
+  name: 'ProductBlocks',
+  methods: {
+    openNewTab () {
+      window.open('https://google.com')
+    }
+  }
 }
 </script>
 
