@@ -413,6 +413,7 @@ export default {
         line-height: 25px;
         max-width: 655px;
         margin: 0;
+        letter-spacing: 0.48px;
         @media (max-width: 1199px){
           max-width: 500px;
           font-size: 14px;
@@ -552,6 +553,7 @@ export default {
             margin-bottom: 25px;
             cursor: pointer;
             h6{
+              letter-spacing: 0.48px;
               color: #242424;
               font-size: 16px;
               font-weight: 700;
@@ -573,6 +575,7 @@ export default {
               border: 1px solid #282828;
               opacity: 0.49;
               margin-bottom: 20px;
+              letter-spacing: 0.42px;
             }
             label{
               color: #242424;
@@ -808,6 +811,7 @@ export default {
           font-weight: 400;
           margin: 0;
           line-height: 1.4;
+          letter-spacing: 0.48px;
           @media (max-width: 767px){
             font-size: 12px;
           }
@@ -961,6 +965,7 @@ export default {
         .pages{
           .left-right{
             .btn-blue{
+              letter-spacing: 0.48px;
               width: 77px;
               height: 45px;
               box-shadow: 1px 2px 0 #068fb0;
@@ -975,6 +980,7 @@ export default {
             }
           }
           button.fl{
+            letter-spacing: 0.48px;
             border: none;
             width: 35px;
             height: 45px;
@@ -995,6 +1001,7 @@ export default {
           }
         }
         .btn-repeat{
+          letter-spacing: 0.48px;
           width: 314px;
           height: 45px;
           border-radius: 5px;
@@ -1027,6 +1034,7 @@ export default {
       .block-info-text{
         margin-top: 50px;
         p{
+          letter-spacing: 0.42px;
           color: #242424;
           font-size: 14px;
           font-weight: 400;

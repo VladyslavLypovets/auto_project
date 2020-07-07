@@ -140,6 +140,7 @@ export default {
         border-bottom: 1px solid #dfdfdf;
         padding-left: 25px;
         .link-menu{
+          letter-spacing: 0.42px;
           color: #242424;
           font-size: 14px;
           font-weight: 700;

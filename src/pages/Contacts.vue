@@ -158,6 +158,7 @@ export default {
       padding: 60px 0 27px;
       background-position-y: bottom;
       h3{
+        letter-spacing: 1.44px;
         color: #ffffff;
         font-size: 48px;
         font-weight: 700;

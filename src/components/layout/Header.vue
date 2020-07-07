@@ -104,7 +104,7 @@ export default {
     width: 100%;
     top: 0;
     left: 0;
-    height: 86px;
+    height: 83px;
     box-shadow: 1px 2px 7px rgba(0, 0, 0, 0.19);
     background-color: #ffffff;
     z-index: 2;
@@ -119,6 +119,7 @@ export default {
         font-weight: 700;
         text-transform: uppercase;
         border-bottom: 4px solid #fff;
+        letter-spacing: 0.48px;
         height: 83px;
         display: flex;
         align-items: center;
@@ -158,6 +159,7 @@ export default {
               color: #242424;
               font-size: 16px;
               font-weight: 400;
+              letter-spacing: 0.48px;
             }
           }
           .btn-search {

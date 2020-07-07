@@ -45,6 +45,7 @@ export default {
     align-items: center;
     .copirait{
       p{
+        letter-spacing: 0.42px;
         color: #242424;
         font-size: 14px;
         font-weight: 500;
@@ -53,6 +54,7 @@ export default {
     }
     .rasrabotka{
       p{
+        letter-spacing: 0.42px;
         color: #242424;
         font-size: 14px;
         font-weight: 500;
@@ -75,6 +77,7 @@ export default {
         font-size: 16px;
         font-weight: 700;
         text-decoration: none;
+        letter-spacing: 0.48px;
         i{
           font-size: 12px;
           color: #00b9e5;

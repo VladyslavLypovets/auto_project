@@ -107,6 +107,7 @@ export default {
     .tiltle-dailog{
       position: relative;
       h2{
+        letter-spacing: 0.72px;
         color: #242424;
         font-size: 24px;
         font-weight: 700;
@@ -126,6 +127,7 @@ export default {
     .select-marka,
     .select-model{
       p{
+        letter-spacing: 0.42px;
         opacity: 0.78;
         color: #333333;
         font-size: 14px;
@@ -165,6 +167,7 @@ export default {
           font-weight: 400;
           margin: 0;
           padding: 0;
+          letter-spacing: 0.42px;
         }
         .caret {
           position: absolute;
@@ -256,6 +259,7 @@ export default {
       align-items: center;
       justify-content: space-between;
       p{
+        letter-spacing: 0.36px;
         max-width: 355px;
         color: #333333;
         font-size: 12px;

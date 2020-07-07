@@ -409,13 +409,15 @@ export default {
         }
       }
       h4{
+        letter-spacing: 1.44px;
         color: #000000;
-        font-size: 48px;
+        font-size: 49px;
         font-weight: 700;
         text-transform: uppercase;
         margin-bottom: 45px;
       }
       p.text-quality{
+        letter-spacing: 0.54px;
         opacity: 0.84;
         color: #000000;
         font-size: 18px;
@@ -430,7 +432,7 @@ export default {
       }
       @media (max-width: 1399px){
         h4{
-          font-size: 36px;
+          font-size: 37px;
           margin-bottom: 25px;
         }
         .text-quality{
@@ -493,6 +495,7 @@ export default {
         text-transform: uppercase;
         margin-bottom: 55px;
         text-align: center;
+        letter-spacing: 1.44px;
       }
       .advantages{
         width: 32%;

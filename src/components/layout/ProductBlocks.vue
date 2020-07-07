@@ -63,6 +63,8 @@ export default {
       font-size: 16px;
       font-weight: 400;
       margin: 0;
+      line-height: 1;
+      letter-spacing: 0.48px;
     }
     .img-product{
       width: 100%;
@@ -72,6 +74,8 @@ export default {
       font-size: 18px;
       font-weight: 700;
       margin-top: 10px;
+      line-height: 1.3;
+      margin-bottom: 20px;
       @media (max-width: 1599px){
         font-size: 16px;
       }

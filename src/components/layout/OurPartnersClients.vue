@@ -67,6 +67,7 @@ export default {
 <style lang="scss" scoped>
   .our-partner-client{
     h4{
+      letter-spacing: 1.44px;
       color: #000000;
       font-size: 48px;
       font-weight: 700;
