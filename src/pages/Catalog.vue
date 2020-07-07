@@ -201,7 +201,7 @@
                   </div>
                 </div>
                 <div class="d-flex d-xl-none justify-content-center">
-                  <BtnBlue text="Назад"/>
+                  <BtnBlue text="Назад" @click="filterOpen = false"/>
                 </div>
               </div>
             </div>
@@ -298,7 +298,7 @@
                     <BtnBlue text="След"/>
                   </div>
                 </div>
-                <button class="btn-repeat" @click="productCount = productCount.concat(new Array(9))">
+                <button class="btn-repeat" @click="productCount = productCount.concat(new Array(newItems))">
                   <i class="fa fa-repeat" aria-hidden="true"></i>
                   Показать больше товаров
                 </button>
@@ -348,7 +348,8 @@ export default {
       3: false
     },
     range: [0, 500000],
-    filterOpen: false
+    filterOpen: false,
+    newItems: 9
   }),
   created () {
     this.watchMobile()
@@ -358,6 +359,8 @@ export default {
     watchMobile () {
       if (window.innerWidth < 767) {
         this.activeView = 2
+        this.newItems = 5
+        this.productCount = new Array(this.newItems)
       }
     }
   }

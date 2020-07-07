@@ -31,12 +31,15 @@
                   </div>
                 </div>
               </div>
-              <v-data-table
-                :headers="headers"
-                :items="items"
-                class="elevation-1"
-              >
-              </v-data-table>
+              <perfect-scrollbar>
+                <v-data-table
+                  :headers="headers"
+                  :items="items"
+                  :itemsPerPage="15"
+                  class="elevation-1"
+                >
+                </v-data-table>
+              </perfect-scrollbar>
             </div>
           </div>
         </div>
@@ -99,6 +102,56 @@ export default {
         id: 'VAG-5',
         domen: 'VAG',
         kay: '1F0 129 620'
+      },
+      {
+        id: 'VAG-6',
+        domen: 'VAG',
+        kay: '1F0 129 620'
+      },
+      {
+        id: 'VAG-7',
+        domen: 'VAG',
+        kay: '1F0 129 620'
+      },
+      {
+        id: 'VAG-8',
+        domen: 'VAG',
+        kay: '1F0 129 620'
+      },
+      {
+        id: 'VAG-9',
+        domen: 'VAG',
+        kay: '1F0 129 620'
+      },
+      {
+        id: 'VAG-10',
+        domen: 'VAG',
+        kay: '1F0 129 620'
+      },
+      {
+        id: 'VAG-11',
+        domen: 'VAG',
+        kay: '1F0 129 620'
+      },
+      {
+        id: 'VAG-12',
+        domen: 'VAG',
+        kay: '1F0 129 620'
+      },
+      {
+        id: 'VAG-13',
+        domen: 'VAG',
+        kay: '1F0 129 620'
+      },
+      {
+        id: 'VAG-14',
+        domen: 'VAG',
+        kay: '1F0 129 620'
+      },
+      {
+        id: 'VAG-15',
+        domen: 'VAG',
+        kay: '1F0 129 620'
       }
     ],
     link: 'https://share.mindmanager.com/#publish/'
@@ -113,6 +166,12 @@ export default {
     background-size: cover;
     background-repeat: no-repeat;
     background-position-y: bottom;
+
+    .ps {
+      margin-top: 30px;
+      max-height: 360px;
+      padding-right: 10px;
+    }
     .block-partners{
       margin-top: 50px;
       h4{
@@ -262,7 +321,6 @@ export default {
       //   }
       // }
       .elevation-1 {
-        margin-top: 30px;
         /deep/ .v-data-table-header tr {
           background-color: #f7f7f7;
           border-radius: 5px 5px 0 0;

@@ -50,11 +50,14 @@
                 :items="items"
                 class="elevation-1"
               >
+                <template v-slot:header.checbox>
+                  <RadioAdmin id="header" type="checkbox" class="row-selection mb-0" :value="selectAll" @change="toggleAll()"/>
+                </template>
                 <template v-slot:item.checbox="{ item }">
-                  <RadioAdmin :id="`row-selection-${item.checbox}`" class="row-selection"/>
+                  <RadioAdmin :id="`row-selection-${item.checbox}`" type="checkbox" class="row-selection" :value="item.selected" @change="item.selected = !item.selected"/>
                 </template>
                 <template v-slot:item.change>
-                  <button class="btn-edit">
+                  <button class="btn-edit" @click="$router.push({ name: 'AdminProductBasicInfo' })">
                     <i class="fa fa-pencil" aria-hidden="true"></i>
                   </button>
                 </template>
@@ -80,7 +83,7 @@ import BtnBlue from '@/components/layout/BtnBlue.vue'
 import RadioAdmin from '@/components/layout/RadioAdmin.vue'
 
 export default {
-  name: 'AbminProducts',
+  name: 'AdminProducts',
   components: {
     Header,
     Footer,
@@ -93,6 +96,7 @@ export default {
     RadioAdmin
   },
   data: () => ({
+    selectAll: false,
     headers: [
       {
         select: '',
@@ -116,7 +120,8 @@ export default {
         manufacture: 'VAG',
         categoriProduct: 'VAG',
         availbility: 'VAG',
-        change: ''
+        change: '',
+        selected: false
       },
       {
         checbox: '2',
@@ -126,7 +131,8 @@ export default {
         manufacture: 'VAG',
         categoriProduct: 'VAG',
         availbility: 'VAG',
-        change: ''
+        change: '',
+        selected: false
       },
       {
         checbox: '3',
@@ -136,7 +142,8 @@ export default {
         manufacture: 'VAG',
         categoriProduct: 'VAG',
         availbility: 'VAG',
-        change: ''
+        change: '',
+        selected: false
       },
       {
         checbox: '4',
@@ -146,7 +153,8 @@ export default {
         manufacture: 'VAG',
         categoriProduct: 'VAG',
         availbility: 'VAG',
-        change: ''
+        change: '',
+        selected: false
       },
       {
         checbox: '5',
@@ -156,10 +164,22 @@ export default {
         manufacture: 'VAG',
         categoriProduct: 'VAG',
         availbility: 'VAG',
-        change: ''
+        change: '',
+        selected: false
       }
     ]
-  })
+  }),
+  methods: {
+    toggleAll () {
+      this.items = this.items.map(item => ({ ...item, selected: !this.allSelected }))
+      this.selectAll = this.allSelected
+    }
+  },
+  computed: {
+    allSelected () {
+      return !this.items.find(item => !item.selected)
+    }
+  }
 }
 </script>
 

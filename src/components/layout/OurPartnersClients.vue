@@ -78,7 +78,7 @@ export default {
     .client-partner{
       width: 19%;
       height: 192px;
-      background-color:rgba(45, 45, 45, 0.09);
+      background-color:rgba(236, 236, 236, 0.8);
       display: flex;
       align-items: center;
       justify-content: center;

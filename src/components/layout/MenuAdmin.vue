@@ -77,7 +77,7 @@ export default {
         title: 'Товары',
         subList: [],
         opened: false,
-        route: { name: 'AbminProducts' }
+        route: { name: 'AdminProducts' }
       },
       {
         title: 'Пользователи',

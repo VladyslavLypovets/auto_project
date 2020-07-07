@@ -1,6 +1,6 @@
 <template>
   <div class="form-group">
-    <input type="radio" :id="id" :name="name" class="form-control checkbox">
+    <input :type="type" :id="id" :name="name" class="form-control checkbox" :checked="value"  @change="$emit('change')">
     <label :for="id">{{ text }}</label>
   </div>
 </template>
@@ -8,7 +8,19 @@
 <script>
 export default {
   name: 'RadioAdmin',
-  props: ['text', 'id', 'name']
+  props: {
+    text: String,
+    id: String,
+    name: String,
+    value: {
+      type: Boolean,
+      default: false
+    },
+    type: {
+      type: String,
+      default: 'radio'
+    }
+  }
 }
 </script>
 

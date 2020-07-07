@@ -33,8 +33,8 @@
                     <p>Артикул: 4526358</p>
                   </div>
                 </div>
-                <button class="btn-buy" @click="openNewTab()">
-                  <img src="@/assets/img/btn-img.png" alt="btn-img">
+                <button class="btn-buy" @mouseenter="rotate = true" @mouseleave="rotate = false" @click="openNewTab()">
+                  <AnimationImg :rotate="rotate" />
                    Купить
                 </button>
                 <div class="block-description">
@@ -325,6 +325,7 @@ import Header from '@/components/layout/Header.vue'
 import Footer from '@/components/layout/Footer.vue'
 import BreadCrumbs from '@/components/layout/BreadCrumbs.vue'
 import TextReadMore from '@/components/layout/TextReadMore.vue'
+import AnimationImg from '@/components/layout/AnimationImg.vue'
 
 export default {
   name: 'Product',
@@ -332,13 +333,15 @@ export default {
     Header,
     BreadCrumbs,
     Footer,
-    TextReadMore
+    TextReadMore,
+    AnimationImg
   },
   data: () => ({
     navText: ['<i class="fa fa-angle-left" aria-hidden="true"/>', '<i class="fa fa-angle-right" aria-hidden="true"/>'],
     fancyOpen: false,
     sorting: 'VAG',
     itemsInColumn: new Array(3),
+    rotate: false,
     text: ' <p>Таким образом постоянное информационно-пропагандистское обеспечение нашей деятельности влечет за собой процесс внедрения и модернизации существенных финансовых и административных условий.</p><p>Не следует, однако забывать, что постоянный количественный рост и сфера нашей активности позволяет оценить значение позиций, занимаемых участниками в отношении поставленных задач.</p>'
   }),
   created () {
@@ -454,6 +457,9 @@ export default {
           }
         }
         .btn-buy{
+          display: flex;
+          align-items: center;
+          justify-content: center;
           width: 235px;
           height: 55px;
           border-radius: 5px;

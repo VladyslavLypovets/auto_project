@@ -27,8 +27,8 @@
                     <i class="fa fa-pencil" aria-hidden="true"></i>
                   </button>
                 </template>
-                <template v-slot:item.delete>
-                  <button class="delete">
+                <template v-slot:item.delete="{ item }">
+                  <button class="delete" @click="removeItem(item)">
                     <img src="@/assets/img/delete.png" alt="delete">
                   </button>
                 </template>
@@ -70,42 +70,53 @@ export default {
     ],
     items: [
       {
-        login: 'VAG',
+        login: 'VAG-1',
         state: '19.03.20',
         date: '1F0 129 620',
         change: '',
         delete: ''
       },
       {
-        login: 'VAG',
+        login: 'VAG-2',
         state: '19.03.20',
         date: '1F0 129 620',
         change: '',
         delete: ''
       },
       {
-        login: 'VAG',
+        login: 'VAG-3',
         state: '19.03.20',
         date: '1F0 129 620',
         change: '',
         delete: ''
       },
       {
-        login: 'VAG',
+        login: 'VAG-4',
         state: '19.03.20',
         date: '1F0 129 620',
         change: '',
         delete: ''
       },
       {
-        login: 'VAG',
+        login: 'VAG-5',
         state: '19.03.20',
         date: '1F0 129 620',
         change: '',
         delete: ''
       }
     ]
-  })
+  }),
+  methods: {
+    removeItem (item) {
+      this.items = this.items.reduce((acc, cItem) => {
+        if (item.login === cItem.login) {
+          return acc
+        }
+        acc.push(cItem)
+        return acc
+      }, [])
+    }
+  }
 }
 </script>
 

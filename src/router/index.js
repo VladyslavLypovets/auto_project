@@ -14,7 +14,7 @@ import Contacts from '@/pages/Contacts.vue'
 import Navigation from '@/pages/Navigation.vue'
 import Product from '@/pages/Product.vue'
 import AdminPartners from '@/pages/AdminPartners.vue'
-import AbminProducts from '@/pages/AbminProducts.vue'
+import AdminProducts from '@/pages/AdminProducts.vue'
 import AdminAnalytics from '@/pages/AdminAnalytics.vue'
 import AboutCompany from '@/pages/AboutCompany.vue'
 import Search from '@/pages/Search.vue'
@@ -99,8 +99,8 @@ const routes = [
   },
   {
     path: '/abmin-products',
-    name: 'AbminProducts',
-    component: AbminProducts
+    name: 'AdminProducts',
+    component: AdminProducts
   },
   {
     path: '/admin-analytics',

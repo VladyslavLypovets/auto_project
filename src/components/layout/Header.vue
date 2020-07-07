@@ -16,7 +16,7 @@
           <div class="search-languages-block d-flex">
             <div class="search d-none d-xl-block">
               <form class="input-search" method="POST">
-                <input type="text" class="form-control" name="search" placeholder="Поиск на сайте">
+                <input type="text" class="form-control" name="search" v-model="search" placeholder="Поиск на сайте">
                 <button class="btn-search">
                   <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="23" height="23" viewBox="0 0 23 23">
                     <image id="search" width="23" height="23" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAXCAYAAADgKtSgAAAB9ElEQVRIia3VS4iPURjH8c9ojAUSTWoyRU0klxRjJ00UU6RkFhZI2FAWLimzk5SShRUbSSIrWZBI2EgRo1ByV265JGIzrp08f729nf/M/53mtznPuX3f532e55zT5OJrGbViE5ZjDsbgF57iCo7hZm5jUWV4E7ZjD0YPsvcsNuNdI/AWnMKqwvxjXMYbjEUnFqI55tPmbtzPwZsL9uEC+Dm24nxmz2QcjLWTcAHz8L68cES0K7Ah7DuYXwec9BI92Bv99nCsblgeYAa+YBZe1QGXdQYrY2wu+sqedwZY/G6j4KQd+B32+vJkgncV+icqgEVuroe9KAefGvZnvKgIT7obbUcOPirs70MAJ32NdmQO/jHsibkFDag9lnzIwWsZbokDUkXpRC+O9X05+CX8jP62ivCegufncvD0OyejvwxrGwS34VDYn3KVVjuhvVEtSUexbhBwR9yObdHfiW/14OliWo0fkdTjcWd0F6pJHLb9uIfpMdaP2zkPylfuEpzG+MLYnwjduNKHinobxfAk53lNKbkzIzT9/x34V6ZF8I042bujn8JzDVMG8ryo5P1SzMaEiOkzXMXDwrp9kTPxUnXV7qeB4FV0IJKa9AgLUijLYRmqduFI7J0WldQ6XPCU9C1RZUnpTegtPnPD8YGNcb+vwa2/wX1ozTq6KRUAAAAASUVORK5CYII="/>
@@ -73,7 +73,7 @@
       >
         <div class="container">
           <div class="search-wrap">
-            <input type="text">
+            <input type="text" v-model="search">
             <button class="btn-search">
               <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="23" height="23" viewBox="0 0 23 23">
                 <image id="search" width="23" height="23" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAXCAYAAADgKtSgAAAB9ElEQVRIia3VS4iPURjH8c9ojAUSTWoyRU0klxRjJ00UU6RkFhZI2FAWLimzk5SShRUbSSIrWZBI2EgRo1ByV265JGIzrp08f729nf/M/53mtznPuX3f532e55zT5OJrGbViE5ZjDsbgF57iCo7hZm5jUWV4E7ZjD0YPsvcsNuNdI/AWnMKqwvxjXMYbjEUnFqI55tPmbtzPwZsL9uEC+Dm24nxmz2QcjLWTcAHz8L68cES0K7Ah7DuYXwec9BI92Bv99nCsblgeYAa+YBZe1QGXdQYrY2wu+sqedwZY/G6j4KQd+B32+vJkgncV+icqgEVuroe9KAefGvZnvKgIT7obbUcOPirs70MAJ32NdmQO/jHsibkFDag9lnzIwWsZbokDUkXpRC+O9X05+CX8jP62ivCegufncvD0OyejvwxrGwS34VDYn3KVVjuhvVEtSUexbhBwR9yObdHfiW/14OliWo0fkdTjcWd0F6pJHLb9uIfpMdaP2zkPylfuEpzG+MLYnwjduNKHinobxfAk53lNKbkzIzT9/x34V6ZF8I042bujn8JzDVMG8ryo5P1SzMaEiOkzXMXDwrp9kTPxUnXV7qeB4FV0IJKa9AgLUijLYRmqduFI7J0WldQ6XPCU9C1RZUnpTegtPnPD8YGNcb+vwa2/wX1ozTq6KRUAAAAASUVORK5CYII="/>
@@ -92,7 +92,8 @@ export default {
   data: () => ({
     lang: 'РУ',
     isMenuOpen: false,
-    mobileSearch: false
+    mobileSearch: false,
+    search: ''
   })
 }
 </script>
@@ -103,7 +104,7 @@ export default {
     width: 100%;
     top: 0;
     left: 0;
-    height: 83px;
+    height: 86px;
     box-shadow: 1px 2px 7px rgba(0, 0, 0, 0.19);
     background-color: #ffffff;
     z-index: 2;
@@ -149,6 +150,7 @@ export default {
             background: #fff;
             margin-right: 25px;
             padding-left: 0;
+            caret-color: #00b9e5;
             &:focus{
               box-shadow: unset;
             }
@@ -290,6 +292,7 @@ export default {
           border-bottom: 1px solid #dcdcdc;
           padding-right: 30px;
           outline: none;
+          caret-color: #00b9e5;
         }
         .btn-search {
           position: absolute;

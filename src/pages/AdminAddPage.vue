@@ -18,7 +18,7 @@
           </div>
           <div class="col-12 col-md-5 col-xl-8 pl-md-4 pl-3">
             <div class="add-page">
-              <BtnBlue text="Добавить страницу"/>
+              <BtnBlue text="Добавить страницу" @click="$router.push({ name: 'AdminCreationPage' })"/>
               <p>Шаблон страницы о нас</p>
             </div>
           </div>

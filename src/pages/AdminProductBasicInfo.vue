@@ -66,11 +66,9 @@
                 <InputAdmin text="Подкатегория ID" id="subcategory-id"/>
                 <InputAdmin text="Подкатегория название" id="subcategory-title"/>
                 <DoubleInputAdmin text="Характеристики" id="characteristics-1"/>
-                <DoubleInputAdmin id="characteristics-2"/>
-                <DoubleInputAdmin id="characteristics-3"/>
-                <DoubleInputAdmin id="characteristics-4"/>
+                <DoubleInputAdmin :id="`characteristics-${index}`" v-for="(row, index) in rows" :key="index"/>
                 <div class="d-flex justify-content-center justify-content-md-end">
-                 <BtnBlue text="Добавить"/>
+                 <BtnBlue text="Добавить" @click="rows.push({})"/>
                 </div>
               </div>
             </div>
@@ -89,31 +87,15 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <th scope="row">245678</th>
-                      </tr>
-                      <tr>
-                        <th scope="row">245678</th>
-                      </tr>
-                      <tr>
-                        <th scope="row">245678</th>
-                      </tr>
-                       <tr>
-                        <th scope="row">245678</th>
-                      </tr>
-                       <tr>
-                        <th scope="row">245678</th>
-                      </tr>
-                       <tr>
-                        <th scope="row">245678</th>
-                      </tr>
-                       <tr>
-                        <th scope="row">245678</th>
+                      <tr  v-for="(shop, index) in shops" :key="index">
+                        <th scope="row">
+                          <input type="text" class="shop-input" v-model="shops[index]">
+                        </th>
                       </tr>
                     </tbody>
                   </table>
                   <div class="d-flex justify-content-center justify-content-xl-end">
-                    <BtnBlue text="Добавить код"/>
+                    <BtnBlue text="Добавить код" @click="shops.push('')"/>
                   </div>
                 </div>
               </div>
@@ -121,17 +103,19 @@
             <div class="applicability" v-if="activePage === 2">
               <h4>Перечень авто</h4>
               <div class="block-applicability">
-                <v-data-table
-                  :headers="headers"
-                  :items="items"
-                  class="elevation-3"
-                >
-                  <template v-slot:item.delete>
-                    <button class="delete">
-                      <img src="@/assets/img/delete.png" alt="delete">
-                    </button>
-                  </template>
-                </v-data-table>
+                <perfect-scrollbar>
+                  <v-data-table
+                    :headers="headers"
+                    :items="items"
+                    class="elevation-3"
+                  >
+                    <template v-slot:item.delete="{ item }">
+                      <button class="delete" @click="removeItem(item, 'items')">
+                        <img src="@/assets/img/delete.png" alt="delete">
+                      </button>
+                    </template>
+                  </v-data-table>
+                </perfect-scrollbar>
               </div>
               <div class="add-avto">
                 <h4>Добавить авто</h4>
@@ -152,8 +136,8 @@
                     Подшипник 15*42*13 63022RS
                   </router-link>
                 </template>
-                <template v-slot:item.delete>
-                  <button class="delete">
+                <template v-slot:item.delete="{ item }">
+                  <button class="delete"  @click="removeItem(item, 'items2')">
                     <img src="@/assets/img/delete.png" alt="delete">
                   </button>
                 </template>
@@ -221,7 +205,7 @@ export default {
     ],
     items: [
       {
-        id: '123',
+        id: '1233',
         marka: 'BMW',
         yearFrom: '1990',
         yearBefore: '2005',
@@ -236,7 +220,7 @@ export default {
         delete: ''
       },
       {
-        id: '123',
+        id: '12123',
         marka: 'BMW',
         yearFrom: '1990',
         yearBefore: '2005',
@@ -251,7 +235,7 @@ export default {
         delete: ''
       },
       {
-        id: '123',
+        id: '1243213',
         marka: 'BMW',
         yearFrom: '1990',
         yearBefore: '2005',
@@ -266,7 +250,7 @@ export default {
         delete: ''
       },
       {
-        id: '123',
+        id: '123321',
         marka: 'BMW',
         yearFrom: '1990',
         yearBefore: '2005',
@@ -281,7 +265,7 @@ export default {
         delete: ''
       },
       {
-        id: '123',
+        id: '123213',
         marka: 'BMW',
         yearFrom: '1990',
         yearBefore: '2005',
@@ -307,32 +291,45 @@ export default {
     ],
     items2: [
       {
-        id: '123',
+        id: '1234',
         name: '',
         delete: ''
       },
       {
-        id: '123',
+        id: '1235',
         name: '',
         delete: ''
       },
       {
-        id: '123',
+        id: '1231',
         name: '',
         delete: ''
       },
       {
-        id: '123',
+        id: '12323',
         name: '',
         delete: ''
       },
       {
-        id: '123',
+        id: '123432',
         name: '',
         delete: ''
       }
-    ]
-  })
+    ],
+    rows: [{}, {}, {}],
+    shops: ['245678', '245678', '245678', '245678', '245678', '245678', '245678']
+  }),
+  methods: {
+    removeItem (item, name) {
+      this[name] = this[name].reduce((acc, cItem) => {
+        if (item.id === cItem.id) {
+          return acc
+        }
+        acc.push(cItem)
+        return acc
+      }, [])
+    }
+  }
 }
 </script>
 
@@ -343,6 +340,17 @@ export default {
     background-size: cover;
     background-repeat: no-repeat;
     background-position-y: bottom;
+    .ps {
+      max-width: 100%;
+      padding-bottom: 20px;
+    }
+    .shop-input {
+      outline: none;
+      border: none;
+      background: none;
+      width: 100%;
+      text-align: center;
+    }
     .block-product-basicinfo{
       margin-top: 50px;
       .name-page{

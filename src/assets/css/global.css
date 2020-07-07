@@ -48,6 +48,15 @@ button:focus {
   border: 1px solid #e8e8e8;
   border-radius: 5px;
 }
+.ps__thumb-y, .ps__thumb-x {
+  background-color: #00b9e5 !important;
+}
+.ps__rail-y, .ps__rail-x {
+  opacity: 1;
+}
+.v-data-table__wrapper {
+  overflow: unset;
+}
 @media (min-width: 1200px) {
   .container, .container-sm, .container-md, .container-lg, .container-xl {
     max-width: 1140px;

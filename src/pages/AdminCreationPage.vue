@@ -23,8 +23,8 @@
             <div class="creation-page">
               <div class="d-flex align-items-center justify-content-between flex-wrap">
                 <div class="language-switch d-flex order-2 order-md-1">
-                  <button class="language active">UA</button>
-                  <button class="language">RU</button>
+                  <button class="language" :class="{active: activeLang === 'UA'}" @click="activeLang = 'UA'">UA</button>
+                  <button class="language" :class="{active: activeLang === 'RU'}" @click="activeLang = 'RU'">RU</button>
                 </div>
                 <div class="save order-1 order-md-2 mt-3 mt-md-0">
                   <BtnBlue text="Сохранить"/>
@@ -79,7 +79,10 @@ export default {
     FileAdmin,
     TextareaAdmin,
     BtnBlue
-  }
+  },
+  data: () => ({
+    activeLang: 'UA'
+  })
 }
 </script>
 

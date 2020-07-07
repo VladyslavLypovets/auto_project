@@ -339,9 +339,6 @@ export default {
           height: 0;
           margin: 0;
         }
-        @media (max-width: 1599px){
-          min-height: 100px;
-        }
       }
     }
     .mob-name-page{
@@ -484,6 +481,7 @@ export default {
       align-items: center;
       justify-content: center;
       background-position-y: center;
+      overflow: hidden;
       h4{
         color: #000000;
         font-size: 48px;
@@ -550,7 +548,7 @@ export default {
       img.bg-bottom-element{
         position: absolute;
         left: -3%;
-        bottom: -10%;
+        bottom: 0;
         z-index: -1;
         @media (max-width: 1199px){
           width: 20%;
@@ -666,6 +664,7 @@ export default {
       justify-content: center;
       // padding: 200px 0;
       background-position-y: center;
+      overflow: hidden;
       img.bg-top-element{
         position: absolute;
         right: -3%;

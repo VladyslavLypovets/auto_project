@@ -17,8 +17,8 @@
       <div class="suma">
         <p>3000-3250 грн</p>
       </div>
-      <button class="btn-buy" @click="openNewTab()">
-        <img src="@/assets/img/btn-img.png" alt="btn-img">
+      <button class="btn-buy" @mouseenter="rotate = true" @mouseleave="rotate = false" @click="openNewTab()">
+        <AnimationImg :rotate="rotate" />
         Купить
       </button>
     </div>
@@ -26,8 +26,16 @@
 </template>
 
 <script>
+import AnimationImg from '@/components/layout/AnimationImg.vue'
+
 export default {
   name: 'ProductBlocks',
+  components: {
+    AnimationImg
+  },
+  data: () => ({
+    rotate: false
+  }),
   methods: {
     openNewTab () {
       window.open('https://google.com')
@@ -89,6 +97,9 @@ export default {
       border-top: 1px solid #c9c9c9;
       padding: 15px 0 0;
       .btn-buy{
+        display: flex;
+        align-items: center;
+        justify-content: center;
         width: 141px;
         height: 43px;
         border-radius: 5px;
