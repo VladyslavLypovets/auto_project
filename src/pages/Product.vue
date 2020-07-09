@@ -33,8 +33,8 @@
                     <p>Артикул: 4526358</p>
                   </div>
                 </div>
-                <button class="btn-buy" @mouseenter="rotate = true" @mouseleave="rotate = false" @click="openNewTab()">
-                  <AnimationImg :rotate="rotate" />
+                <button class="btn-buy" @click="openNewTab()">
+                  <AnimationImg />
                    Купить
                 </button>
                 <div class="block-description">
@@ -43,9 +43,12 @@
                     <TextReadMore :text="text" :height="98"/>
                   </div>
                   <div class="block-dostavka">
-                    <div class="dostavka">
+                    <div class="dostavka" :class="{open: deliveryOpen}">
                       <div class="d-flex align-items-center position-relative">
-                        <h5>Доставка </h5>
+                        <h5 @click="deliveryOpen = !deliveryOpen">
+                          Доставка
+                          <i class="fa fa-angle-down toggle d-md-none ml-2" aria-hidden="true"></i>
+                        </h5>
                         <div class="dop-info">
                           <i class="fa fa-exclamation-circle fa-dop-info" aria-hidden="true"></i>
                         </div>
@@ -69,9 +72,12 @@
                         </li>
                       </ul>
                     </div>
-                    <div class="pay">
+                    <div class="pay" :class="{open: payOpen}">
                       <div class="d-flex align-items-center position-relative">
-                        <h5>Оплата</h5>
+                        <h5 @click="payOpen = !payOpen">
+                          Оплата
+                          <i class="fa fa-angle-down toggle d-md-none ml-2" aria-hidden="true"></i>
+                        </h5>
                         <div class="dop-info">
                           <i class="fa fa-exclamation-circle fa-dop-info" aria-hidden="true"></i>
                         </div>
@@ -87,9 +93,12 @@
                         </li>
                       </ul>
                     </div>
-                    <div class="guarantee">
+                    <div class="guarantee" :class="{open: guaranteeOpen}">
                       <div class="d-flex align-items-center position-relative">
-                        <h5>Гарантия</h5>
+                        <h5 @click="guaranteeOpen = !guaranteeOpen">
+                          Гарантия
+                          <i class="fa fa-angle-down toggle d-md-none ml-2" aria-hidden="true"></i>
+                        </h5>
                         <div class="dop-info">
                           <i class="fa fa-exclamation-circle fa-dop-info" aria-hidden="true"></i>
                         </div>
@@ -276,8 +285,8 @@
                   :dots="false"
                   :navText="navText"
                 >
-                <div v-for="i in new Array(3)" :key="i" class="items-wrap">
-                  <div class="items" v-for="index in itemsInColumn" :key="index">
+                <div v-for="(line, i) in analogTovar" :key="i" class="items-wrap">
+                  <div class="items" v-for="(tovar, index) in line" :key="index">
                     <router-link  to="/product" class="analog-tovar">
                       <div class="d-flex align-items-start align-items-xl-center">
                         <div class="img-tovar">
@@ -294,8 +303,8 @@
                         <p class="price">
                           3000-3250 грн
                         </p>
-                        <button class="btn-buy">
-                          <img src="@/assets/img/btn-img.png" alt="btn-img">
+                        <button class="btn-buy" @click="openNewTab()">
+                          <AnimationImg />
                            Купить
                         </button>
                       </div>
@@ -340,9 +349,11 @@ export default {
     navText: ['<i class="fa fa-angle-left" aria-hidden="true"/>', '<i class="fa fa-angle-right" aria-hidden="true"/>'],
     fancyOpen: false,
     sorting: 'VAG',
-    itemsInColumn: new Array(3),
-    rotate: false,
-    text: ' <p>Таким образом постоянное информационно-пропагандистское обеспечение нашей деятельности влечет за собой процесс внедрения и модернизации существенных финансовых и административных условий.</p><p>Не следует, однако забывать, что постоянный количественный рост и сфера нашей активности позволяет оценить значение позиций, занимаемых участниками в отношении поставленных задач.</p>'
+    text: ' <p>Таким образом постоянное информационно-пропагандистское обеспечение нашей деятельности влечет за собой процесс внедрения и модернизации существенных финансовых и административных условий.</p><p>Не следует, однако забывать, что постоянный количественный рост и сфера нашей активности позволяет оценить значение позиций, занимаемых участниками в отношении поставленных задач.</p>',
+    deliveryOpen: false,
+    payOpen: false,
+    guaranteeOpen: false,
+    analogTovar: [new Array(3), new Array(3), new Array(3)]
   }),
   created () {
     this.resize()
@@ -515,6 +526,25 @@ export default {
                 font-size: 18px;
                 font-weight: 700;
                 margin-bottom: 15px;
+                i {
+                  font-size: 16px;
+                  transition: all .3s;
+                }
+              }
+              @media(max-width: 767px) {
+                ul {
+                  max-height: 0;
+                  overflow: hidden;
+                  transition: all .3s;
+                }
+                &.open {
+                  ul {
+                    max-height: 300px;
+                  }
+                  h5 i {
+                    transform: rotate(180deg);
+                  }
+                }
               }
               .dop-info{
                 .fa-dop-info{
@@ -662,7 +692,7 @@ export default {
           }
           .btn-buy{
             margin: 0 auto;
-            display: block;
+            display: flex;
           }
           .block-description{
             margin-top: 30px;

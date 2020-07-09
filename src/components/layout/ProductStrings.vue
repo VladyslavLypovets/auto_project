@@ -40,8 +40,8 @@
           <div class="suma">
             <p>3000-3250 грн</p>
           </div>
-          <button class="btn-buy" @mouseenter="rotate = true" @mouseleave="rotate = false" @click="openNewTab()">
-            <AnimationImg :rotate="rotate" />
+          <button class="btn-buy" @click="openNewTab()">
+            <AnimationImg />
             Купить
           </button>
         </div>
@@ -58,9 +58,6 @@ export default {
   components: {
     AnimationImg
   },
-  data: () => ({
-    rotate: false
-  }),
   methods: {
     openNewTab () {
       window.open('https://google.com')

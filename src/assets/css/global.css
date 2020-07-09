@@ -63,6 +63,12 @@ button:focus {
   }
 }
 
+@media (max-width: 1199px) {
+  .v-data-table>.v-data-table__wrapper>table>tbody>tr>td, .v-data-table>.v-data-table__wrapper>table>tbody>tr>th, .v-data-table>.v-data-table__wrapper>table>tfoot>tr>td, .v-data-table>.v-data-table__wrapper>table>tfoot>tr>th, .v-data-table>.v-data-table__wrapper>table>thead>tr>td, .v-data-table>.v-data-table__wrapper>table>thead>tr>th {
+    padding: 0 10px;
+  }
+}
+
 @media (min-width: 1600px) {
   .container, .container-sm, .container-md, .container-lg, .container-xl {
     max-width: 1550px;

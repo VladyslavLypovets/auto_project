@@ -108,6 +108,7 @@
                     :headers="headers"
                     :items="items"
                     class="elevation-3"
+                    :mobileBreakpoint="1199"
                   >
                     <template v-slot:item.delete="{ item }">
                       <button class="delete" @click="removeItem(item, 'items')">
@@ -130,6 +131,7 @@
                 :headers="headers2"
                 :items="items2"
                 class="elevation-4"
+                :mobileBreakpoint="1199"
               >
                 <template v-slot:item.name>
                   <router-link to="/product" class="link-admin" target="_blank">

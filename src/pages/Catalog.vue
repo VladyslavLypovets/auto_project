@@ -111,21 +111,9 @@
                     <i class="fa fa-angle-down" aria-hidden="true"></i>
                   </div>
                   <div class="choice-manufacturer">
-                    <div class="d-flex align-items-center">
-                      <input type="checkbox" id="choice-manufacturer-1" class="form-control checkbox-manufacturer">
-                      <label for="choice-manufacturer-1">Производитель 1</label>
-                    </div>
-                    <div class="d-flex align-items-center">
-                      <input type="checkbox" id="choice-manufacturer-2" class="form-control checkbox-manufacturer">
-                      <label for="choice-manufacturer-2">Производитель 2</label>
-                    </div>
-                    <div class="d-flex align-items-center">
-                      <input type="checkbox" id="choice-manufacturer-3" class="form-control checkbox-manufacturer">
-                      <label for="choice-manufacturer-3">Производитель 3</label>
-                    </div>
-                    <div class="d-flex align-items-center">
-                      <input type="checkbox" id="choice-manufacturer-4" class="form-control checkbox-manufacturer">
-                      <label for="choice-manufacturer-4">Производитель 4</label>
+                    <div class="d-flex align-items-center" v-for="(item, index) in manufacturers" :key="index">
+                      <input type="checkbox" :id="`choice-manufacturer-${index}`" class="form-control checkbox-manufacturer" v-model="manufacturers[index]" @change="changeFilter()">
+                      <label :for="`choice-manufacturer-${index}`">Производитель {{index + 1}}</label>
                     </div>
                   </div>
                 </div>
@@ -164,17 +152,9 @@
                     <i class="fa fa-angle-down" aria-hidden="true"></i>
                   </div>
                   <div class="choice-attribute">
-                    <div class="d-flex align-items-center">
-                      <input type="checkbox" id="choice-attribute-1" class="form-control checkbox-attribute">
-                      <label for="choice-attribute-1">Атрибут 1</label>
-                    </div>
-                    <div class="d-flex align-items-center">
-                      <input type="checkbox" id="choice-attribute-2" class="form-control checkbox-attribute">
-                      <label for="choice-attribute-2">Атрибут 1</label>
-                    </div>
-                    <div class="d-flex align-items-center">
-                      <input type="checkbox" id="choice-attribute-3" class="form-control checkbox-attribute">
-                      <label for="choice-attribute-3">Атрибут 1</label>
+                    <div class="d-flex align-items-center"  v-for="(item, index) in attr1" :key="index">
+                      <input type="checkbox" :id="`choice-attribute-1-${index}`" class="form-control checkbox-attribute" v-model="attr1[index]"  @change="changeFilter()">
+                      <label :for="`choice-attribute-1-${index}`">Атрибут 1</label>
                     </div>
                   </div>
                 </div>
@@ -190,18 +170,18 @@
                     <i class="fa fa-angle-down" aria-hidden="true"></i>
                   </div>
                   <div class="choice-attribute">
-                    <div class="d-flex align-items-center">
-                      <input type="checkbox" id="choice-attribute-4" class="form-control checkbox-attribute">
-                      <label for="choice-attribute-4">Атрибут 2</label>
-                    </div>
-                    <div class="d-flex align-items-center">
-                      <input type="checkbox" id="choice-attribute-5" class="form-control checkbox-attribute">
-                      <label for="choice-attribute-5">Атрибут 2</label>
+                    <div class="d-flex align-items-center"  v-for="(item, index) in attr2" :key="index">
+                      <input type="checkbox" :id="`choice-attribute-2-${index}`" class="form-control checkbox-attribute" v-model="attr2[index]"  @change="changeFilter()">
+                      <label :for="`choice-attribute-2-${index}`">Атрибут 2</label>
                     </div>
                   </div>
                 </div>
-                <div class="d-flex d-xl-none justify-content-center">
-                  <BtnBlue text="Назад" @click="filterOpen = false"/>
+                <div class="d-flex d-xl-none justify-content-center" v-if="filterEmpty">
+                  <BtnBlue text="Назад" @click="filterOpen = false" v-if="filterEmpty"/>
+                </div>
+                <div class="d-flex d-xl-none justify-content-between" v-else>
+                  <BtnGrey text="Сбросить" @click="clearFilter" />
+                  <BtnBlue text="Найти" @click="filterOpen = false"/>
                 </div>
               </div>
             </div>
@@ -320,6 +300,7 @@ import Header from '@/components/layout/Header.vue'
 import Footer from '@/components/layout/Footer.vue'
 import ProductStrings from '@/components/layout/ProductStrings.vue'
 import BtnBlue from '@/components/layout/BtnBlue.vue'
+import BtnGrey from '@/components/layout/BtnGrey.vue'
 import ProductBlocks from '@/components/layout/ProductBlocks.vue'
 import RangeSlider from '@/components/layout/RangeSlider.vue'
 
@@ -330,6 +311,7 @@ export default {
     Footer,
     ProductStrings,
     BtnBlue,
+    BtnGrey,
     ProductBlocks,
     RangeSlider
   },
@@ -349,7 +331,11 @@ export default {
     },
     range: [0, 500000],
     filterOpen: false,
-    newItems: 9
+    newItems: 9,
+    filterEmpty: true,
+    attr2: [false, false],
+    attr1: [false, false, false],
+    manufacturers: [false, false, false, false]
   }),
   created () {
     this.watchMobile()
@@ -362,6 +348,18 @@ export default {
         this.newItems = 5
         this.productCount = new Array(this.newItems)
       }
+    },
+    changeFilter () {
+      this.filterEmpty = false
+    },
+    clearFilter () {
+      this.manufacturers = this.manufacturers.map(() => false)
+      this.attr1 = this.attr1.map(() => false)
+      this.attr2 = this.attr2.map(() => false)
+      this.range = [0, 500000]
+      this.marka = 'BMW-1'
+      this.model = 'X7'
+      this.product = ''
     }
   }
 }

@@ -12,7 +12,7 @@
         'background-image': `url(${require('@/assets/img/bg-top-o-produkte.png')})`
       }"
       >
-        <div class="container d-flex flex-column align-items-center justify-content-center">{
+        <div class="container d-flex flex-column align-items-center justify-content-center">
           <h2>О продукции</h2>
           <p>Таким образом постоянное информационно-пропагандистское обеспечение нашей деятельности влечет за собой процесс внедрения и модернизации существенных финансовых и административных условий. </p>
           <div class="scroll">
@@ -98,6 +98,7 @@
         <Footer />
       </div>
     </main>
+    <FlyCogs />
   </div>
 </template>
 
@@ -106,6 +107,7 @@ import Header from '@/components/layout/Header.vue'
 import Footer from '@/components/layout/Footer.vue'
 import OurPartnersClients from '@/components/layout/OurPartnersClients.vue'
 import TextReadMore from '@/components/layout/TextReadMore.vue'
+import FlyCogs from '@/components/layout/FlyCogs'
 
 export default {
   name: 'AboutProduct',
@@ -113,7 +115,8 @@ export default {
     Header,
     Footer,
     OurPartnersClients,
-    TextReadMore
+    TextReadMore,
+    FlyCogs
   },
   data: () => ({
     consultantsData: [
@@ -140,7 +143,7 @@ export default {
   }),
   methods: {
     scroll (e) {
-      if (!this.animationdebounce && window.innerWidth > 1199) {
+      if (!this.animationdebounce && window.innerWidth > 767) {
         this.animationdebounce = true
         if (e.deltaY > 0) {
           this.moveBottom()
@@ -175,21 +178,22 @@ export default {
     max-height: 100vh;
     overflow: hidden;
     transition: all .3s;
-    @media(max-width: 1199px) {
-      overflow: auto;
-      max-height: unset;
-    }
     @media (max-width: 767px){
       padding-top: 50px;
       justify-content: start;
+      overflow: auto;
+      max-height: unset;
     }
     &.scrolled {
       padding-top: 218px;
     }
     .scroller {
       transition: all .3s;
+      position: relative;
     }
     .home-o-produkte{
+      position: relative;
+      z-index: 2;
       min-height: calc(100vh - 86px);
       background-size: cover;
       background-repeat: no-repeat;
@@ -315,7 +319,7 @@ export default {
       &.collapsed{
         position: fixed;
         left: 0;
-        top: 86px;
+        top: 83px;
         width: 100%;
         min-height: 132px;
         z-index: 2;
@@ -434,12 +438,8 @@ export default {
         .text-quality{
           font-size: 15px;
         }
-        // img.bg-bottom-element{
-        //   bottom: 0;
-        //   left: -7%;
-        // }
       }
-      @media (max-width: 1199px){
+      @media (max-width: 767px){
         height: unset;
         padding: 55px 0 0;
         h4{
@@ -590,8 +590,6 @@ export default {
         // }
       }
       @media (max-width: 1199px){
-        height: unset;
-        padding: 50px 0;
         h4{
           font-size: 36px;
           margin-bottom: 38px;
@@ -625,6 +623,8 @@ export default {
         }
       }
       @media (max-width: 767px){
+        height: unset;
+        padding: 50px 0;
         h4{
           font-size: 24px;
         }
@@ -695,10 +695,10 @@ export default {
           opacity: 0.4;
         }
       }
-      @media (max-width: 1599px){
-        padding-bottom: 60px;
-      }
       @media (max-width: 1199px){
+        height: calc(100vh - 360px);
+      }
+      @media (max-width: 767px){
         height: unset;
         padding: 0;
       }

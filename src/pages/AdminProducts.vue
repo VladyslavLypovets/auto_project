@@ -49,6 +49,7 @@
                 :headers="headers"
                 :items="items"
                 class="elevation-1"
+                :mobileBreakpoint="1199"
               >
                 <template v-slot:header.checbox>
                   <RadioAdmin id="header" type="checkbox" class="row-selection mb-0" :value="selectAll" @change="toggleAll()"/>

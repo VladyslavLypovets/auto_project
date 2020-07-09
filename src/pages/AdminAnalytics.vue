@@ -59,6 +59,7 @@
                 :items="items"
                 class="elevation-1"
                 :itemsPerPage="40"
+                :mobileBreakpoint="1199"
               >
                 <template v-slot:item.linkProduct>
                   <a href="https://kasta.ua/market/aksessuary/" target="_blank" class="link">https://kasta.ua/market/aksessuary/</a>
