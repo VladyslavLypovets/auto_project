@@ -155,7 +155,7 @@ export default {
           .language-switch{
             margin-top: 20px;
             margin-bottom: 30px;
-            justify-content: space-around;
+            justify-content: space-evenly;
             width: 100%;
             .language{
               width: 100px;

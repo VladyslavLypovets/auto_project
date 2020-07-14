@@ -6,13 +6,13 @@
       'background-image': `url(${require('@/assets/img/bg-contacrs.png')})`
     }"
     >
-      <div class="baner-contacts d-none d-md-block"
+      <div class="baner-contacts d-none d-md-flex"
       :style="{
         'background-image': `url(${require('@/assets/img/bg-baner-contacts.png')})`
       }"
       >
         <div class="container">
-          <div class="row">
+          <div class="row align-items-end">
             <div class="col-6 col-xl-7">
               <h3>Контакты</h3>
               <p>Таким образом постоянное информационно-пропагандистское обеспечение нашей деятельности влечет за собой процесс внедрения и модернизации существенных финансовых и административных условий. </p>
@@ -155,16 +155,19 @@ export default {
     background-position-y: bottom;
     .baner-contacts{
       background-size: cover;
-      padding: 60px 0 27px;
+      padding: 30px 0;
       background-position-y: bottom;
+      max-height: 255px;
+      align-items: center;
       h3{
         letter-spacing: 1.44px;
         color: #ffffff;
         font-size: 48px;
         font-weight: 700;
         text-transform: uppercase;
-        margin-bottom: 35px;
+        margin-bottom: 30px;
         position: relative;
+        line-height: 1;
         &::before{
           position: absolute;
           content: '';
@@ -189,13 +192,11 @@ export default {
         line-height: 25px;
         max-width: 655px;
         margin: 0;
+        letter-spacing: 0.48px;
         @media (max-width: 1199px){
           max-width: 430px;
           font-size: 14px;
         }
-      }
-      img{
-        width: 100%;
       }
     }
     .mob-baner{

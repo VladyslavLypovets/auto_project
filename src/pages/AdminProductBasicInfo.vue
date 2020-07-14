@@ -363,9 +363,16 @@ export default {
           font-weight: 700;
           margin-bottom: 0;
           text-transform: uppercase;
-          @media (max-width: 767px){
-          margin-bottom: 25px;
-          font-size: 24px;
+        }
+        @media (max-width: 767px){
+          flex-wrap: wrap;
+          h4{
+            margin-bottom: 25px;
+            font-size: 24px;
+            width: 100%;
+          }
+          .btn-blue{
+            margin: 0 auto;
           }
         }
       }
@@ -600,11 +607,12 @@ export default {
           /deep/ .form-group .input-admin{
             height: 59px;
             border-radius: 5px;
-            border: 7px solid rgba(223, 223, 223, 0.54);
+            border: 7px solid #fafafa;
             background-color: #fff;
             width: 100%;
             flex: none;
             margin: 0 0 15px;
+            box-shadow: 0 0 0 1px #dfdfdf;
             &:focus{
               border: 7px solid #00b9e5;
             }
@@ -786,11 +794,12 @@ export default {
           /deep/ .form-group .input-admin{
             height: 59px;
             border-radius: 5px;
-            border: 7px solid rgba(223, 223, 223, 0.54);
+            border: 7px solid #fafafa;
             background-color: #fff;
             width: 100%;
             flex: none;
             margin: 0 0 15px;
+            box-shadow: 0 0 0 1px #dfdfdf;
             &:focus{
               border: 7px solid #00b9e5;
             }

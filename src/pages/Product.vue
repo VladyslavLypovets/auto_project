@@ -450,6 +450,7 @@ export default {
         }
         .info-price{
           color: #979797;
+          letter-spacing: 0.54px;
         }
         .artikul{
           border-radius: 5px;
@@ -504,6 +505,7 @@ export default {
               margin-bottom: 30px;
             }
             /deep/ p{
+              letter-spacing: 0.48px;
               color: #676767;
               font-size: 16px;
               font-weight: 400;
@@ -526,6 +528,7 @@ export default {
                 font-size: 18px;
                 font-weight: 700;
                 margin-bottom: 15px;
+                letter-spacing: 0.54px;
                 i {
                   font-size: 16px;
                   transition: all .3s;
@@ -600,6 +603,7 @@ export default {
               ul{
                 padding: 0;
                 li{
+                  letter-spacing: 0.48px;
                   list-style: none;
                   display: flex;
                   align-items: center;

@@ -233,6 +233,7 @@ export default {
         }
       }
       p{
+        letter-spacing: 0.48px;
         color: #ffffff;
         font-family: "Clear Sans";
         font-size: 16px;
@@ -606,6 +607,7 @@ export default {
             left: 8%;
             font-size: 32px;
             bottom: 50%;
+            transform: translateY(50%);
           }
           /deep/ .owl-next{
             position: absolute;
@@ -614,12 +616,14 @@ export default {
             right: 8%;
             font-size: 32px;
             bottom: 50%;
+            transform: translateY(50%);
           }
         }
         .advantages{
           margin: 0 auto;
-          width: 52%;
-          height: 480px;
+          width: 100%;
+          height: 460px;
+          max-width: 375px;
           img{
             width: unset;
           }

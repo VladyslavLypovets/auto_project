@@ -887,6 +887,9 @@ export default {
                 background: #fff;
                 color: #000;
               }
+              @media (max-width: 767px){
+                left: -80px;
+              }
             }
           }
         }
@@ -984,6 +987,7 @@ export default {
         .pages{
           .left-right{
             .btn-blue{
+              text-transform: none;
               letter-spacing: 0.48px;
               width: 77px;
               height: 45px;

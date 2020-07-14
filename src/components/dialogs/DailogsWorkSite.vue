@@ -49,7 +49,7 @@
       </div>
       <div class="block-info-button">
         <p>Данный сайт использует cookies вашего браузера, вы даете согласие на <router-link to="/" target="_blank" class="link">использование</router-link> и <router-link to="/" target="_blank" class="link">обработку данных.</router-link></p>
-        <button class="btn-confirm"><img src="@/assets/img/btn-img.png" alt="btn-img"> Подтвердить</button>
+        <button class="btn-confirm btn-buy d-flex align-items-center justify-content-center"><AnimationImg /> Подтвердить</button>
       </div>
     </form>
   </div>
@@ -57,6 +57,7 @@
 
 <script>
 import Cross from '@/components/layout/Cross.vue'
+import AnimationImg from '@/components/layout/AnimationImg.vue'
 
 export default {
   name: 'DailogsWorkSite',
@@ -70,7 +71,8 @@ export default {
     }
   },
   components: {
-    Cross
+    Cross,
+    AnimationImg
   }
 }
 </script>
@@ -168,6 +170,9 @@ export default {
           margin: 0;
           padding: 0;
           letter-spacing: 0.42px;
+          @media (max-width: 767px){
+            font-size: 13px;
+          }
         }
         .caret {
           position: absolute;

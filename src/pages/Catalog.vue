@@ -866,6 +866,9 @@ export default {
                 background: #fff;
                 color: #000;
               }
+              @media (max-width: 767px){
+                left: -80px;
+              }
             }
           }
         }
@@ -967,6 +970,7 @@ export default {
               width: 77px;
               height: 45px;
               box-shadow: 1px 2px 0 #068fb0;
+              text-transform: none;
               &:hover{
                 background-color: #1c7d94;
                 color: #fff;
