@@ -57,6 +57,14 @@ button:focus {
 .v-data-table__wrapper {
   overflow: unset;
 }
+.multiselect__option--selected {
+  background: #fff;
+}
+
+.text-read-more p:last-child {
+  margin-bottom: 0;
+}
+
 @media (min-width: 1200px) {
   .container, .container-sm, .container-md, .container-lg, .container-xl {
     max-width: 1140px;

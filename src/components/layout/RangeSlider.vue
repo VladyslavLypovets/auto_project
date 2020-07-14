@@ -31,6 +31,10 @@ export default {
     top: -11px !important;
     background-color: #00b9e5 !important;
     box-shadow: none !important;
+    .slider-dot-handle {
+      background: none !important;
+      box-shadow: none !important;
+    }
   }
   /deep/ .slider-process {
     background-color: #00b9e5 !important;

@@ -15,7 +15,7 @@
           </div>
           <div class="search-languages-block d-flex">
             <div class="search d-none d-xl-block">
-              <form class="input-search" method="POST">
+              <form class="input-search">
                 <input type="text" class="form-control" name="search" v-model="search" placeholder="Поиск на сайте">
                 <button class="btn-search">
                   <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="23" height="23" viewBox="0 0 23 23">
@@ -37,7 +37,6 @@
                 :options="['УКР', 'РУ']"
                 :searchable="false"
                 :allowEmpty="false"
-                :hideSelected="true"
                 :showLabels="false"
               >
                 <i
@@ -244,7 +243,6 @@ export default {
               max-width:  62px;
               background: #fff;
               min-height: unset;
-              height: 34px;
               display: flex;
               align-items: center;
               transition: all 0.3s;

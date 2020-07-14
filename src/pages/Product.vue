@@ -398,7 +398,7 @@ export default {
         background-color: #ffffff;
         padding: 25px;
         position: relative;
-        height: 90%;
+        height: 100%;
         img{
           width: 100%;
         }
@@ -498,6 +498,9 @@ export default {
           .description{
             width: 55%;
             padding-right: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
             h6{
               color: #242424;
               font-size: 20px;
@@ -520,6 +523,9 @@ export default {
             width: 45%;
             border-left: 1px solid #dfdfdf;
             padding-left: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
             .dostavka,
             .pay,
             .guarantee{
@@ -602,6 +608,7 @@ export default {
               }
               ul{
                 padding: 0;
+                margin-bottom: 0;
                 li{
                   letter-spacing: 0.48px;
                   list-style: none;

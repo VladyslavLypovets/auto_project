@@ -129,7 +129,7 @@
                     <i class="fa fa-angle-down" aria-hidden="true"></i>
                   </div>
                   <div class="range-slider-wrap">
-                    <RangeSlider v-model="range" />
+                    <RangeSlider v-model="range" :useKeyboard="true"/>
                     <div class="d-flex justify-content-between">
                       <div class="form-group">
                         <input type="text" class="form-control from" v-model="range[0]">
@@ -340,6 +340,7 @@ export default {
   created () {
     this.watchMobile()
     window.addEventListener('resize', this.watchMobile)
+    document.removeEventListener('keydown', () => {}, true)
   },
   methods: {
     watchMobile () {
@@ -360,6 +361,7 @@ export default {
       this.marka = 'BMW-1'
       this.model = 'X7'
       this.product = ''
+      this.filterEmpty = true
     }
   }
 }

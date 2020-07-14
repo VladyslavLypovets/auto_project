@@ -166,7 +166,7 @@ export default {
   },
   computed: {
     scrollHeight () {
-      return (window.innerHeight - 218) * (this.currentScrollPosition - 1)
+      return (window.innerHeight - 215) * (this.currentScrollPosition - 1)
     }
   }
 }
@@ -185,7 +185,7 @@ export default {
       max-height: unset;
     }
     &.scrolled {
-      padding-top: 218px;
+      padding-top: 215px;
     }
     .scroller {
       transition: all .3s;
@@ -345,7 +345,7 @@ export default {
           margin: 0;
         }
         @media (max-width: 1599px){
-          min-height: 100px;
+          min-height: 132px;
         }
       }
     }
@@ -382,7 +382,7 @@ export default {
     }
     .produkt-quality{
       position: relative;
-      height: calc(100vh - 218px);
+      height: calc(100vh - 215px);
       background-size: cover;
       background-repeat: no-repeat;
       display: flex;
@@ -480,7 +480,7 @@ export default {
     }
     .prof-consultanty{
       position: relative;
-      height: calc(100vh - 218px);
+      height: calc(100vh - 215px);
       background-size: cover;
       background-repeat: no-repeat;
       display: flex;
@@ -665,7 +665,7 @@ export default {
     }
     .our-clients{
       position: relative;
-      height: calc(100vh - 278px);
+      height: calc(100vh - 275px);
       background-size: cover;
       background-repeat: no-repeat;
       display: flex;
@@ -681,7 +681,7 @@ export default {
         z-index: -1;
         @media (max-width: 1199px){
           width: 20%;
-          top: 5%;
+          top: 0;
         }
         @media (max-width: 767px){
           opacity: 0.4;

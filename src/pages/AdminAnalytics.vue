@@ -310,6 +310,13 @@ export default {
                 font-size: 11px;
                 padding-left: 10px;
               }
+              @media(max-width: 370px) {
+                max-width: 150px;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                display: block;
+              }
             }
             @media (max-width: 1199px){
               font-size: 14px;
