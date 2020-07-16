@@ -250,8 +250,8 @@ export default {
         }
       }
       .scroll{
-        width: 778px;
-        max-width: 778px;
+        width: 900px;
+        max-width: 900px;
         h6{
           color: #ffffff;
           font-size: 16px;
