@@ -104,6 +104,14 @@ export default {
         }
       }
     }
+    @media (max-width: 1399px){
+      h4{
+        font-size: 36px;
+      }
+      .client-partner {
+        height: 100px;
+      }
+    }
     @media (max-width: 1199px){
       .carousel-mob-clients{
         position: relative;

@@ -107,7 +107,7 @@ export default {
     height: 83px;
     box-shadow: 1px 2px 7px rgba(0, 0, 0, 0.19);
     background-color: #ffffff;
-    z-index: 2;
+    z-index: 3;
     .logo-block{
       margin-right: 140px;
     }
@@ -238,6 +238,7 @@ export default {
           /deep/ .multiselect__content-wrapper{
             width:  62px;
             top: 100%;
+            z-index: 5;
             .multiselect__element {
               max-width:  62px;
             }

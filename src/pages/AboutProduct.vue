@@ -5,6 +5,7 @@
       class="oproducte-main"
       :class="{'scrolled': currentScrollPosition !== 0}"
       @mousewheel="scroll"
+      @wheel="scroll"
     >
       <div class="d-none d-md-flex home-o-produkte"
       :class="{'collapsed': currentScrollPosition !== 0}"
@@ -13,7 +14,7 @@
       }"
       >
         <div class="container d-flex flex-column align-items-center justify-content-center">
-          <h2>О продукции</h2>
+          <h2 v-touch="test">О продукции</h2>
           <p>Таким образом постоянное информационно-пропагандистское обеспечение нашей деятельности влечет за собой процесс внедрения и модернизации существенных финансовых и административных условий. </p>
           <div class="scroll">
             <div class="d-flex align-items-center justify-content-between">
@@ -570,7 +571,7 @@ export default {
           margin-bottom: 25px;
         }
         .advantages{
-          height: 290px;
+          height: 270px;
           img{
             max-width: 50px;
           }

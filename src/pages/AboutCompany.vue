@@ -5,6 +5,7 @@
       class="oproducte-main"
       :class="{'scrolled': currentScrollPosition !== 0}"
       @mousewheel="scroll"
+      @wheel="scroll"
     >
       <div class="d-none d-md-flex home-o-produkte"
       :class="{'collapsed': currentScrollPosition !== 0}"
@@ -437,7 +438,7 @@ export default {
       }
       @media (max-width: 1399px){
         h4{
-          font-size: 37px;
+          font-size: 34px;
           margin-bottom: 25px;
         }
         .text-quality{
@@ -569,11 +570,11 @@ export default {
       @media (max-width: 1399px){
         padding: 0;
         h4{
-          font-size: 43px;
+          font-size: 34px;
           margin-bottom: 25px;
         }
         .advantages{
-          height: 290px;
+          height: 270px;
           img{
             max-width: 50px;
           }
