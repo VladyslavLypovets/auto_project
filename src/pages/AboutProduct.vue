@@ -258,10 +258,11 @@ export default {
           font-weight: 400;
           line-height: 25px;
           text-transform: uppercase;
+          width: 33%;
+          text-align: center;
         }
         .block-scroll{
-          width: 645px;
-          max-width: 645px;
+          width: 70%;
           margin: 0 auto;
           .circle{
             width: 20px;

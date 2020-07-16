@@ -36,6 +36,7 @@
                 v-model="lang"
                 :options="['УКР', 'РУ']"
                 :searchable="false"
+                :hideSelected="true"
                 :allowEmpty="false"
                 :showLabels="false"
               >
@@ -236,6 +237,7 @@ export default {
           }
           /deep/ .multiselect__content-wrapper{
             width:  62px;
+            top: 100%;
             .multiselect__element {
               max-width:  62px;
             }
