@@ -501,6 +501,10 @@ export default {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            @media (max-width: 1199px){
+              justify-content: unset;
+              padding-right: 17px;
+            }
             h6{
               color: #242424;
               font-size: 20px;
@@ -529,11 +533,15 @@ export default {
             .dostavka,
             .pay,
             .guarantee{
+              margin-bottom: 10px;
+              &:last-child{
+                margin-bottom: 0;
+              }
               h5{
                 color: #00b9e5;
                 font-size: 18px;
                 font-weight: 700;
-                margin-bottom: 15px;
+                margin-bottom: 5px;
                 letter-spacing: 0.54px;
                 i {
                   font-size: 16px;
@@ -556,10 +564,15 @@ export default {
                 }
               }
               .dop-info{
+                display: flex;
+                align-items: center;
+                @media (max-width: 767px){
+                  display: none;
+                }
                 .fa-dop-info{
                   color: #d7d7d7;
                   font-size: 16px;
-                  margin-bottom: 16px;
+                  margin-bottom: 5px;
                   margin-left: 15px;
                   transition: all 0.3s;
                 }
@@ -604,7 +617,6 @@ export default {
                   transform: rotate(45deg);
                   z-index: -2;
                 }
-
               }
               ul{
                 padding: 0;
@@ -617,6 +629,7 @@ export default {
                   color: #676767;
                   font-size: 16px;
                   font-weight: 400;
+                  margin-bottom: 5px;
                   img{
                     margin-right: 10px;
                   }
@@ -625,25 +638,26 @@ export default {
             }
             .dostavka{
               .dop-info-text{
-                bottom: -128px;
-                right: 65px;
+                bottom: -134px;
+                right: -92px;
               }
             }
             .pay{
               .dop-info-text{
-                bottom: -128px;
-                right: 82px;
+                bottom: -135px;
+                right: -72px;
               }
             }
             .guarantee{
               .dop-info-text{
-                bottom: -128px;
-                right: 65px;
+                bottom: -135px;
+                right: -88px;
               }
             }
             @media (max-width: 1199px){
+              padding-left: 17px;
               .dop-info-text{
-                width: 265px;
+                max-width: 260px;
                 padding: 10px;
               }
               .dostavka{
@@ -680,9 +694,20 @@ export default {
           .info-price{
             margin-bottom: 20px;
           }
-          .block-description .description p{
-            font-size: 14px;
-            line-height: 25px;
+          .block-description{
+            .description p{
+              font-size: 14px;
+              line-height: 25px;
+            }
+            .block-dostavka{
+              .dostavka,
+              .pay,
+              .guarantee{
+                ul li{
+                  font-size: 15px;
+                }
+              }
+            }
           }
         }
       }
@@ -724,9 +749,13 @@ export default {
               .dop-info{
                 display: none;
               }
-              .dostavka ul li{
-                margin-bottom: 8px;
-                font-size: 14px;
+              .dostavka,
+              .pay,
+              .guarantee{
+                ul li{
+                  margin-bottom: 8px;
+                  font-size: 14px;
+                }
               }
             }
           }

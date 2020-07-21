@@ -740,7 +740,7 @@ export default {
           }
           .btn-blue{
             margin-top: 60px;
-            width: 100%;
+            width: 47%;
           }
           &.open{
             padding: 35px 30px;

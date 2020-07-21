@@ -22,7 +22,7 @@
                 class="elevation-1"
               >
                 <template v-slot:item.change>
-                  <button class="btn-edit">
+                  <button class="btn-edit" @click="$router.push({ name: 'AdminNewUser' })">
                     Редактировать
                     <i class="fa fa-pencil" aria-hidden="true"></i>
                   </button>

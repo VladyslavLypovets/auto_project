@@ -264,6 +264,12 @@ export default {
           svg{
             fill: #00b9e5;
             margin-right: 15px;
+            @media (max-width: 767px){
+              max-width: 18px;
+              max-height: 16px;
+              width: 100%;
+              height: 100%;
+            }
           }
           p,
           .link-contact{
