@@ -176,10 +176,10 @@
                     </div>
                   </div>
                 </div>
-                <div class="d-flex d-xl-none justify-content-center" v-if="filterEmpty">
+                <div class="d-flex d-xl-none justify-content-center block-fixed" v-if="filterEmpty">
                   <BtnBlue text="Назад" @click="filterOpen = false" v-if="filterEmpty"/>
                 </div>
-                <div class="d-flex d-xl-none justify-content-between" v-else>
+                <div class="d-flex d-xl-none justify-content-between block-fixed" v-else>
                   <BtnGrey text="Сбросить" @click="clearFilter" />
                   <BtnBlue text="Найти" @click="filterOpen = false"/>
                 </div>
@@ -721,6 +721,7 @@ export default {
           }
           .btn-blue{
             margin-top: 60px;
+            max-width: 47%;
             width: 47%;
           }
           &.open{
@@ -741,10 +742,20 @@ export default {
             @media (max-width: 767px){
               width: 100vw;
               height: 100%;
+              padding-bottom: 80px !important;
             }
           }
         }
         @media (max-width: 767px){
+          .block-fixed {
+            position: fixed;
+            left: 0;
+            padding: 0 15px 10px;
+            bottom: 0;
+            width: 100%;
+            background-color: #f7f7f7;
+            z-index: 6;
+          }
           &.open {
             padding: 25px 15px;
           }

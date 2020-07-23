@@ -45,7 +45,7 @@
               <TextareaAdmin text="Текстовая информация третего поля второго блока" id="text-info-third-fiels-second-block"/>
               <InputAdmin text="Заголовок третего блока" id="third-block-name"/>
               <FileAdmin text="Иконка третего поля второго блока" id="img-third-fiels-second-block"/>
-              <BtnBlue text="Добавить изображение"/>
+              <button type="button" class="btn-grey">Добавить изображение</button>
             </div>
           </div>
         </div>
@@ -93,6 +93,26 @@ export default {
     background-size: cover;
     background-repeat: no-repeat;
     background-position-y: bottom;
+    .btn-grey {
+      margin-left: calc(20% + 20px);
+      cursor: pointer;
+      width: 184px;
+      height: 45px;
+      border-radius: 5px;
+      border: 1px solid #e8e8e8;
+      background-color: #f6f6f6;
+      color: #00b9e5;
+      font-size: 14px;
+      font-weight: 400;
+      text-decoration: underline;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      @media(max-width: 767px) {
+        width: 100%;
+        margin-left: 0;
+      }
+    }
     .block-admin-creation{
       margin-top: 50px;
       h4{

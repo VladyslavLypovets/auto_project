@@ -358,6 +358,11 @@ export default {
   created () {
     this.resize()
     window.addEventListener('resize', this.resize)
+    if (window.innerWidth <= 1199 && window.innerWidth > 767) {
+      this.analogTovar = [new Array(2), new Array(2), new Array(2)]
+    } else if (window.innerWidth <= 767) {
+      this.analogTovar = [new Array(1), new Array(1), new Array(1)]
+    }
   },
   methods: {
     resize () {
@@ -1278,7 +1283,7 @@ export default {
           .table-applicability{
             thead{
               tr th{
-                font-size: 11px;
+                font-size: 12px;
                 padding-left: 10px;
                 &:last-child{
                   padding-left: 0;
@@ -1287,7 +1292,7 @@ export default {
             }
             tbody tr{
               th, td{
-                font-size: 11px;
+                font-size: 12px;
                 padding: 10px;
               }
               td{
