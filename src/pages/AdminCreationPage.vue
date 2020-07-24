@@ -43,8 +43,9 @@
               <InputAdmin text="Заголовок второго поля второго блока" id="second-fiels-second-block-name"/>
               <FileAdmin text="Иконка второго поля второго блока" id="img-second-fiels-second-block"/>
               <TextareaAdmin text="Текстовая информация третего поля второго блока" id="text-info-third-fiels-second-block"/>
-              <InputAdmin text="Заголовок третего блока" id="third-block-name"/>
               <FileAdmin text="Иконка третего поля второго блока" id="img-third-fiels-second-block"/>
+              <InputAdmin text="Заголовок третего блока" id="third-block-name"/>
+              <FileAdmin text="Иконка третего блока" id="img-third-fiels-second-block"/>
               <button type="button" class="btn-grey">Добавить изображение</button>
             </div>
           </div>
