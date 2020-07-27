@@ -287,7 +287,7 @@
                 >
                 <div v-for="(line, i) in analogTovar" :key="i" class="items-wrap">
                   <div class="items" v-for="(tovar, index) in line" :key="index">
-                    <router-link  to="/product" class="analog-tovar">
+                    <router-link  :to="{ name: 'Product-id', params: { id: index }}" class="analog-tovar">
                       <div class="d-flex align-items-start align-items-xl-center">
                         <div class="img-tovar">
                           <img src="@/assets/img/img-product-catalog.png" alt="img-product-catalog">

@@ -43,12 +43,11 @@ export default {
 
 <style lang="scss" scoped>
   .product-blocks{
-    max-height: 480px;
+    height: 100%;
     box-shadow: 1px 2px 24px rgba(0, 0, 0, 0.11);
     border-radius: 5px;
     background-color: #ffffff;
     padding: 20px;
-    margin-bottom: 20px;
     transition: all 0.3s;
     display: block;
     text-decoration: none;

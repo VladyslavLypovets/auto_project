@@ -83,7 +83,7 @@
                 <div class="marka d-flex align-items-center">
                   <multiselect
                     v-model="product"
-                    :options="['BMW-1', 'BMW-2', 'BMW-3', 'BMW-4']"
+                    :options="['BMW-1', 'BMW-2', 'BMW-3', 'BMW-4', 'BMW-5', 'BMW-6', 'BMW-7', 'BMW-8', 'BMW-9']"
                     placeholder="Вид продукции"
                     :searchable="false"
                     :allowEmpty="false"
@@ -253,7 +253,7 @@
                 <div class="product-blocks" v-if="activeView === 2">
                   <div class="row">
                     <div
-                      class="col-12 col-md-4"
+                      class="col-12 col-md-4 mb-3"
                       v-for="index in productCount"
                       :key="index"
                     >

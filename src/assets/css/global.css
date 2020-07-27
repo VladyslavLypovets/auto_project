@@ -67,6 +67,24 @@ button:focus {
   margin-bottom: 0;
 }
 
+.multiselect__content-wrapper::-webkit-scrollbar-track
+{
+  border-radius: 10px;
+  background-color: #F5F5F5;
+}
+
+.multiselect__content-wrapper::-webkit-scrollbar
+{
+  width: 6px;
+  background-color: #F5F5F5;
+}
+
+.multiselect__content-wrapper::-webkit-scrollbar-thumb
+{
+  border-radius: 10px;
+  background-color: #00b9e5;
+}
+
 @media (min-width: 1200px) {
   .container, .container-sm, .container-md, .container-lg, .container-xl {
     max-width: 1140px;

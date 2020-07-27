@@ -93,6 +93,11 @@ const routes = [
     component: Product
   },
   {
+    path: '/product/:id',
+    name: 'Product-id',
+    component: Product
+  },
+  {
     path: '/admin-partners',
     name: 'AdminPartners',
     component: AdminPartners
