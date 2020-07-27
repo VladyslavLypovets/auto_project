@@ -622,6 +622,13 @@ export default {
                   transform: rotate(45deg);
                   z-index: -2;
                 }
+                @media (max-width: 1499px){
+                  max-width: 215px;
+                  padding: 10px;
+                  p{
+                    font-size: 13px;
+                  }
+                }
               }
               ul{
                 padding: 0;
@@ -644,42 +651,47 @@ export default {
             .dostavka{
               .dop-info-text{
                 bottom: -134px;
-                right: -92px;
+                left: 66px;
               }
             }
             .pay{
               .dop-info-text{
                 bottom: -135px;
-                right: -72px;
+                left: 47px;
               }
             }
             .guarantee{
               .dop-info-text{
                 bottom: -135px;
-                right: -88px;
+                left: 64px;
+              }
+            }
+            @media (max-width: 1499px){
+              .dostavka,
+              .pay,
+              .guarantee{
+                .dop-info-text{
+                  bottom: -113px;
+                }
               }
             }
             @media (max-width: 1199px){
-              padding-left: 17px;
               .dop-info-text{
                 max-width: 260px;
                 padding: 10px;
               }
               .dostavka{
                 .dop-info-text{
-                  right: unset;
                   left: 62px;
                 }
               }
               .pay{
                 .dop-info-text{
-                  right: unset;
                   left: 43px;
                 }
               }
               .guarantee{
                 .dop-info-text{
-                  right: unset;
                   left: 58px;
                 }
               }

@@ -110,6 +110,9 @@ export default {
     z-index: 3;
     .logo-block{
       margin-right: 140px;
+      &:focus{
+        outline: none;
+      }
     }
     .nav-decstop{
       display: flex;

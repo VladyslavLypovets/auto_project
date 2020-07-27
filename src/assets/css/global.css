@@ -19,7 +19,9 @@ input::-webkit-inner-spin-button {
 }
 
 input:focus, textarea:focus {
-  outline: 1px solid #00b9e5;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid #00b9e5 !important;
 }
  
 input[type=number] {
