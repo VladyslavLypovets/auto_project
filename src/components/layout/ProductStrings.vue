@@ -1,5 +1,5 @@
 <template>
-  <div class="product-strings">
+  <router-link to="/product" class="product-strings">
     <div class="row d-flex align-items-center">
       <!-- <router-link to="/product" class="col-2 d-flex align-items-center">
         <img src="@/assets/img/img-product-catalog.png" alt="img-product-catalog" class="img-product">
@@ -47,7 +47,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </router-link>
 </template>
 
 <script>

@@ -1,5 +1,5 @@
 <template>
-  <div class="product-blocks">
+  <router-link to="/product" class="product-blocks">
     <div class="quantity">
       <p>Кол. во. 64</p>
     </div>
@@ -22,7 +22,7 @@
         Купить
       </button>
     </div>
-  </div>
+  </router-link>
 </template>
 
 <script>
