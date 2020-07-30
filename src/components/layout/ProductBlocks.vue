@@ -64,6 +64,8 @@ export default {
     }
     .img-product{
       width: 100%;
+      max-height: 211px;
+      object-fit: contain;
     }
     .name-product{
       color: #242424;

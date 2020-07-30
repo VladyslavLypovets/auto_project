@@ -91,6 +91,8 @@ export default {
       width: 100%;
       img{
         width: 100%;
+        max-height: 146px;
+        object-fit: contain;
       }
       @media (max-width: 1599px){
         max-width: 190px;

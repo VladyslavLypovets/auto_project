@@ -880,6 +880,7 @@ export default {
             }
             /deep/ .multiselect__content-wrapper {
               min-width: 230px;
+              max-width: 320px;
               .multiselect__option--highlight {
                 background: #00b9e5;
               }

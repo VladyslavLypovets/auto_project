@@ -110,7 +110,7 @@
                     <h6>Производитель</h6>
                     <i class="fa fa-angle-down" aria-hidden="true"></i>
                   </div>
-                  <div class="choice-manufacturer">
+                  <div class="choice-manufacturer collapse-section-inner">
                     <div class="d-flex align-items-center" v-for="(item, index) in manufacturers" :key="index">
                       <input type="checkbox" :id="`choice-manufacturer-${index}`" class="form-control checkbox-manufacturer" v-model="manufacturers[index]" @change="changeFilter()">
                       <label :for="`choice-manufacturer-${index}`">Производитель {{index + 1}}</label>
@@ -128,7 +128,7 @@
                     <h6>Цена</h6>
                     <i class="fa fa-angle-down" aria-hidden="true"></i>
                   </div>
-                  <div class="range-slider-wrap">
+                  <div class="range-slider-wrap  collapse-section-inner">
                     <RangeSlider v-model="range" :useKeyboard="true"/>
                     <div class="d-flex justify-content-between">
                       <div class="form-group">
@@ -151,7 +151,7 @@
                     <h6>Атрибут 1</h6>
                     <i class="fa fa-angle-down" aria-hidden="true"></i>
                   </div>
-                  <div class="choice-attribute">
+                  <div class="choice-attribute  collapse-section-inner">
                     <div class="d-flex align-items-center"  v-for="(item, index) in attr1" :key="index">
                       <input type="checkbox" :id="`choice-attribute-1-${index}`" class="form-control checkbox-attribute" v-model="attr1[index]"  @change="changeFilter()">
                       <label :for="`choice-attribute-1-${index}`">Атрибут 1</label>
@@ -169,7 +169,7 @@
                     <h6>Атрибут 2</h6>
                     <i class="fa fa-angle-down" aria-hidden="true"></i>
                   </div>
-                  <div class="choice-attribute">
+                  <div class="choice-attribute  collapse-section-inner">
                     <div class="d-flex align-items-center"  v-for="(item, index) in attr2" :key="index">
                       <input type="checkbox" :id="`choice-attribute-2-${index}`" class="form-control checkbox-attribute" v-model="attr2[index]"  @change="changeFilter()">
                       <label :for="`choice-attribute-2-${index}`">Атрибут 2</label>
@@ -550,7 +550,7 @@ export default {
         .manufacturer{
           padding-top: 15px;
           .name-manufacturer{
-            margin-bottom: 25px;
+            margin-bottom: 10px;
             cursor: pointer;
             h6{
               letter-spacing: 0.48px;
@@ -598,7 +598,7 @@ export default {
             content: '';
           }
           .name-price{
-            margin-bottom: 25px;
+            margin-bottom: 10px;
             cursor: pointer;
             h6{
               color: #242424;
@@ -664,7 +664,7 @@ export default {
             content: '';
           }
           .name-attribute{
-            margin-bottom: 25px;
+            margin-bottom: 10px;
             cursor: pointer;
             h6{
               color: #242424;
@@ -872,6 +872,7 @@ export default {
             }
             /deep/ .multiselect__content-wrapper {
               min-width: 230px;
+              max-width: 320px;
               .multiselect__option--highlight {
                 background: #00b9e5;
               }
@@ -1066,17 +1067,23 @@ export default {
     }
   }
   .collapse-section {
-    max-height: 40px;
-    overflow: hidden;
-    transition: all .3s;
     padding: 0 25px 0 15px;
     margin: 0 -15px;
+    .collapse-section-inner {
+      max-height: 0;
+      transition: all .3s;
+      overflow: hidden;
+    }
     .fa-angle-down {
       transform: rotate(0);
       transition: all .3s;
     }
     &.open {
-      max-height: 500px;
+      .collapse-section-inner {
+        padding-top: 15px;
+        max-height: 500px;
+        transition: all .3s;
+      }
       .fa-angle-down {
         transform: rotate(180deg);
       }
