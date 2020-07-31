@@ -97,7 +97,7 @@ export default {
     }
     .block-price-buy{
       border-top: 1px solid #c9c9c9;
-      padding: 15px 0 0;
+      height: 70px;
       .btn-buy{
         display: flex;
         align-items: center;
