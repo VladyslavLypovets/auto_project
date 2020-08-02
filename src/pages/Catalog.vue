@@ -48,7 +48,8 @@
                   <multiselect
                     v-model="marka"
                     :options="['BMW-1', 'BMW-2', 'BMW-3', 'BMW-4']"
-                    :searchable="false"
+                    :searchable="true"
+                    class="searchable"
                     :allowEmpty="false"
                     :hideSelected="true"
                     :showLabels="false"
