@@ -47,7 +47,7 @@
                 <div class="marka d-flex align-items-center">
                   <multiselect
                     v-model="marka"
-                    :options="['BMW-1', 'BMW-2', 'BMW-3', 'BMW-4']"
+                    :options="['BMW-1', 'BMW-2', 'BMW-3', 'BMW-4', 'BMW-1', 'BMW-2', 'BMW-3', 'BMW-4', 'BMW-1', 'BMW-2', 'BMW-3', 'BMW-4', 'BMW-1', 'BMW-2', 'BMW-3', 'BMW-4']"
                     :searchable="true"
                     class="searchable"
                     :allowEmpty="false"

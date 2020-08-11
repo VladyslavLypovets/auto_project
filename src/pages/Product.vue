@@ -600,6 +600,8 @@ export default {
                 z-index: 3;
                 box-shadow: 0 0 14px 1px rgba(117, 117, 117, 0.18);
                 border-radius: 7px;
+                bottom: -15px;
+                transform: translateY(100%);
                 h4{
                   color: #00b9e5;
                   font-weight: 700;
@@ -650,29 +652,17 @@ export default {
             }
             .dostavka{
               .dop-info-text{
-                bottom: -134px;
                 left: 66px;
               }
             }
             .pay{
               .dop-info-text{
-                bottom: -135px;
                 left: 47px;
               }
             }
             .guarantee{
               .dop-info-text{
-                bottom: -135px;
                 left: 64px;
-              }
-            }
-            @media (max-width: 1499px){
-              .dostavka,
-              .pay,
-              .guarantee{
-                .dop-info-text{
-                  bottom: -113px;
-                }
               }
             }
             @media (max-width: 1199px){
